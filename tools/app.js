@@ -270,15 +270,6 @@
   $('chapterSelect').addEventListener('change', () => { $('provinceSelect').value = 'all'; prefs.chapter = $('chapterSelect').value; store(); applyFilters(); scrollToFirstCard(); });
   $('provinceSelect').addEventListener('change', () => { applyFilters(); scrollToFirstCard(); });
   $('search').addEventListener('input', applyFilters);
-  $('reset').addEventListener('click', () => selectChapter('all'));
-  $('goPlaces').addEventListener('click', () => { selectChapter('s14'); scrollToFirstCard(); });
-  $('goNumbers').addEventListener('click', () => { selectChapter('s01'); scrollToFirstCard(); });
-  $('sequence').addEventListener('click', () => {
-    const visible = entries.filter(e => !e.hidden).slice(0, 20);
-    const tasks = [];
-    visible.forEach(card => { const t = { id: card.dataset.id, text: card.querySelector('.ptxt').textContent.trim(), rate: 1, card }; tasks.push(t); if ($('repeatTwice').checked) tasks.push({ ...t }); });
-    enqueueBatch(tasks);
-  });
   if (synth) {
     if (synth.addEventListener) synth.addEventListener('voiceschanged', refreshVoices);
     else synth.onvoiceschanged = refreshVoices;

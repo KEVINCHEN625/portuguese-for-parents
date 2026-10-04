@@ -95,14 +95,6 @@ main{max-width:1000px;margin:auto;padding:30px 18px 120px}
   padding:24px;box-shadow:var(--shadow-sm);
   animation:rise .7s cubic-bezier(.2,.7,.2,1) .26s both;
 }
-.quick{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
-.quick button{
-  border:1px solid #c8bfa9;background:#fffdf7;border-radius:12px;
-  color:var(--ink);font-weight:650;font-size:15px;padding:10px 18px;min-height:50px;flex:1;
-  transition:background .18s,border-color .18s,transform .12s;
-}
-.quick button:first-child{background:var(--green);border-color:var(--green);color:#fff}
-.quick button:active{transform:scale(.965)}
 
 .toolbar{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 label{font-size:15px;font-weight:700;display:block;color:var(--ink);letter-spacing:.01em}
@@ -153,14 +145,6 @@ summary::before{
 details[open] summary::before{transform:rotate(45deg);margin-top:-1px}
 .help p{margin:12px 0;font-size:14.5px;color:var(--muted);line-height:1.85}
 .help a{color:var(--green);text-underline-offset:3px}
-
-.list-tools{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
-.list-tools button{
-  min-height:50px;padding:10px 22px;border-radius:12px;font-size:16px;font-weight:700;
-  border:1px solid var(--hair);background:var(--card);color:var(--ink);
-  transition:background .18s,border-color .18s,transform .12s;
-}#sequence{background:var(--green);border-color:var(--green);color:#fff}
-.list-tools button:active{transform:scale(.97)}
 
 .count{font-size:14px;color:var(--quiet);margin:18px 2px 0;letter-spacing:.04em}
 
@@ -333,7 +317,7 @@ a{color:var(--green)}
   header .eyebrow,header .version{color:var(--muted)}
   header h1{color:var(--ink-strong)}
   .deck{color:var(--accent-deep)}
-  .controls-panel,.list-tools,.count,.footer,.actions,noscript{display:none!important}
+  .controls-panel,.count,.footer,.actions,noscript{display:none!important}
   main{padding:0;max-width:none}
   .js .entry{opacity:1;transform:none}
   .cards{display:block}
@@ -344,10 +328,9 @@ a{color:var(--green)}
 }
 
 </style></head><body>
-<header><div class="wrap"><p class="eyebrow">PORTUGUÊS PARA A VIDA EM MOÇAMBIQUE</p><h1>莫桑比克生活葡语</h1><p class="deck" lang="pt">Português para a vida em Mo&ccedil;ambique</p><p class="version">v6.7 · 2026-10-04</p></div></header>
+<header><div class="wrap"><p class="eyebrow">PORTUGUÊS PARA A VIDA EM MOÇAMBIQUE</p><h1>莫桑比克生活葡语</h1><p class="deck" lang="pt">Português para a vida em Mo&ccedil;ambique</p><p class="version">v6.8 · 2026-10-04</p></div></header>
 <main>
 <section class="controls-panel" aria-label="章节和语音设置">
-<div class="quick"><button id="goPlaces" type="button">查看地名章节</button><button id="goNumbers" type="button">学习数字</button></div>
 <div class="toolbar"><label for="chapterSelect">选择章节<select id="chapterSelect"><option value="all">全部内容（203条）</option><option value="s01">01｜数字 0–10（11条）</option><option value="s02">02｜补充数字 11–19（9条）</option><option value="s03">03｜整十与整百（17条）</option><option value="s04">04｜千、万、十万与百万（15条）</option><option value="s05">05｜组合数字与小数（15条）</option><option value="s06">06｜见面与礼貌（14条）</option><option value="s07">07｜听不懂时怎么说（12条）</option><option value="s08">08｜买东西与付款（15条）</option><option value="s09">09｜当地金额与数量（10条）</option><option value="s10">10｜吃饭与住宿（12条）</option><option value="s11">11｜出行与方向（12条）</option><option value="s12">12｜求助与身体不适（10条）</option><option value="s13">13｜常用时间（11条）</option><option value="s14">14｜地名注音示例（40条）</option></select></label><label for="search">搜索中文／葡语<input id="search" type="search" placeholder="例如：Sofala、贝拉、100" autocomplete="off"></label></div>
 <label id="provinceFilterWrap" for="provinceSelect" hidden>地名章节内，再选省份<select id="provinceSelect"><option value="all">全部省份与马普托市</option><option value="maputo-prov">马普托省 · Província de Maputo</option><option value="maputo-city">马普托市 · Cidade de Maputo</option><option value="gaza">加扎省 · Gaza</option><option value="inhambane">伊尼扬巴内省 · Inhambane</option><option value="sofala">索法拉省 · Sofala</option><option value="manica">马尼卡省 · Manica</option><option value="tete">太特省 · Tete</option><option value="zambezia">赞比西亚省 · Zambézia</option><option value="nampula">楠普拉省 · Nampula</option><option value="niassa">尼亚萨省 · Niassa</option><option value="cabo-delgado">德尔加杜角省 · Cabo Delgado</option></select></label>
 <div class="voice-block"><label for="voiceSelect">朗读声音（可以自己选）<select id="voiceSelect"><option value="">读取中…</option></select></label>
@@ -361,8 +344,7 @@ a{color:var(--green)}
 </details>
 </section>
 <noscript><p class="warning">当前预览器没有运行脚本：全部文字可阅读，但筛选和点读不可用。</p></noscript>
-<div class="list-tools"><button id="sequence" type="button">▶ 连读当前内容（最多20条）</button><button id="reset" type="button">清除筛选</button></div>
-<p id="count" class="count" role="status"></p><p id="empty" class="warning" hidden>没有找到匹配内容。可以缩短关键词，或清除筛选。</p>
+<p id="count" class="count" role="status"></p><p id="empty" class="warning" hidden>没有找到匹配内容。可以缩短关键词，或把章节选回“全部内容”。</p>
 <div id="learningContent">
 <section class="chapter" id="s01"><div class="chapter-heading"><div class="chapter-number">01</div><div><h2>数字 0–10</h2><p class="subtitle" lang="pt">Números de zero a dez</p></div></div><p class="lead">先学0–10。~ 表示鼻化，【】标重音。这里是逐词练习稿，不是莫桑本地录音的逐音转写。</p>
 <div class="cards"><article class="entry" id="entry-001" data-id="001" data-section="s01" data-group="" data-search="001 0｜零 zero 【泽】-ru    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">

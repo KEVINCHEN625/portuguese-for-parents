@@ -25,7 +25,7 @@ NEW_HEADER = (
     '<p class="eyebrow">PORTUGUÊS PARA A VIDA EM MOÇAMBIQUE</p>'
     '<h1>莫桑比克生活葡语</h1>'
     '<p class="deck" lang="pt">Português para a vida em Mo&ccedil;ambique</p>'
-    '<p class="version">v6.7 · 2026-10-04</p>'
+    '<p class="version">v6.8 · 2026-10-04</p>'
     '</div></header>'
 )
 html = html[:header_marker.start()] + NEW_HEADER + html[header_marker.end():]
@@ -49,7 +49,15 @@ NEW_FOOTER = (
 )
 html = html[:footer_marker.start()] + NEW_FOOTER + html[footer_marker.end():]
 
-# 5) 最终文案（此前 build_html.py 中的替换，烘进源文件）
+# 5) 删除快捷按钮行与连读/清除筛选行（家人反馈用处不大）
+for pattern, name in [(r'<div class="quick">.*?</div>\s*', 'quick buttons'),
+                      (r'<div class="list-tools">.*?</div>\s*', 'list tools')]:
+    m = re.search(pattern, html, re.S)
+    if not m:
+        sys.exit(f"{name} block not found")
+    html = html[:m.start()] + html[m.end():]
+
+# 6) 最终文案（此前 build_html.py 中的替换，烘进源文件）
 REPLACEMENTS = [
     ("<title>父母学葡语 · 地名分组与可选语音版</title>",
      "<title>父母学葡语 · 离线语音版</title>"),
@@ -72,6 +80,8 @@ REPLACEMENTS = [
      '<meta name="theme-color" content="#122e26">'),
     ('<option value="">正在读取可用的葡语声音…</option>',
      '<option value="">读取中…</option>'),
+    ('<p id="empty" class="warning" hidden>没有找到匹配内容。可以缩短关键词，或清除筛选。</p>',
+     '<p id="empty" class="warning" hidden>没有找到匹配内容。可以缩短关键词，或把章节选回“全部内容”。</p>'),
 ]
 for old, new in REPLACEMENTS:
     n = html.count(old)
