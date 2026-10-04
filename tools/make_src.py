@@ -25,7 +25,7 @@ NEW_HEADER = (
     '<p class="eyebrow">PORTUGUÊS PARA A VIDA EM MOÇAMBIQUE</p>'
     '<h1>莫桑比克生活葡语</h1>'
     '<p class="deck" lang="pt">Português para a vida em Mo&ccedil;ambique</p>'
-    '<p class="version">v6.9 · 2026-10-04</p>'
+    '<p class="version">v7.0 · 2026-10-04</p>'
     '</div></header>'
 )
 html = html[:header_marker.start()] + NEW_HEADER + html[header_marker.end():]
@@ -57,18 +57,23 @@ for pattern, name in [(r'<div class="quick">.*?</div>\s*', 'quick buttons'),
         sys.exit(f"{name} block not found")
     html = html[:m.start()] + html[m.end():]
 
-# 6) 最终文案（此前 build_html.py 中的替换，烘进源文件）
+# 6) 删除语音提示条与折叠说明区（家人反馈用处不大）
+for pattern, name in [(r'<p id="voiceInfo".*?</p>\s*', 'voiceInfo tip'),
+                      (r'<details class="help">.*?</details>\s*', 'help details')]:
+    m = re.search(pattern, html, re.S)
+    if not m:
+        sys.exit(f"{name} not found")
+    html = html[:m.start()] + html[m.end():]
+
+# 7) 慢读降为 0.5 倍速（家人反馈 0.78 仍偏快）
+html, n_rate = re.subn(r'data-rate="0\.78"', 'data-rate="0.5"', html)
+if n_rate != 203:
+    sys.exit(f"expected 203 slow-rate buttons, rewrote {n_rate}")
+
+# 8) 最终文案（此前 build_html.py 中的替换，烘进源文件）
 REPLACEMENTS = [
     ("<title>父母学葡语 · 地名分组与可选语音版</title>",
      "<title>父母学葡语 · 离线语音版</title>"),
-    ('<p id="voiceInfo" role="status">本页使用系统葡语声音，没有内置录音。Reed / Rocko 如可用，会排在列表前部。</p>',
-     '<p id="voiceInfo" role="status">已内置两套语音：声音一（pt-PT 女声，欧洲葡语口音）、声音二 Valentino（高质量合成葡语，家人试听选定），各 203 条，离线可播、无需系统语音包。也可切换为系统声音。</p>'),
-    ("<p>本页只列设备提供的葡语声音，并显示完整名称和语言标签。你可以切换 Reed、Rocko 或其他葡语声音；同一浏览器允许本地保存时，会记住选择。不会使用英语版 Reed 代读葡语；上次所选声音消失时，会要求重新选择。</p>",
-     "<p>两套内置语音都是机器合成音，不是莫桑比克当地人的真人录音。声音一为欧洲葡语口音，拼写与读音与莫桑比克官方用法一致；声音二 Valentino 为 Fish Audio 平台合成（家人试听后选定）。仍可切换其他系统声音；选择会被记住。</p>"),
-    ("<p>此交付是本地 HTML 文件，不是已发布的网站。iPhone 的“文件”或聊天预览器可能不运行脚本，不能保证直接点附件就可听读。通过网站在 Safari 打开后，才可按 Apple 的方法添加到主屏幕。本次没有发布网站，也没有在你的实际 iPhone 上完成测试。<a href=\"#sources\">资料见页末</a>。</p>",
-     "<p>本页已发布为网站并支持离线使用：首次在有网络时用 Safari 完整打开一次，文字与内置语音即存入手机；之后即使无网络，也能从主屏幕图标打开点读。添加到主屏幕：Safari 底部“分享”→“添加到主屏幕”。若图标被误删，重新打开链接再添加一次即可。</p>"),
-    ("<p>音色是否可用、是否需联网，由系统与所选声音决定。网页不能添加未提供给它的声音；切换声音会停止当前朗读并清空队列。点击另一条卡片则加入队列，不主动截断前一句。</p>",
-     "<p>内置语音不联网、不需要系统下载任何语音包。切换声音会停止当前朗读并清空队列；点击另一条卡片则加入队列，不主动截断前一句。</p>"),
     ('<meta name="apple-mobile-web-app-capable" content="yes">',
      '<meta name="mobile-web-app-capable" content="yes">'
      '<meta name="apple-mobile-web-app-capable" content="yes">'),

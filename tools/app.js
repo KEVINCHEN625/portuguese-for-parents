@@ -78,14 +78,9 @@
     active = null; clearHighlight();
     status(message);
   }
-  function updateVoiceUI(message = '') {
+  function updateVoiceUI() {
     const ready = !!currentVoice;
     document.querySelectorAll('[data-play],#testVoice,#sequence').forEach(b => b.disabled = !ready);
-    if (currentVoice && currentVoice.embedded) {
-      $('voiceInfo').textContent = `当前：${EMBED_LABEL[currentVoice.key]}。已内置 ${embeddedCount} 条，离线可播，不需要系统下载语音包；这是机器合成音，不是当地人真人录音。`;
-    } else if (currentVoice) {
-      $('voiceInfo').textContent = `当前：${voiceLabel(currentVoice)}。这是设备提供的系统声音，不是内置录音。`;
-    } else if (message) { $('voiceInfo').textContent = message; }
   }
   function refreshVoices() {
     const opts = [];

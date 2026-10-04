@@ -63,9 +63,9 @@ bank = {
         "generated": datetime.date.today().isoformat(),
         "engine": "Google Translate TTS (tl=pt-PT) + Fish Audio S2.1 (voice: Valentino Portugues, speed 0.9)",
         "voices": {"main": "pt-PT female (Google)", "fish": "pt (Fish Audio · Valentino)"},
-        "rate": "default (慢读 0.78x 由播放器变速)",
+        "rate": "default (慢读 0.5x 由播放器变速)",
         "partial": bool(missing),
-        "note": "机器合成音（欧洲葡语），非莫桑比克真人录音；慢读为同一音频 0.78 倍速重放。"
+        "note": "机器合成音（欧洲葡语），非莫桑比克真人录音；慢读为同一音频 0.5 倍速重放。"
     },
     "voices": voices,
 }

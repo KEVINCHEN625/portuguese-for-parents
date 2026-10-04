@@ -114,13 +114,7 @@ select:hover,input[type=search]:hover{border-color:#b7c4b6}
 
 .voice-block{margin-top:24px;padding-top:22px;border-top:1px solid var(--hair-soft)}
 .voice-block>label{font-size:13px;letter-spacing:.22em;color:#748a7d;font-weight:700}
-#voiceInfo{
-  font-size:14px;color:#5f7468;margin:10px 0 14px;line-height:1.75;
-  overflow-wrap:anywhere;
-  padding:12px 14px;border-radius:12px;background:#faf3e3;border:1px solid #eadfc4;
-  border-left:3px solid var(--ochre-edge);
-}
-.voice-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.voice-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
 .voice-actions button{
   min-height:48px;padding:10px 18px;border-radius:12px;font-weight:700;font-size:15px;
   border:1px solid var(--hair);background:#fff;color:var(--ink);
@@ -130,20 +124,6 @@ select:hover,input[type=search]:hover{border-color:#b7c4b6}
 .voice-actions button:active{transform:scale(.96)}
 .check{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:600;margin-left:auto;padding:8px}
 .check input{width:22px;height:22px;accent-color:var(--accent)}
-
-.help{margin-top:18px}
-summary{
-  cursor:pointer;padding:9px 0;font-size:14.5px;font-weight:700;color:var(--green);
-  list-style:none;display:flex;align-items:center;gap:9px;
-}
-summary::-webkit-details-marker{display:none}
-summary::before{
-  content:"";width:9px;height:9px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);
-  transform:rotate(-45deg);transition:transform .2s;flex:none;margin-top:-3px;
-}
-details[open] summary::before{transform:rotate(45deg);margin-top:-1px}
-.help p{margin:12px 0;font-size:14.5px;color:var(--muted);line-height:1.85}
-.help a{color:var(--green);text-underline-offset:3px}
 
 .count{font-size:14px;color:var(--quiet);margin:18px 2px 0;letter-spacing:.04em}
 
@@ -270,7 +250,7 @@ details[open] summary::before{transform:rotate(45deg);margin-top:-1px}
 
 button{cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;font-family:inherit}
 button:disabled{opacity:.45;cursor:not-allowed}
-button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{
+button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible{
   outline:var(--ring);outline-offset:2px;border-radius:6px;
 }
 a{color:var(--green)}
