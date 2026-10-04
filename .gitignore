@@ -6,3 +6,5 @@ audio/
 fish_key*
 samples/
 samples.html
+tt/
+node_modules/

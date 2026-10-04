@@ -137,9 +137,10 @@
       active = player; activeCard = task.card || null;
       if (activeCard) { activeCard.classList.add('playing'); activeCard.setAttribute('aria-busy', 'true'); }
       status(`正在播放：${task.text}`);
+      const rate = task.rate || 1;
       try { player.preservesPitch = true; } catch (_) {}
       if ('webkitPreservesPitch' in player) player.webkitPreservesPitch = true;
-      player.playbackRate = task.rate || 1;
+      const applyRate = () => { try { player.defaultPlaybackRate = rate; player.playbackRate = rate; } catch (_) {} };
       const finish = () => {
         if (token !== generation || active !== player) return;
         if (startTimer) { clearTimeout(startTimer); startTimer = null; }
@@ -150,9 +151,12 @@
         } else status('播放完成。');
       };
       player.onended = finish;
+      player.onloadeddata = () => { if (token === generation && active === player) applyRate(); };
+      player.oncanplay = () => { if (token === generation && active === player) applyRate(); };
       player.onerror = () => { if (token === generation && active === player) stop('这条内置音频播放失败，请重新点按。'); };
       startTimer = setTimeout(() => { if (token === generation && active === player) stop('内置音频未能开始播放。'); }, 20000);
       player.src = url;
+      applyRate(); // defaultPlaybackRate 会在换源后保持生效
       const p = player.play();
       if (p && p.catch) p.catch(() => { if (token === generation && active === player) stop('内置音频无法播放，请重新点按一次。'); });
       return;
