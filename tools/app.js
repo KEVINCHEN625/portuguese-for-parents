@@ -227,6 +227,11 @@
     $('chapterSelect').value = id; $('provinceSelect').value = 'all'; $('search').value = '';
     prefs.chapter = id; store(); applyFilters();
   }
+  /* 选择章节／省份后，跳到当前筛选下第一张卡片 */
+  function scrollToFirstCard() {
+    const first = entries.find(e => !e.hidden);
+    if (first) first.scrollIntoView({ block: 'start' });
+  }
   document.addEventListener('click', event => {
     const b = event.target.closest('button[data-play]');
     if (b && !b.disabled) enqueueCard(b.dataset.play, Number(b.dataset.rate) || 1);
@@ -262,12 +267,12 @@
   $('repeatTwice').checked = !!prefs.repeat;
   $('repeatTwice').addEventListener('change', () => { prefs.repeat = $('repeatTwice').checked; store(); });
   if ([...$('chapterSelect').options].some(o => o.value === prefs.chapter)) $('chapterSelect').value = prefs.chapter;
-  $('chapterSelect').addEventListener('change', () => { $('provinceSelect').value = 'all'; prefs.chapter = $('chapterSelect').value; store(); applyFilters(); });
-  $('provinceSelect').addEventListener('change', applyFilters);
+  $('chapterSelect').addEventListener('change', () => { $('provinceSelect').value = 'all'; prefs.chapter = $('chapterSelect').value; store(); applyFilters(); scrollToFirstCard(); });
+  $('provinceSelect').addEventListener('change', () => { applyFilters(); scrollToFirstCard(); });
   $('search').addEventListener('input', applyFilters);
   $('reset').addEventListener('click', () => selectChapter('all'));
-  $('goPlaces').addEventListener('click', () => { selectChapter('s14'); $('learningContent').scrollIntoView({ block: 'start', behavior: 'smooth' }); });
-  $('goNumbers').addEventListener('click', () => selectChapter('s01'));
+  $('goPlaces').addEventListener('click', () => { selectChapter('s14'); scrollToFirstCard(); });
+  $('goNumbers').addEventListener('click', () => { selectChapter('s01'); scrollToFirstCard(); });
   $('sequence').addEventListener('click', () => {
     const visible = entries.filter(e => !e.hidden).slice(0, 20);
     const tasks = [];

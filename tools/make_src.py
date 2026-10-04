@@ -25,7 +25,7 @@ NEW_HEADER = (
     '<p class="eyebrow">PORTUGUÊS PARA A VIDA EM MOÇAMBIQUE</p>'
     '<h1>莫桑比克生活葡语</h1>'
     '<p class="deck" lang="pt">Português para a vida em Mo&ccedil;ambique</p>'
-    '<p class="version">v6.6 · 2026-10-04</p>'
+    '<p class="version">v6.7 · 2026-10-04</p>'
     '</div></header>'
 )
 html = html[:header_marker.start()] + NEW_HEADER + html[header_marker.end():]
