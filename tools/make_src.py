@@ -30,7 +30,9 @@ NEW_HEADER = (
     '<li><b>14</b><span>章节</span></li>'
     '<li><b>11</b><span>省份地名</span></li>'
     '<li><b>2</b><span>内置声音</span></li>'
-    '</ul></div></header>'
+    '</ul>'
+    '<p class="version">v6.4 · 2026-10-04</p>'
+    '</div></header>'
 )
 html = html[:header_marker.start()] + NEW_HEADER + html[header_marker.end():]
 
@@ -60,7 +62,7 @@ REPLACEMENTS = [
     ('<option value="">正在读取可用的葡语声音…</option>',
      '<option value="">读取中…</option>'),
     ("<p>2026-10-04 · v5 地名分组与可选语音版。PDF 为无音频文字版；HTML 调用设备提供的葡语声音，没有内置 Reed 或 Rocko 录音。</p>",
-     "<p>2026-10-04 · v6.3 离线语音版。内置两套合成语音（声音一 · 欧洲葡语口音女声，在线翻译引擎合成；声音二 · Valentino，Fish Audio S2.1 合成，家人试听选定；均为机器合成音，非莫桑比克真人录音）；仍可切换设备系统声音。PDF 为无音频文字版。</p>"),
+     "<p>2026-10-04 · v6.4 离线语音版。内置两套合成语音（声音一 · 欧洲葡语口音女声，在线翻译引擎合成；声音二 · Valentino，Fish Audio S2.1 合成，家人试听选定；均为机器合成音，非莫桑比克真人录音）；仍可切换设备系统声音。PDF 为无音频文字版。</p>"),
 ]
 for old, new in REPLACEMENTS:
     n = html.count(old)
