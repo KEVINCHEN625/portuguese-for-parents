@@ -1,0 +1,1017 @@
+[
+ {
+  "id": "001",
+  "section": "s01",
+  "pt": "zero"
+ },
+ {
+  "id": "002",
+  "section": "s01",
+  "pt": "um"
+ },
+ {
+  "id": "003",
+  "section": "s01",
+  "pt": "dois"
+ },
+ {
+  "id": "004",
+  "section": "s01",
+  "pt": "três"
+ },
+ {
+  "id": "005",
+  "section": "s01",
+  "pt": "quatro"
+ },
+ {
+  "id": "006",
+  "section": "s01",
+  "pt": "cinco"
+ },
+ {
+  "id": "007",
+  "section": "s01",
+  "pt": "seis"
+ },
+ {
+  "id": "008",
+  "section": "s01",
+  "pt": "sete"
+ },
+ {
+  "id": "009",
+  "section": "s01",
+  "pt": "oito"
+ },
+ {
+  "id": "010",
+  "section": "s01",
+  "pt": "nove"
+ },
+ {
+  "id": "011",
+  "section": "s01",
+  "pt": "dez"
+ },
+ {
+  "id": "012",
+  "section": "s02",
+  "pt": "onze"
+ },
+ {
+  "id": "013",
+  "section": "s02",
+  "pt": "doze"
+ },
+ {
+  "id": "014",
+  "section": "s02",
+  "pt": "treze"
+ },
+ {
+  "id": "015",
+  "section": "s02",
+  "pt": "catorze"
+ },
+ {
+  "id": "016",
+  "section": "s02",
+  "pt": "quinze"
+ },
+ {
+  "id": "017",
+  "section": "s02",
+  "pt": "dezasseis"
+ },
+ {
+  "id": "018",
+  "section": "s02",
+  "pt": "dezassete"
+ },
+ {
+  "id": "019",
+  "section": "s02",
+  "pt": "dezoito"
+ },
+ {
+  "id": "020",
+  "section": "s02",
+  "pt": "dezanove"
+ },
+ {
+  "id": "021",
+  "section": "s03",
+  "pt": "vinte"
+ },
+ {
+  "id": "022",
+  "section": "s03",
+  "pt": "trinta"
+ },
+ {
+  "id": "023",
+  "section": "s03",
+  "pt": "quarenta"
+ },
+ {
+  "id": "024",
+  "section": "s03",
+  "pt": "cinquenta"
+ },
+ {
+  "id": "025",
+  "section": "s03",
+  "pt": "sessenta"
+ },
+ {
+  "id": "026",
+  "section": "s03",
+  "pt": "setenta"
+ },
+ {
+  "id": "027",
+  "section": "s03",
+  "pt": "oitenta"
+ },
+ {
+  "id": "028",
+  "section": "s03",
+  "pt": "noventa"
+ },
+ {
+  "id": "029",
+  "section": "s03",
+  "pt": "cem"
+ },
+ {
+  "id": "030",
+  "section": "s03",
+  "pt": "duzentos"
+ },
+ {
+  "id": "031",
+  "section": "s03",
+  "pt": "trezentos"
+ },
+ {
+  "id": "032",
+  "section": "s03",
+  "pt": "quatrocentos"
+ },
+ {
+  "id": "033",
+  "section": "s03",
+  "pt": "quinhentos"
+ },
+ {
+  "id": "034",
+  "section": "s03",
+  "pt": "seiscentos"
+ },
+ {
+  "id": "035",
+  "section": "s03",
+  "pt": "setecentos"
+ },
+ {
+  "id": "036",
+  "section": "s03",
+  "pt": "oitocentos"
+ },
+ {
+  "id": "037",
+  "section": "s03",
+  "pt": "novecentos"
+ },
+ {
+  "id": "038",
+  "section": "s04",
+  "pt": "mil"
+ },
+ {
+  "id": "039",
+  "section": "s04",
+  "pt": "dois mil"
+ },
+ {
+  "id": "040",
+  "section": "s04",
+  "pt": "três mil"
+ },
+ {
+  "id": "041",
+  "section": "s04",
+  "pt": "cinco mil"
+ },
+ {
+  "id": "042",
+  "section": "s04",
+  "pt": "dez mil"
+ },
+ {
+  "id": "043",
+  "section": "s04",
+  "pt": "vinte mil"
+ },
+ {
+  "id": "044",
+  "section": "s04",
+  "pt": "cinquenta mil"
+ },
+ {
+  "id": "045",
+  "section": "s04",
+  "pt": "cem mil"
+ },
+ {
+  "id": "046",
+  "section": "s04",
+  "pt": "duzentos mil"
+ },
+ {
+  "id": "047",
+  "section": "s04",
+  "pt": "quinhentos mil"
+ },
+ {
+  "id": "048",
+  "section": "s04",
+  "pt": "um milhão"
+ },
+ {
+  "id": "049",
+  "section": "s04",
+  "pt": "dois milhões"
+ },
+ {
+  "id": "050",
+  "section": "s04",
+  "pt": "dez milhões"
+ },
+ {
+  "id": "051",
+  "section": "s04",
+  "pt": "cem milhões"
+ },
+ {
+  "id": "052",
+  "section": "s04",
+  "pt": "mil milhões"
+ },
+ {
+  "id": "053",
+  "section": "s05",
+  "pt": "vinte e um"
+ },
+ {
+  "id": "054",
+  "section": "s05",
+  "pt": "vinte e cinco"
+ },
+ {
+  "id": "055",
+  "section": "s05",
+  "pt": "trinta e oito"
+ },
+ {
+  "id": "056",
+  "section": "s05",
+  "pt": "noventa e nove"
+ },
+ {
+  "id": "057",
+  "section": "s05",
+  "pt": "cento e um"
+ },
+ {
+  "id": "058",
+  "section": "s05",
+  "pt": "cento e dez"
+ },
+ {
+  "id": "059",
+  "section": "s05",
+  "pt": "cento e vinte e cinco"
+ },
+ {
+  "id": "060",
+  "section": "s05",
+  "pt": "duzentos e cinquenta"
+ },
+ {
+  "id": "061",
+  "section": "s05",
+  "pt": "novecentos e noventa e nove"
+ },
+ {
+  "id": "062",
+  "section": "s05",
+  "pt": "mil e cem"
+ },
+ {
+  "id": "063",
+  "section": "s05",
+  "pt": "mil e duzentos"
+ },
+ {
+  "id": "064",
+  "section": "s05",
+  "pt": "mil e quinhentos"
+ },
+ {
+  "id": "065",
+  "section": "s05",
+  "pt": "dois mil e quinhentos"
+ },
+ {
+  "id": "066",
+  "section": "s05",
+  "pt": "dez mil e um"
+ },
+ {
+  "id": "067",
+  "section": "s05",
+  "pt": "dois vírgula cinco"
+ },
+ {
+  "id": "068",
+  "section": "s06",
+  "pt": "Olá."
+ },
+ {
+  "id": "069",
+  "section": "s06",
+  "pt": "Bom dia."
+ },
+ {
+  "id": "070",
+  "section": "s06",
+  "pt": "Boa tarde."
+ },
+ {
+  "id": "071",
+  "section": "s06",
+  "pt": "Boa noite."
+ },
+ {
+  "id": "072",
+  "section": "s06",
+  "pt": "Obrigado."
+ },
+ {
+  "id": "073",
+  "section": "s06",
+  "pt": "Obrigada."
+ },
+ {
+  "id": "074",
+  "section": "s06",
+  "pt": "Por favor."
+ },
+ {
+  "id": "075",
+  "section": "s06",
+  "pt": "De nada."
+ },
+ {
+  "id": "076",
+  "section": "s06",
+  "pt": "Desculpe."
+ },
+ {
+  "id": "077",
+  "section": "s06",
+  "pt": "Com licença."
+ },
+ {
+  "id": "078",
+  "section": "s06",
+  "pt": "Sim."
+ },
+ {
+  "id": "079",
+  "section": "s06",
+  "pt": "Não."
+ },
+ {
+  "id": "080",
+  "section": "s06",
+  "pt": "Até logo."
+ },
+ {
+  "id": "081",
+  "section": "s06",
+  "pt": "Tudo bem?"
+ },
+ {
+  "id": "082",
+  "section": "s07",
+  "pt": "Não falo português."
+ },
+ {
+  "id": "083",
+  "section": "s07",
+  "pt": "Falo chinês."
+ },
+ {
+  "id": "084",
+  "section": "s07",
+  "pt": "Pode falar mais devagar?"
+ },
+ {
+  "id": "085",
+  "section": "s07",
+  "pt": "Pode repetir, por favor?"
+ },
+ {
+  "id": "086",
+  "section": "s07",
+  "pt": "Não percebi."
+ },
+ {
+  "id": "087",
+  "section": "s07",
+  "pt": "Percebi."
+ },
+ {
+  "id": "088",
+  "section": "s07",
+  "pt": "Pode escrever, por favor?"
+ },
+ {
+  "id": "089",
+  "section": "s07",
+  "pt": "Pode mostrar no mapa?"
+ },
+ {
+  "id": "090",
+  "section": "s07",
+  "pt": "Como se diz isto em português?"
+ },
+ {
+  "id": "091",
+  "section": "s07",
+  "pt": "Espere um momento, por favor."
+ },
+ {
+  "id": "092",
+  "section": "s07",
+  "pt": "Pode ajudar-me?"
+ },
+ {
+  "id": "093",
+  "section": "s07",
+  "pt": "Sou da China."
+ },
+ {
+  "id": "094",
+  "section": "s08",
+  "pt": "Quanto custa?"
+ },
+ {
+  "id": "095",
+  "section": "s08",
+  "pt": "Quanto é tudo?"
+ },
+ {
+  "id": "096",
+  "section": "s08",
+  "pt": "Está muito caro."
+ },
+ {
+  "id": "097",
+  "section": "s08",
+  "pt": "Pode fazer um desconto?"
+ },
+ {
+  "id": "098",
+  "section": "s08",
+  "pt": "Quero este."
+ },
+ {
+  "id": "099",
+  "section": "s08",
+  "pt": "Quero uma garrafa de água."
+ },
+ {
+  "id": "100",
+  "section": "s08",
+  "pt": "Quero duas garrafas de água."
+ },
+ {
+  "id": "101",
+  "section": "s08",
+  "pt": "Um quilo, por favor."
+ },
+ {
+  "id": "102",
+  "section": "s08",
+  "pt": "Meio quilo, por favor."
+ },
+ {
+  "id": "103",
+  "section": "s08",
+  "pt": "Tem troco?"
+ },
+ {
+  "id": "104",
+  "section": "s08",
+  "pt": "Posso pagar com cartão?"
+ },
+ {
+  "id": "105",
+  "section": "s08",
+  "pt": "Vou pagar em dinheiro."
+ },
+ {
+  "id": "106",
+  "section": "s08",
+  "pt": "Quero o recibo, por favor."
+ },
+ {
+  "id": "107",
+  "section": "s08",
+  "pt": "Não quero, obrigado."
+ },
+ {
+  "id": "108",
+  "section": "s08",
+  "pt": "Não quero, obrigada."
+ },
+ {
+  "id": "109",
+  "section": "s09",
+  "pt": "um metical"
+ },
+ {
+  "id": "110",
+  "section": "s09",
+  "pt": "dez meticais"
+ },
+ {
+  "id": "111",
+  "section": "s09",
+  "pt": "cem meticais"
+ },
+ {
+  "id": "112",
+  "section": "s09",
+  "pt": "duzentos e cinquenta meticais"
+ },
+ {
+  "id": "113",
+  "section": "s09",
+  "pt": "quinhentos meticais"
+ },
+ {
+  "id": "114",
+  "section": "s09",
+  "pt": "mil meticais"
+ },
+ {
+  "id": "115",
+  "section": "s09",
+  "pt": "dez mil meticais"
+ },
+ {
+  "id": "116",
+  "section": "s09",
+  "pt": "cem mil meticais"
+ },
+ {
+  "id": "117",
+  "section": "s09",
+  "pt": "um milhão de meticais"
+ },
+ {
+  "id": "118",
+  "section": "s09",
+  "pt": "duzentas garrafas"
+ },
+ {
+  "id": "119",
+  "section": "s10",
+  "pt": "Quero água, por favor."
+ },
+ {
+  "id": "120",
+  "section": "s10",
+  "pt": "Sem gelo, por favor."
+ },
+ {
+  "id": "121",
+  "section": "s10",
+  "pt": "Sem açúcar, por favor."
+ },
+ {
+  "id": "122",
+  "section": "s10",
+  "pt": "Sem picante, por favor."
+ },
+ {
+  "id": "123",
+  "section": "s10",
+  "pt": "Não posso comer isto."
+ },
+ {
+  "id": "124",
+  "section": "s10",
+  "pt": "A conta, por favor."
+ },
+ {
+  "id": "125",
+  "section": "s10",
+  "pt": "Onde fica a casa de banho?"
+ },
+ {
+  "id": "126",
+  "section": "s10",
+  "pt": "Tenho uma reserva."
+ },
+ {
+  "id": "127",
+  "section": "s10",
+  "pt": "Preciso de um quarto."
+ },
+ {
+  "id": "128",
+  "section": "s10",
+  "pt": "Não há água quente."
+ },
+ {
+  "id": "129",
+  "section": "s10",
+  "pt": "O ar condicionado não funciona."
+ },
+ {
+  "id": "130",
+  "section": "s10",
+  "pt": "Qual é a senha do Wi-Fi?"
+ },
+ {
+  "id": "131",
+  "section": "s11",
+  "pt": "Quero ir para este endereço."
+ },
+ {
+  "id": "132",
+  "section": "s11",
+  "pt": "Quanto custa a viagem?"
+ },
+ {
+  "id": "133",
+  "section": "s11",
+  "pt": "Pare aqui, por favor."
+ },
+ {
+  "id": "134",
+  "section": "s11",
+  "pt": "À esquerda."
+ },
+ {
+  "id": "135",
+  "section": "s11",
+  "pt": "À direita."
+ },
+ {
+  "id": "136",
+  "section": "s11",
+  "pt": "Em frente."
+ },
+ {
+  "id": "137",
+  "section": "s11",
+  "pt": "É longe?"
+ },
+ {
+  "id": "138",
+  "section": "s11",
+  "pt": "Onde fica o mercado?"
+ },
+ {
+  "id": "139",
+  "section": "s11",
+  "pt": "Onde fica a farmácia?"
+ },
+ {
+  "id": "140",
+  "section": "s11",
+  "pt": "Pode chamar um táxi?"
+ },
+ {
+  "id": "141",
+  "section": "s11",
+  "pt": "A que horas saímos?"
+ },
+ {
+  "id": "142",
+  "section": "s11",
+  "pt": "Não é aqui."
+ },
+ {
+  "id": "143",
+  "section": "s12",
+  "pt": "Socorro!"
+ },
+ {
+  "id": "144",
+  "section": "s12",
+  "pt": "Preciso de ajuda."
+ },
+ {
+  "id": "145",
+  "section": "s12",
+  "pt": "Preciso de um médico."
+ },
+ {
+  "id": "146",
+  "section": "s12",
+  "pt": "Não me sinto bem."
+ },
+ {
+  "id": "147",
+  "section": "s12",
+  "pt": "Tenho dor aqui."
+ },
+ {
+  "id": "148",
+  "section": "s12",
+  "pt": "Não consigo respirar."
+ },
+ {
+  "id": "149",
+  "section": "s12",
+  "pt": "Chame uma ambulância, por favor."
+ },
+ {
+  "id": "150",
+  "section": "s12",
+  "pt": "Chame a polícia, por favor."
+ },
+ {
+  "id": "151",
+  "section": "s12",
+  "pt": "Perdi o meu passaporte."
+ },
+ {
+  "id": "152",
+  "section": "s12",
+  "pt": "Pode ligar para a minha família?"
+ },
+ {
+  "id": "153",
+  "section": "s13",
+  "pt": "hoje"
+ },
+ {
+  "id": "154",
+  "section": "s13",
+  "pt": "amanhã"
+ },
+ {
+  "id": "155",
+  "section": "s13",
+  "pt": "ontem"
+ },
+ {
+  "id": "156",
+  "section": "s13",
+  "pt": "agora"
+ },
+ {
+  "id": "157",
+  "section": "s13",
+  "pt": "depois"
+ },
+ {
+  "id": "158",
+  "section": "s13",
+  "pt": "de manhã"
+ },
+ {
+  "id": "159",
+  "section": "s13",
+  "pt": "à tarde"
+ },
+ {
+  "id": "160",
+  "section": "s13",
+  "pt": "à noite"
+ },
+ {
+  "id": "161",
+  "section": "s13",
+  "pt": "uma hora"
+ },
+ {
+  "id": "162",
+  "section": "s13",
+  "pt": "duas horas"
+ },
+ {
+  "id": "163",
+  "section": "s13",
+  "pt": "dez minutos"
+ },
+ {
+  "id": "164",
+  "section": "s14",
+  "pt": "Maputo"
+ },
+ {
+  "id": "165",
+  "section": "s14",
+  "pt": "Matola"
+ },
+ {
+  "id": "166",
+  "section": "s14",
+  "pt": "Maputo"
+ },
+ {
+  "id": "167",
+  "section": "s14",
+  "pt": "Gaza"
+ },
+ {
+  "id": "168",
+  "section": "s14",
+  "pt": "Xai-Xai"
+ },
+ {
+  "id": "169",
+  "section": "s14",
+  "pt": "Chókwè"
+ },
+ {
+  "id": "170",
+  "section": "s14",
+  "pt": "Chibuto"
+ },
+ {
+  "id": "171",
+  "section": "s14",
+  "pt": "Inhambane"
+ },
+ {
+  "id": "172",
+  "section": "s14",
+  "pt": "Inhambane"
+ },
+ {
+  "id": "173",
+  "section": "s14",
+  "pt": "Maxixe"
+ },
+ {
+  "id": "174",
+  "section": "s14",
+  "pt": "Vilanculo"
+ },
+ {
+  "id": "175",
+  "section": "s14",
+  "pt": "Massinga"
+ },
+ {
+  "id": "176",
+  "section": "s14",
+  "pt": "Sofala"
+ },
+ {
+  "id": "177",
+  "section": "s14",
+  "pt": "Beira"
+ },
+ {
+  "id": "178",
+  "section": "s14",
+  "pt": "Caia"
+ },
+ {
+  "id": "179",
+  "section": "s14",
+  "pt": "Dondo"
+ },
+ {
+  "id": "180",
+  "section": "s14",
+  "pt": "Marromeu"
+ },
+ {
+  "id": "181",
+  "section": "s14",
+  "pt": "Manica"
+ },
+ {
+  "id": "182",
+  "section": "s14",
+  "pt": "Chimoio"
+ },
+ {
+  "id": "183",
+  "section": "s14",
+  "pt": "Manica"
+ },
+ {
+  "id": "184",
+  "section": "s14",
+  "pt": "Tete"
+ },
+ {
+  "id": "185",
+  "section": "s14",
+  "pt": "Tete"
+ },
+ {
+  "id": "186",
+  "section": "s14",
+  "pt": "Zambézia"
+ },
+ {
+  "id": "187",
+  "section": "s14",
+  "pt": "Quelimane"
+ },
+ {
+  "id": "188",
+  "section": "s14",
+  "pt": "Mocuba"
+ },
+ {
+  "id": "189",
+  "section": "s14",
+  "pt": "Alto Molócuè"
+ },
+ {
+  "id": "190",
+  "section": "s14",
+  "pt": "Milange"
+ },
+ {
+  "id": "191",
+  "section": "s14",
+  "pt": "Morrumbala"
+ },
+ {
+  "id": "192",
+  "section": "s14",
+  "pt": "Ile"
+ },
+ {
+  "id": "193",
+  "section": "s14",
+  "pt": "Nampula"
+ },
+ {
+  "id": "194",
+  "section": "s14",
+  "pt": "Nampula"
+ },
+ {
+  "id": "195",
+  "section": "s14",
+  "pt": "Nacala"
+ },
+ {
+  "id": "196",
+  "section": "s14",
+  "pt": "Niassa"
+ },
+ {
+  "id": "197",
+  "section": "s14",
+  "pt": "Lichinga"
+ },
+ {
+  "id": "198",
+  "section": "s14",
+  "pt": "Cuamba"
+ },
+ {
+  "id": "199",
+  "section": "s14",
+  "pt": "Mandimba"
+ },
+ {
+  "id": "200",
+  "section": "s14",
+  "pt": "Mecanhelas"
+ },
+ {
+  "id": "201",
+  "section": "s14",
+  "pt": "Cabo Delgado"
+ },
+ {
+  "id": "202",
+  "section": "s14",
+  "pt": "Pemba"
+ },
+ {
+  "id": "203",
+  "section": "s14",
+  "pt": "Montepuez"
+ }
+]

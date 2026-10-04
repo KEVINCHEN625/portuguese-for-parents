@@ -1,0 +1,17 @@
+{
+  "name": "父母学葡语 · 莫桑比克生活葡语",
+  "short_name": "父母学葡语",
+  "description": "203条中葡对照学习卡，内置 pt-PT 语音，离线可用。",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#163b34",
+  "theme_color": "#163b34",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

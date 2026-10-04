@@ -1,0 +1,1660 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="light"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="父母学葡语"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" type="image/png" sizes="512x512" href="icon-512.png"><meta name="theme-color" content="#122e26"><title>父母学葡语 · 离线语音版</title><style>
+/* ============ 父母学葡语 · 编辑级实地手册设计系统 ============ */
+/*FONTFACE*/
+
+:root{
+  --paper:#f5f1e8;
+  --paper-deep:#efe9db;
+  --card:#fffdf7;
+  --ink:#1b352c;
+  --ink-strong:#122e26;
+  --muted:#6b7f74;
+  --quiet:#8a9a8f;
+  --green:#1e5a48;
+  --green-press:#174537;
+  --accent:#c2622a;
+  --accent-deep:#a9531f;
+  --accent-soft:rgba(194,98,42,.14);
+  --ochre-bg:#faf0dc;
+  --ochre-edge:rgba(194,98,42,.42);
+  --ochre-ink:#8a5714;
+  --hair:#ddd5c3;
+  --hair-soft:#e8e1d0;
+  --serif:'Fraunces',ui-serif,Georgia,'Times New Roman',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'PingFang SC','Noto Sans CJK SC','Microsoft YaHei',sans-serif;
+  --shadow-sm:0 1px 2px rgba(18,46,38,.06),0 4px 14px -8px rgba(18,46,38,.1);
+  --shadow-md:0 2px 4px rgba(18,46,38,.05),0 16px 36px -18px rgba(18,46,38,.26);
+  --shadow-lg:0 4px 8px rgba(18,46,38,.06),0 24px 48px -20px rgba(18,46,38,.3);
+  --ring:3px solid rgba(194,98,42,.55);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:var(--sans);
+  color:var(--ink);
+  line-height:1.6;
+  background:
+    radial-gradient(1200px 500px at 85% -80px,rgba(30,90,72,.075),transparent 60%),
+    radial-gradient(900px 420px at -10% 6%,rgba(194,98,42,.05),transparent 55%),
+    var(--paper);
+}
+/* 纸张颗粒 */
+body::after{
+  content:"";position:fixed;inset:0;z-index:2147483000;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='160'%20height='160'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.9'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'%20opacity='0.6'/%3E%3C/svg%3E");
+}
+
+::selection{background:rgba(30,90,72,.22)}
+
+.wrap{max-width:1000px;margin:auto}
+
+/* ============ 页眉 ============ */
+header{
+  color:#f3efe4;
+  background:
+    radial-gradient(900px 480px at 78% -60px,rgba(255,255,255,.09),transparent 60%),
+    radial-gradient(700px 420px at -8% 110%,rgba(194,98,42,.16),transparent 55%),
+    linear-gradient(158deg,#143529 0%,#122e26 58%,#0f2820 100%);
+  padding:58px 22px 54px;
+  position:relative;
+  overflow:hidden;
+}
+header::after{ /* 底部装饰细线 */
+  content:"";position:absolute;left:22px;right:22px;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(224,232,222,.4) 18%,rgba(194,98,42,.55) 50%,rgba(224,232,222,.4) 82%,transparent);
+}
+header .wrap{position:relative;z-index:1}
+.eyebrow{
+  margin:0;font-size:12.5px;font-weight:650;letter-spacing:.32em;
+  color:#c9dcd0;text-transform:uppercase;
+}
+header h1{
+  margin:14px 0 6px;font-size:clamp(34px,6.4vw,54px);line-height:1.16;
+  font-weight:800;letter-spacing:.015em;color:#f8f5ec;
+}
+.deck{
+  margin:2px 0 0;font-family:var(--serif);font-style:italic;font-weight:500;
+  font-size:clamp(18px,2.8vw,23px);letter-spacing:.01em;
+  color:#eec294;text-shadow:0 1px 0 rgba(0,0,0,.14);
+}
+.facts{
+  list-style:none;display:flex;flex-wrap:wrap;gap:0;margin:30px 0 0;padding:0;
+  border-top:1px solid rgba(224,232,222,.18);
+}
+.facts li{
+  display:flex;flex-direction:column;gap:7px;align-items:flex-start;
+  padding:18px 34px 0 0;margin-right:34px;
+  border-right:1px solid rgba(224,232,222,.22);
+}
+.facts li:last-child{border-right:none;margin-right:0;padding-right:0}
+.facts b{
+  font-family:var(--serif);font-weight:560;font-size:33px;line-height:1;
+  color:#f8f5ec;font-variant-numeric:tabular-nums lining-nums;
+}
+.facts span{font-size:13px;color:#c2d6c8;letter-spacing:.14em}
+
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+header .eyebrow,header h1,header .deck,header .facts{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+header h1{animation-delay:.07s}
+header .deck{animation-delay:.14s}
+header .facts{animation-delay:.21s}
+
+/* ============ 主体 ============ */
+main{max-width:1000px;margin:auto;padding:30px 18px 190px}
+
+.controls-panel{
+  background:var(--card);border:1px solid var(--hair);border-radius:20px;
+  padding:24px;box-shadow:var(--shadow-sm);
+  animation:rise .7s cubic-bezier(.2,.7,.2,1) .26s both;
+}
+.quick{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.quick button{
+  border:1px solid #c8bfa9;background:#fffdf7;border-radius:12px;
+  color:var(--ink);font-weight:650;font-size:15px;padding:10px 18px;min-height:50px;flex:1;
+  transition:background .18s,border-color .18s,transform .12s;
+}
+.quick button:first-child{background:var(--green);border-color:var(--green);color:#fff}
+.quick button:active{transform:scale(.965)}
+
+.toolbar{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{font-size:15px;font-weight:700;display:block;color:var(--ink);letter-spacing:.01em}
+select,input[type=search]{
+  width:100%;margin-top:8px;min-height:54px;
+  border:1px solid #cfd8cd;border-radius:12px;background:#fff;
+  color:var(--ink);padding:10px 40px 10px 14px;font-size:17px;font-family:inherit;
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='14'%20height='9'%20viewBox='0%200%2014%209'%3E%3Cpath%20d='M1%201l6%206%206-6'%20fill='none'%20stroke='%231e5a48'%20stroke-width='2'%20stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 15px center;
+  box-shadow:inset 0 1px 2px rgba(18,46,38,.04);
+  transition:border-color .18s,box-shadow .18s;
+}
+input[type=search]{background-image:none;padding-right:14px}
+input[type=search]::placeholder{color:#5f6d63}
+select:hover,input[type=search]:hover{border-color:#b7c4b6}
+#provinceFilterWrap{margin-top:16px}
+
+.voice-block{margin-top:24px;padding-top:22px;border-top:1px solid var(--hair-soft)}
+.voice-block>label{font-size:13px;letter-spacing:.22em;color:#748a7d;font-weight:700}
+#voiceInfo{
+  font-size:14px;color:#5f7468;margin:10px 0 14px;line-height:1.75;
+  overflow-wrap:anywhere;
+  padding:12px 14px;border-radius:12px;background:#faf3e3;border:1px solid #eadfc4;
+  border-left:3px solid var(--ochre-edge);
+}
+.voice-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.voice-actions button{
+  min-height:48px;padding:10px 18px;border-radius:12px;font-weight:700;font-size:15px;
+  border:1px solid var(--hair);background:#fff;color:var(--ink);
+  transition:background .18s,border-color .18s,transform .12s;
+}
+#testVoice{background:var(--ink-strong);border-color:var(--ink-strong);color:#f3efe4}
+.voice-actions button:active{transform:scale(.96)}
+.check{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:600;margin-left:auto;padding:8px}
+.check input{width:22px;height:22px;accent-color:var(--accent)}
+
+.help{margin-top:18px}
+summary{
+  cursor:pointer;padding:9px 0;font-size:14.5px;font-weight:700;color:var(--green);
+  list-style:none;display:flex;align-items:center;gap:9px;
+}
+summary::-webkit-details-marker{display:none}
+summary::before{
+  content:"";width:9px;height:9px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);
+  transform:rotate(-45deg);transition:transform .2s;flex:none;margin-top:-3px;
+}
+details[open] summary::before{transform:rotate(45deg);margin-top:-1px}
+.help p{margin:12px 0;font-size:14.5px;color:var(--muted);line-height:1.85}
+.help a{color:var(--green);text-underline-offset:3px}
+
+.list-tools{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.list-tools button{
+  min-height:50px;padding:10px 22px;border-radius:12px;font-size:16px;font-weight:700;
+  border:1px solid var(--hair);background:var(--card);color:var(--ink);
+  transition:background .18s,border-color .18s,transform .12s;
+}#sequence{background:var(--green);border-color:var(--green);color:#fff}
+.list-tools button:active{transform:scale(.97)}
+
+.count{font-size:14px;color:var(--quiet);margin:18px 2px 0;letter-spacing:.04em}
+
+/* ============ 章节 ============ */
+.chapter{margin:64px 0 8px;scroll-margin-top:20px}
+.chapter-heading{display:flex;gap:20px;align-items:flex-start;position:relative}
+.chapter-number{
+  font-family:var(--serif);font-style:italic;font-weight:480;
+  font-size:clamp(56px,9vw,84px);line-height:.86;color:rgba(30,90,72,.16);
+  min-width:1.2ch;user-select:none;flex:none;margin-top:2px;
+  font-variant-numeric:tabular-nums;
+}
+.chapter h2{margin:0;font-size:clamp(23px,4vw,29px);line-height:1.3;font-weight:800;letter-spacing:.01em}
+.subtitle{
+  font-family:var(--serif);font-style:italic;font-weight:450;
+  margin:6px 0 0;font-size:16.5px;color:var(--accent-deep);
+}
+.chapter .lead{
+  font-size:15px;color:#435f50;line-height:1.85;margin:16px 0 22px;
+  padding-left:16px;border-left:3px solid var(--hair);
+}
+.chapter .lead{max-width:72ch}
+
+/* ============ 卡片 ============ */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.entry{
+  background:var(--card);border:1px solid var(--hair-soft);border-radius:18px;
+  padding:22px 22px 18px;display:flex;flex-direction:column;
+  box-shadow:var(--shadow-sm);position:relative;
+  transition:transform .22s cubic-bezier(.2,.7,.2,1),box-shadow .22s,border-color .22s,background .3s;
+  scroll-margin-top:16px;
+}
+@media(hover:hover) and (pointer:fine){
+  .entry:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:#d5cdb9}
+}
+.entry:active{transform:scale(.995)}
+.badge{
+  font-size:12px;font-weight:650;color:var(--quiet);letter-spacing:.12em;
+  display:flex;align-items:center;gap:8px;
+}
+.badge::before{content:"";width:18px;height:1px;background:var(--hair);flex:none}
+.entry h4{margin:10px 0 2px;font-size:19px;line-height:1.45;font-weight:750;color:#24483b}
+.ptxt{
+  font-family:var(--serif);font-optical-sizing:auto;font-weight:590;
+  font-size:clamp(26px,1vw + 23px,30px);line-height:1.24;color:#14342a;
+  margin:8px 0 14px;overflow-wrap:anywhere;user-select:text;-webkit-user-select:text;
+  letter-spacing:.004em;
+}
+.phon{
+  font-size:20.5px;background:var(--ochre-bg);color:var(--ochre-ink);
+  padding:13px 15px;border-radius:12px;line-height:1.7;margin:0 0 12px;
+  border-left:3px solid var(--ochre-edge);overflow-wrap:anywhere;
+}
+.phon-label{display:block;font-size:11.5px;letter-spacing:.1em;color:#93703f;margin-bottom:3px;font-weight:600}
+.phon strong{font-weight:750}
+.notes{font-size:14px;color:var(--muted);line-height:1.8}
+.notes p{margin:2px 0 8px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto;padding-top:14px}
+.actions button{
+  font-size:17px;font-weight:700;min-height:54px;border-radius:13px;
+  transition:background .18s,transform .12s,box-shadow .25s;
+}
+.play-btn{background:var(--green);border:1px solid var(--green);color:#fff}
+.slow-btn{background:#f4efe2;border:1px solid var(--hair);color:var(--ink)}
+.play-btn:active,.slow-btn:active{transform:scale(.96)}
+@media(hover:hover) and (pointer:fine){
+  .play-btn:hover{background:var(--green-press)}
+  .slow-btn:hover{background:#ece5d3}
+}
+
+/* 播放中的卡片：赤陶描边 + 均衡器脉冲 */
+.entry.playing{
+  border-color:rgba(194,98,42,.55);background:#fffdf6;
+  box-shadow:0 0 0 3px var(--accent-soft),var(--shadow-md);
+}
+@keyframes eq{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+.entry.playing .ptxt::after{
+  content:"";display:inline-block;vertical-align:-2px;margin-left:12px;width:22px;height:20px;
+  background:repeating-linear-gradient(90deg,var(--accent) 0 4px,transparent 4px 8.5px);
+  transform-origin:center bottom;animation:eq 1s ease-in-out infinite;
+  border-radius:2px;
+}
+
+/* 滚动入场（仅 JS 可用时） */
+.js .entry{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.7,.2,1)}
+.js .entry.in{opacity:1;transform:none}
+
+/* ============ 地名分组 ============ */
+.place-group{margin:40px 0;scroll-margin-top:16px}
+.place-group h3{
+  margin:0;font-size:22px;line-height:1.5;padding-bottom:9px;font-weight:800;
+  border-bottom:2px solid #9ab4a2;display:flex;flex-direction:column;gap:2px;
+}
+.place-group h3 span{
+  font-family:var(--serif);font-style:italic;font-weight:450;font-size:16px;
+  color:var(--accent-deep);display:block;letter-spacing:.01em;
+}
+.group-note{font-size:14px;line-height:1.75;color:#617166;margin:10px 0 16px}
+
+/* ============ 空态与提示 ============ */
+.warning{
+  padding:16px 18px;border:1px solid #e6c383;border-radius:14px;
+  background:#fdf3e0;color:#745327;font-size:16px;line-height:1.7;
+}
+[hidden]{display:none!important}
+
+/* ============ 资料区 ============ */
+.sources{
+  font-size:13.5px;color:var(--muted);border-top:1px solid var(--hair);
+  padding-top:26px;margin:64px 0 0;line-height:1.85;
+}
+.sources h2{font-size:19px;color:var(--ink);margin:0 0 10px;font-weight:800}
+.source-item{margin:12px 0}
+.sources a{color:var(--green);overflow-wrap:anywhere;text-underline-offset:3px}
+.sources b{color:var(--ink)}
+
+/* ============ 底部状态栏 ============ */
+.footer{
+  position:fixed;bottom:0;left:0;right:0;z-index:50;
+  display:flex;gap:16px;align-items:center;justify-content:space-between;
+  margin:0 auto;max-width:calc(1000px - 28px);
+  background:rgba(18,46,38,.94);
+  -webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);
+  color:#f0f3ee;border:1px solid rgba(255,255,255,.09);border-bottom:none;
+  border-radius:16px 16px 0 0;
+  padding:13px 18px calc(13px + env(safe-area-inset-bottom));
+  box-shadow:0 -14px 44px -12px rgba(15,38,30,.55);
+}
+.footer div{min-width:0}
+.footer p{margin:0;font-size:15px;line-height:1.5;overflow-wrap:anywhere}
+#queueText{font-size:12.5px;color:#c3d6c8;margin-top:4px;min-height:1em}
+.footer button{
+  background:#f6f3ec;color:var(--ink-strong);border:none;border-radius:999px;
+  min-width:76px;min-height:46px;font-weight:750;font-size:15px;white-space:nowrap;
+  transition:transform .12s,background .18s;
+}
+.footer button:active{transform:scale(.94)}
+
+button{cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;font-family:inherit}
+button:disabled{opacity:.45;cursor:not-allowed}
+button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{
+  outline:var(--ring);outline-offset:2px;border-radius:6px;
+}
+a{color:var(--green)}
+
+/* ============ 响应式 ============ */
+@media(max-width:650px){
+  header{padding:40px 18px 36px}
+  main{padding:22px 12px 200px}
+  .eyebrow{letter-spacing:.18em;font-size:11.5px}
+  .facts{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px 12px}
+  .facts li{border-right:none;margin:0;padding:0;align-items:flex-start}
+  .facts b{font-size:28px}
+  .facts span{font-size:12.5px;letter-spacing:.1em}
+  .controls-panel{padding:18px;border-radius:16px}
+  .toolbar{grid-template-columns:1fr}
+  /* 手机一行两卡：紧凑学习卡 */
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .entry{padding:14px 14px 12px;border-radius:14px}
+  .badge{font-size:10.5px;letter-spacing:.08em}
+  .badge::before{width:12px}
+  .entry h4{font-size:16px;margin:7px 0 1px;line-height:1.4}
+  .ptxt{font-size:21px;margin:6px 0 10px}
+  .phon{font-size:16px;padding:9px 10px;border-radius:10px;line-height:1.6;margin:0 0 10px}
+  .phon-label{font-size:10px;margin-bottom:2px;letter-spacing:.05em}
+  .notes{font-size:12.5px;line-height:1.65}
+  .notes p{margin:1px 0 6px}
+  .actions{grid-template-columns:1fr;gap:8px;padding-top:10px}
+  .actions button{font-size:15px;min-height:46px;border-radius:11px}
+  .chapter{margin:48px 0 6px}
+  .chapter-heading{gap:14px}
+  .check{margin-left:0}
+  .footer{left:10px;right:10px;max-width:none;border-radius:16px;border-bottom:1px solid rgba(255,255,255,.09);margin-bottom:calc(8px + env(safe-area-inset-bottom))}
+  .footer p{font-size:14px}
+}
+
+/* ============ 动效偏好 ============ */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .js .entry{opacity:1;transform:none}
+  header .eyebrow,header h1,header .deck,header .facts,.controls-panel{animation:none}
+}
+
+/* ============ 打印 ============ */
+@media print{
+  body{background:#fff}
+  body::after{display:none}
+  header{background:none;color:var(--ink-strong)}
+  header .eyebrow,header .facts span{color:var(--muted)}
+  header h1{color:var(--ink-strong)}
+  .deck{color:var(--accent-deep)}
+  .facts{border-color:var(--hair)}
+  .facts b{color:var(--ink-strong)}
+  .controls-panel,.list-tools,.count,.footer,.actions,noscript{display:none!important}
+  main{padding:0;max-width:none}
+  .js .entry{opacity:1;transform:none}
+  .cards{display:block}
+  .entry,.chapter,.place-group{break-inside:avoid;display:block!important}
+  .entry{margin:0 0 12px;box-shadow:none;border-color:var(--hair)}
+  .chapter{break-before:page}
+  .chapter:first-of-type{break-before:auto}
+  .sources{break-before:page}
+}
+
+</style></head><body>
+<header><div class="wrap"><p class="eyebrow">PORTUGUÊS PARA A VIDA EM MOÇAMBIQUE</p><h1>莫桑比克生活葡语</h1><p class="deck" lang="pt">Português para a vida em Mo&ccedil;ambique</p><ul class="facts"><li><b>203</b><span>学习卡</span></li><li><b>14</b><span>章节</span></li><li><b>11</b><span>省份地名</span></li><li><b>pt-PT</b><span>离线语音</span></li></ul></div></header>
+<main>
+<section class="controls-panel" aria-label="章节和语音设置">
+<div class="quick"><button id="goPlaces" type="button">查看地名章节</button><button id="goNumbers" type="button">学习数字</button></div>
+<div class="toolbar"><label for="chapterSelect">选择章节<select id="chapterSelect"><option value="all">全部内容（203条）</option><option value="s01">01｜数字 0–10（11条）</option><option value="s02">02｜补充数字 11–19（9条）</option><option value="s03">03｜整十与整百（17条）</option><option value="s04">04｜千、万、十万与百万（15条）</option><option value="s05">05｜组合数字与小数（15条）</option><option value="s06">06｜见面与礼貌（14条）</option><option value="s07">07｜听不懂时怎么说（12条）</option><option value="s08">08｜买东西与付款（15条）</option><option value="s09">09｜当地金额与数量（10条）</option><option value="s10">10｜吃饭与住宿（12条）</option><option value="s11">11｜出行与方向（12条）</option><option value="s12">12｜求助与身体不适（10条）</option><option value="s13">13｜常用时间（11条）</option><option value="s14">14｜地名注音示例（40条）</option></select></label><label for="search">搜索中文／葡语<input id="search" type="search" placeholder="例如：Sofala、贝拉、100" autocomplete="off"></label></div>
+<label id="provinceFilterWrap" for="provinceSelect" hidden>地名章节内，再选省份<select id="provinceSelect"><option value="all">全部省份与马普托市</option><option value="maputo-prov">马普托省 · Província de Maputo</option><option value="maputo-city">马普托市 · Cidade de Maputo</option><option value="gaza">加扎省 · Gaza</option><option value="inhambane">伊尼扬巴内省 · Inhambane</option><option value="sofala">索法拉省 · Sofala</option><option value="manica">马尼卡省 · Manica</option><option value="tete">太特省 · Tete</option><option value="zambezia">赞比西亚省 · Zambézia</option><option value="nampula">楠普拉省 · Nampula</option><option value="niassa">尼亚萨省 · Niassa</option><option value="cabo-delgado">德尔加杜角省 · Cabo Delgado</option></select></label>
+<div class="voice-block"><label for="voiceSelect">朗读声音（可以自己选）<select id="voiceSelect"><option value="">读取中…</option></select></label>
+<p id="voiceInfo" role="status">已内置 pt-PT（欧洲葡语）语音：女声，共 203 条，离线可播、无需系统语音包。也可切换为系统声音。</p>
+<div class="voice-actions"><button id="testVoice" type="button">▶ 试听所选声音</button><button id="refreshVoices" type="button">刷新声音</button><label class="check"><input type="checkbox" id="repeatTwice">每条听两遍</label></div></div>
+<details class="help"><summary>注音说明／iPhone 打开与语音说明</summary>
+<p>【】标重读部分；~ 提示鼻化；短横只为帮助分节，不能按汉字一字一顿。r、l、v、sh、zh、z 是发音提示，不是英文字母名。中文注音不是国际音标，也未按莫桑当地录音逐条校准。</p>
+<p>内置语音为 pt-PT（欧洲葡语）机器合成音，不是莫桑比克当地人的真人录音；拼写与读音按欧洲葡语规范处理，与莫桑比克官方用法一致。你仍可切换 Reed、Rocko 等系统声音（多为巴西腔）；同一浏览器允许本地保存时，会记住选择。</p>
+<p>本页已发布为网站并支持离线使用：首次在有网络时用 Safari 完整打开一次，文字与内置语音即存入手机；之后即使无网络，也能从主屏幕图标打开点读。添加到主屏幕：Safari 底部“分享”→“添加到主屏幕”。若图标被误删，重新打开链接再添加一次即可。<a href="#sources">资料见页末</a>。</p>
+<p>内置语音不联网、不需要系统下载任何语音包。切换声音会停止当前朗读并清空队列；点击另一条卡片则加入队列，不主动截断前一句。</p>
+</details>
+</section>
+<noscript><p class="warning">当前预览器没有运行脚本：全部文字可阅读，但筛选和点读不可用。</p></noscript>
+<div class="list-tools"><button id="sequence" type="button">▶ 连读当前内容（最多20条）</button><button id="reset" type="button">清除筛选</button></div>
+<p id="count" class="count" role="status"></p><p id="empty" class="warning" hidden>没有找到匹配内容。可以缩短关键词，或清除筛选。</p>
+<div id="learningContent">
+<section class="chapter" id="s01"><div class="chapter-heading"><div class="chapter-number">01</div><div><h2>数字 0–10</h2><p class="subtitle" lang="pt">Números de zero a dez</p></div></div><p class="lead">先学0–10。~ 表示鼻化，【】标重音。这里是逐词练习稿，不是莫桑本地录音的逐音转写。</p>
+<div class="cards"><article class="entry" id="entry-001" data-id="001" data-section="s01" data-group="" data-search="001 0｜零 zero 【泽】-ru    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 001</div><h4>0｜零</h4>
+<p class="ptxt" lang="pt">zero</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【泽】</strong>-ru</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="001" data-rate="1" type="button" aria-label="听读 zero">▶ 听读</button><button class="slow-btn" data-play="001" data-rate="0.78" type="button" aria-label="慢读 zero">▷ 慢读</button></div></article>
+<article class="entry" id="entry-002" data-id="002" data-section="s01" data-group="" data-search="002 1｜一 um 【乌~】    口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。 用法：单独数数用 um；修饰阴性名词时可能用 uma。">
+<div class="badge">№ 002</div><h4>1｜一</h4>
+<p class="ptxt" lang="pt">um</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【乌~】</strong></div>
+<div class="notes"><p>口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。</p><p>用法：单独数数用 um；修饰阴性名词时可能用 uma。</p></div><div class="actions"><button class="play-btn" data-play="002" data-rate="1" type="button" aria-label="听读 um">▶ 听读</button><button class="slow-btn" data-play="002" data-rate="0.78" type="button" aria-label="慢读 um">▷ 慢读</button></div></article>
+<article class="entry" id="entry-003" data-id="003" data-section="s01" data-group="" data-search="003 2｜二 dois 【多伊】sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。 用法：修饰阴性名词时用 duas。">
+<div class="badge">№ 003</div><h4>2｜二</h4>
+<p class="ptxt" lang="pt">dois</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【多伊】</strong>sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p><p>用法：修饰阴性名词时用 duas。</p></div><div class="actions"><button class="play-btn" data-play="003" data-rate="1" type="button" aria-label="听读 dois">▶ 听读</button><button class="slow-btn" data-play="003" data-rate="0.78" type="button" aria-label="慢读 dois">▷ 慢读</button></div></article>
+<article class="entry" id="entry-004" data-id="004" data-section="s01" data-group="" data-search="004 3｜三 três 【特雷】sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 004</div><h4>3｜三</h4>
+<p class="ptxt" lang="pt">três</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【特雷】</strong>sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="004" data-rate="1" type="button" aria-label="听读 três">▶ 听读</button><button class="slow-btn" data-play="004" data-rate="0.78" type="button" aria-label="慢读 três">▷ 慢读</button></div></article>
+<article class="entry" id="entry-005" data-id="005" data-section="s01" data-group="" data-search="005 4｜四 quatro 【夸】-tru    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 005</div><h4>4｜四</h4>
+<p class="ptxt" lang="pt">quatro</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【夸】</strong>-tru</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="005" data-rate="1" type="button" aria-label="听读 quatro">▶ 听读</button><button class="slow-btn" data-play="005" data-rate="0.78" type="button" aria-label="慢读 quatro">▷ 慢读</button></div></article>
+<article class="entry" id="entry-006" data-id="006" data-section="s01" data-group="" data-search="006 5｜五 cinco 【辛~】-库    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 006</div><h4>5｜五</h4>
+<p class="ptxt" lang="pt">cinco</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【辛~】</strong>-库</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="006" data-rate="1" type="button" aria-label="听读 cinco">▶ 听读</button><button class="slow-btn" data-play="006" data-rate="0.78" type="button" aria-label="慢读 cinco">▷ 慢读</button></div></article>
+<article class="entry" id="entry-007" data-id="007" data-section="s01" data-group="" data-search="007 6｜六 seis 【塞伊】sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 007</div><h4>6｜六</h4>
+<p class="ptxt" lang="pt">seis</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【塞伊】</strong>sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="007" data-rate="1" type="button" aria-label="听读 seis">▶ 听读</button><button class="slow-btn" data-play="007" data-rate="0.78" type="button" aria-label="慢读 seis">▷ 慢读</button></div></article>
+<article class="entry" id="entry-008" data-id="008" data-section="s01" data-group="" data-search="008 7｜七 sete 【塞】-提(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 008</div><h4>7｜七</h4>
+<p class="ptxt" lang="pt">sete</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【塞】</strong>-提(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="008" data-rate="1" type="button" aria-label="听读 sete">▶ 听读</button><button class="slow-btn" data-play="008" data-rate="0.78" type="button" aria-label="慢读 sete">▷ 慢读</button></div></article>
+<article class="entry" id="entry-009" data-id="009" data-section="s01" data-group="" data-search="009 8｜八 oito 【奥伊】-图    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 009</div><h4>8｜八</h4>
+<p class="ptxt" lang="pt">oito</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【奥伊】</strong>-图</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="009" data-rate="1" type="button" aria-label="听读 oito">▶ 听读</button><button class="slow-btn" data-play="009" data-rate="0.78" type="button" aria-label="慢读 oito">▷ 慢读</button></div></article>
+<article class="entry" id="entry-010" data-id="010" data-section="s01" data-group="" data-search="010 9｜九 nove 【诺】-维(v，轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 010</div><h4>9｜九</h4>
+<p class="ptxt" lang="pt">nove</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【诺】</strong>-维(v，轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="010" data-rate="1" type="button" aria-label="听读 nove">▶ 听读</button><button class="slow-btn" data-play="010" data-rate="0.78" type="button" aria-label="慢读 nove">▷ 慢读</button></div></article>
+<article class="entry" id="entry-011" data-id="011" data-section="s01" data-group="" data-search="011 10｜十 dez 【戴】sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 011</div><h4>10｜十</h4>
+<p class="ptxt" lang="pt">dez</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【戴】</strong>sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="011" data-rate="1" type="button" aria-label="听读 dez">▶ 听读</button><button class="slow-btn" data-play="011" data-rate="0.78" type="button" aria-label="慢读 dez">▷ 慢读</button></div></article>
+</div>
+</section>
+<section class="chapter" id="s02"><div class="chapter-heading"><div class="chapter-number">02</div><div><h2>补充数字 11–19</h2><p class="subtitle" lang="pt">Números de onze a dezanove</p></div></div><p class="lead">补齐11–19后，才能灵活听懂价格。本册选用 dezasseis、dezassete、dezanove 等拼写。</p>
+<div class="cards"><article class="entry" id="entry-012" data-id="012" data-section="s02" data-group="" data-search="012 11｜十一 onze 【翁~】-兹(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 012</div><h4>11｜十一</h4>
+<p class="ptxt" lang="pt">onze</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【翁~】</strong>-兹(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="012" data-rate="1" type="button" aria-label="听读 onze">▶ 听读</button><button class="slow-btn" data-play="012" data-rate="0.78" type="button" aria-label="慢读 onze">▷ 慢读</button></div></article>
+<article class="entry" id="entry-013" data-id="013" data-section="s02" data-group="" data-search="013 12｜十二 doze 【多】-兹(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 013</div><h4>12｜十二</h4>
+<p class="ptxt" lang="pt">doze</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【多】</strong>-兹(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="013" data-rate="1" type="button" aria-label="听读 doze">▶ 听读</button><button class="slow-btn" data-play="013" data-rate="0.78" type="button" aria-label="慢读 doze">▷ 慢读</button></div></article>
+<article class="entry" id="entry-014" data-id="014" data-section="s02" data-group="" data-search="014 13｜十三 treze 【特雷】-兹(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 014</div><h4>13｜十三</h4>
+<p class="ptxt" lang="pt">treze</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【特雷】</strong>-兹(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="014" data-rate="1" type="button" aria-label="听读 treze">▶ 听读</button><button class="slow-btn" data-play="014" data-rate="0.78" type="button" aria-label="慢读 treze">▷ 慢读</button></div></article>
+<article class="entry" id="entry-015" data-id="015" data-section="s02" data-group="" data-search="015 14｜十四 catorze 卡-【托r】-兹(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。 用法：quatorze 也是可见的写法；本册统一用 catorze。">
+<div class="badge">№ 015</div><h4>14｜十四</h4>
+<p class="ptxt" lang="pt">catorze</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>卡-<strong>【托r】</strong>-兹(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p><p>用法：quatorze 也是可见的写法；本册统一用 catorze。</p></div><div class="actions"><button class="play-btn" data-play="015" data-rate="1" type="button" aria-label="听读 catorze">▶ 听读</button><button class="slow-btn" data-play="015" data-rate="0.78" type="button" aria-label="慢读 catorze">▷ 慢读</button></div></article>
+<article class="entry" id="entry-016" data-id="016" data-section="s02" data-group="" data-search="016 15｜十五 quinze 【kin~】-兹(轻)    口型提示：kin~ 用 k 起音，i 带鼻化；不要照汉语“金”的 j 起音。">
+<div class="badge">№ 016</div><h4>15｜十五</h4>
+<p class="ptxt" lang="pt">quinze</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【kin~】</strong>-兹(轻)</div>
+<div class="notes"><p>口型提示：kin~ 用 k 起音，i 带鼻化；不要照汉语“金”的 j 起音。</p></div><div class="actions"><button class="play-btn" data-play="016" data-rate="1" type="button" aria-label="听读 quinze">▶ 听读</button><button class="slow-btn" data-play="016" data-rate="0.78" type="button" aria-label="慢读 quinze">▷ 慢读</button></div></article>
+<article class="entry" id="entry-017" data-id="017" data-section="s02" data-group="" data-search="017 16｜十六 dezasseis 迪-扎-【塞伊】sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 017</div><h4>16｜十六</h4>
+<p class="ptxt" lang="pt">dezasseis</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>迪-扎-<strong>【塞伊】</strong>sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="017" data-rate="1" type="button" aria-label="听读 dezasseis">▶ 听读</button><button class="slow-btn" data-play="017" data-rate="0.78" type="button" aria-label="慢读 dezasseis">▷ 慢读</button></div></article>
+<article class="entry" id="entry-018" data-id="018" data-section="s02" data-group="" data-search="018 17｜十七 dezassete 迪-扎-【塞】-提(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 018</div><h4>17｜十七</h4>
+<p class="ptxt" lang="pt">dezassete</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>迪-扎-<strong>【塞】</strong>-提(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="018" data-rate="1" type="button" aria-label="听读 dezassete">▶ 听读</button><button class="slow-btn" data-play="018" data-rate="0.78" type="button" aria-label="慢读 dezassete">▷ 慢读</button></div></article>
+<article class="entry" id="entry-019" data-id="019" data-section="s02" data-group="" data-search="019 18｜十八 dezoito 迪-【佐伊】-图    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 019</div><h4>18｜十八</h4>
+<p class="ptxt" lang="pt">dezoito</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>迪-<strong>【佐伊】</strong>-图</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="019" data-rate="1" type="button" aria-label="听读 dezoito">▶ 听读</button><button class="slow-btn" data-play="019" data-rate="0.78" type="button" aria-label="慢读 dezoito">▷ 慢读</button></div></article>
+<article class="entry" id="entry-020" data-id="020" data-section="s02" data-group="" data-search="020 19｜十九 dezanove 迪-扎-【诺】-维(v，轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 020</div><h4>19｜十九</h4>
+<p class="ptxt" lang="pt">dezanove</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>迪-扎-<strong>【诺】</strong>-维(v，轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="020" data-rate="1" type="button" aria-label="听读 dezanove">▶ 听读</button><button class="slow-btn" data-play="020" data-rate="0.78" type="button" aria-label="慢读 dezanove">▷ 慢读</button></div></article>
+</div>
+</section>
+<section class="chapter" id="s03"><div class="chapter-heading"><div class="chapter-number">03</div><div><h2>整十与整百</h2><p class="subtitle" lang="pt">Dezenas e centenas</p></div></div><p class="lead">列全20–90与100–900。这里的“整百”指三位数的九个整百；更大的数按“千＋百”组合。</p>
+<div class="cards"><article class="entry" id="entry-021" data-id="021" data-section="s03" data-group="" data-search="021 20｜二十 vinte 【vin~】-提(轻)    口型提示：vin~：上齿轻触下唇发 v，接鼻化 i；不是普通话的 w，也不是读字母 V-I-N。">
+<div class="badge">№ 021</div><h4>20｜二十</h4>
+<p class="ptxt" lang="pt">vinte</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【vin~】</strong>-提(轻)</div>
+<div class="notes"><p>口型提示：vin~：上齿轻触下唇发 v，接鼻化 i；不是普通话的 w，也不是读字母 V-I-N。</p></div><div class="actions"><button class="play-btn" data-play="021" data-rate="1" type="button" aria-label="听读 vinte">▶ 听读</button><button class="slow-btn" data-play="021" data-rate="0.78" type="button" aria-label="慢读 vinte">▷ 慢读</button></div></article>
+<article class="entry" id="entry-022" data-id="022" data-section="s03" data-group="" data-search="022 30｜三十 trinta 【特林~】-塔    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 022</div><h4>30｜三十</h4>
+<p class="ptxt" lang="pt">trinta</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【特林~】</strong>-塔</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="022" data-rate="1" type="button" aria-label="听读 trinta">▶ 听读</button><button class="slow-btn" data-play="022" data-rate="0.78" type="button" aria-label="慢读 trinta">▷ 慢读</button></div></article>
+<article class="entry" id="entry-023" data-id="023" data-section="s03" data-group="" data-search="023 40｜四十 quarenta 夸-【ren~】-塔    口型提示：ren~ 是轻 r 接鼻化元音，近“仁”但不按汉语声调读；重音在中间。">
+<div class="badge">№ 023</div><h4>40｜四十</h4>
+<p class="ptxt" lang="pt">quarenta</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>夸-<strong>【ren~】</strong>-塔</div>
+<div class="notes"><p>口型提示：ren~ 是轻 r 接鼻化元音，近“仁”但不按汉语声调读；重音在中间。</p></div><div class="actions"><button class="play-btn" data-play="023" data-rate="1" type="button" aria-label="听读 quarenta">▶ 听读</button><button class="slow-btn" data-play="023" data-rate="0.78" type="button" aria-label="慢读 quarenta">▷ 慢读</button></div></article>
+<article class="entry" id="entry-024" data-id="024" data-section="s03" data-group="" data-search="024 50｜五十 cinquenta 辛~-【昆~】-塔    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 024</div><h4>50｜五十</h4>
+<p class="ptxt" lang="pt">cinquenta</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>辛~-<strong>【昆~】</strong>-塔</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="024" data-rate="1" type="button" aria-label="听读 cinquenta">▶ 听读</button><button class="slow-btn" data-play="024" data-rate="0.78" type="button" aria-label="慢读 cinquenta">▷ 慢读</button></div></article>
+<article class="entry" id="entry-025" data-id="025" data-section="s03" data-group="" data-search="025 60｜六十 sessenta 塞-【森~】-塔    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 025</div><h4>60｜六十</h4>
+<p class="ptxt" lang="pt">sessenta</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>塞-<strong>【森~】</strong>-塔</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="025" data-rate="1" type="button" aria-label="听读 sessenta">▶ 听读</button><button class="slow-btn" data-play="025" data-rate="0.78" type="button" aria-label="慢读 sessenta">▷ 慢读</button></div></article>
+<article class="entry" id="entry-026" data-id="026" data-section="s03" data-group="" data-search="026 70｜七十 setenta 塞-【ten~】-塔    口型提示：ten~ 近“滕”的口型，收成鼻化元音，不再补一个“恩”。">
+<div class="badge">№ 026</div><h4>70｜七十</h4>
+<p class="ptxt" lang="pt">setenta</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>塞-<strong>【ten~】</strong>-塔</div>
+<div class="notes"><p>口型提示：ten~ 近“滕”的口型，收成鼻化元音，不再补一个“恩”。</p></div><div class="actions"><button class="play-btn" data-play="026" data-rate="1" type="button" aria-label="听读 setenta">▶ 听读</button><button class="slow-btn" data-play="026" data-rate="0.78" type="button" aria-label="慢读 setenta">▷ 慢读</button></div></article>
+<article class="entry" id="entry-027" data-id="027" data-section="s03" data-group="" data-search="027 80｜八十 oitenta 奥伊-【ten~】-塔    口型提示：ten~ 是中间重读音节；开头 oi 为连起来的双元音。">
+<div class="badge">№ 027</div><h4>80｜八十</h4>
+<p class="ptxt" lang="pt">oitenta</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>奥伊-<strong>【ten~】</strong>-塔</div>
+<div class="notes"><p>口型提示：ten~ 是中间重读音节；开头 oi 为连起来的双元音。</p></div><div class="actions"><button class="play-btn" data-play="027" data-rate="1" type="button" aria-label="听读 oitenta">▶ 听读</button><button class="slow-btn" data-play="027" data-rate="0.78" type="button" aria-label="慢读 oitenta">▷ 慢读</button></div></article>
+<article class="entry" id="entry-028" data-id="028" data-section="s03" data-group="" data-search="028 90｜九十 noventa 努-【ven~】-塔    口型提示：ven~ 近“文”的口型，但以唇齿 v 起音；鼻化，不额外念“恩”。">
+<div class="badge">№ 028</div><h4>90｜九十</h4>
+<p class="ptxt" lang="pt">noventa</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>努-<strong>【ven~】</strong>-塔</div>
+<div class="notes"><p>口型提示：ven~ 近“文”的口型，但以唇齿 v 起音；鼻化，不额外念“恩”。</p></div><div class="actions"><button class="play-btn" data-play="028" data-rate="1" type="button" aria-label="听读 noventa">▶ 听读</button><button class="slow-btn" data-play="028" data-rate="0.78" type="button" aria-label="慢读 noventa">▷ 慢读</button></div></article>
+<article class="entry" id="entry-029" data-id="029" data-section="s03" data-group="" data-search="029 100｜一百 cem 【塞因~】    口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。 用法：100用 cem；101–199改用 cento e…。">
+<div class="badge">№ 029</div><h4>100｜一百</h4>
+<p class="ptxt" lang="pt">cem</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【塞因~】</strong></div>
+<div class="notes"><p>口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。</p><p>用法：100用 cem；101–199改用 cento e…。</p></div><div class="actions"><button class="play-btn" data-play="029" data-rate="1" type="button" aria-label="听读 cem">▶ 听读</button><button class="slow-btn" data-play="029" data-rate="0.78" type="button" aria-label="慢读 cem">▷ 慢读</button></div></article>
+<article class="entry" id="entry-030" data-id="030" data-section="s03" data-group="" data-search="030 200｜二百 duzentos 杜-【zen~】-图sh    口型提示：zen~ 中的 z 是声带振动的 s，不是汉语“资”的塞擦起音；最后 s 的实现随口音和连读变化。">
+<div class="badge">№ 030</div><h4>200｜二百</h4>
+<p class="ptxt" lang="pt">duzentos</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>杜-<strong>【zen~】</strong>-图sh</div>
+<div class="notes"><p>口型提示：zen~ 中的 z 是声带振动的 s，不是汉语“资”的塞擦起音；最后 s 的实现随口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="030" data-rate="1" type="button" aria-label="听读 duzentos">▶ 听读</button><button class="slow-btn" data-play="030" data-rate="0.78" type="button" aria-label="慢读 duzentos">▷ 慢读</button></div></article>
+<article class="entry" id="entry-031" data-id="031" data-section="s03" data-group="" data-search="031 300｜三百 trezentos 特里-【zen~】-图sh    口型提示：zen~ 中的 z 是浊 s；重音在中间。">
+<div class="badge">№ 031</div><h4>300｜三百</h4>
+<p class="ptxt" lang="pt">trezentos</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>特里-<strong>【zen~】</strong>-图sh</div>
+<div class="notes"><p>口型提示：zen~ 中的 z 是浊 s；重音在中间。</p></div><div class="actions"><button class="play-btn" data-play="031" data-rate="1" type="button" aria-label="听读 trezentos">▶ 听读</button><button class="slow-btn" data-play="031" data-rate="0.78" type="button" aria-label="慢读 trezentos">▷ 慢读</button></div></article>
+<article class="entry" id="entry-032" data-id="032" data-section="s03" data-group="" data-search="032 400｜四百 quatrocentos 夸-tru-【森~】-图sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 032</div><h4>400｜四百</h4>
+<p class="ptxt" lang="pt">quatrocentos</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>夸-tru-<strong>【森~】</strong>-图sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="032" data-rate="1" type="button" aria-label="听读 quatrocentos">▶ 听读</button><button class="slow-btn" data-play="032" data-rate="0.78" type="button" aria-label="慢读 quatrocentos">▷ 慢读</button></div></article>
+<article class="entry" id="entry-033" data-id="033" data-section="s03" data-group="" data-search="033 500｜五百 quinhentos ki-【涅~】-图sh    口型提示：qui-nhen-tos 共三个音节；ki 用 k 起音，不是汉语“基”的 j；nh 连成一个鼻音，别拆成“尼、耶、恩”三拍。 用法：nh 是连在一起的“尼耶”近似音；不要读成两个完整音节。">
+<div class="badge">№ 033</div><h4>500｜五百</h4>
+<p class="ptxt" lang="pt">quinhentos</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>ki-<strong>【涅~】</strong>-图sh</div>
+<div class="notes"><p>口型提示：qui-nhen-tos 共三个音节；ki 用 k 起音，不是汉语“基”的 j；nh 连成一个鼻音，别拆成“尼、耶、恩”三拍。</p><p>用法：nh 是连在一起的“尼耶”近似音；不要读成两个完整音节。</p></div><div class="actions"><button class="play-btn" data-play="033" data-rate="1" type="button" aria-label="听读 quinhentos">▶ 听读</button><button class="slow-btn" data-play="033" data-rate="0.78" type="button" aria-label="慢读 quinhentos">▷ 慢读</button></div></article>
+<article class="entry" id="entry-034" data-id="034" data-section="s03" data-group="" data-search="034 600｜六百 seiscentos 塞伊sh-【森~】-图sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 034</div><h4>600｜六百</h4>
+<p class="ptxt" lang="pt">seiscentos</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>塞伊sh-<strong>【森~】</strong>-图sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="034" data-rate="1" type="button" aria-label="听读 seiscentos">▶ 听读</button><button class="slow-btn" data-play="034" data-rate="0.78" type="button" aria-label="慢读 seiscentos">▷ 慢读</button></div></article>
+<article class="entry" id="entry-035" data-id="035" data-section="s03" data-group="" data-search="035 700｜七百 setecentos 塞-提-【森~】-图sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 035</div><h4>700｜七百</h4>
+<p class="ptxt" lang="pt">setecentos</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>塞-提-<strong>【森~】</strong>-图sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="035" data-rate="1" type="button" aria-label="听读 setecentos">▶ 听读</button><button class="slow-btn" data-play="035" data-rate="0.78" type="button" aria-label="慢读 setecentos">▷ 慢读</button></div></article>
+<article class="entry" id="entry-036" data-id="036" data-section="s03" data-group="" data-search="036 800｜八百 oitocentos 奥伊-图-【森~】-图sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 036</div><h4>800｜八百</h4>
+<p class="ptxt" lang="pt">oitocentos</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>奥伊-图-<strong>【森~】</strong>-图sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="036" data-rate="1" type="button" aria-label="听读 oitocentos">▶ 听读</button><button class="slow-btn" data-play="036" data-rate="0.78" type="button" aria-label="慢读 oitocentos">▷ 慢读</button></div></article>
+<article class="entry" id="entry-037" data-id="037" data-section="s03" data-group="" data-search="037 900｜九百 novecentos 努-维(v)-【森~】-图sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 037</div><h4>900｜九百</h4>
+<p class="ptxt" lang="pt">novecentos</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>努-维(v)-<strong>【森~】</strong>-图sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="037" data-rate="1" type="button" aria-label="听读 novecentos">▶ 听读</button><button class="slow-btn" data-play="037" data-rate="0.78" type="button" aria-label="慢读 novecentos">▷ 慢读</button></div></article>
+</div>
+</section>
+<section class="chapter" id="s04"><div class="chapter-heading"><div class="chapter-number">04</div><div><h2>千、万、十万与百万</h2><p class="subtitle" lang="pt">Milhares e milhões</p></div></div><p class="lead">葡语按千、百万组合：一万=十个千（dez mil），十万=一百个千（cem mil）。</p>
+<div class="cards"><article class="entry" id="entry-038" data-id="038" data-section="s04" data-group="" data-search="038 1 000｜一千 mil 【米l】    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。 用法：通常说 mil，不必加 um；词尾 l 不要另加一个“勒”。">
+<div class="badge">№ 038</div><h4>1 000｜一千</h4>
+<p class="ptxt" lang="pt">mil</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【米l】</strong></div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。</p><p>用法：通常说 mil，不必加 um；词尾 l 不要另加一个“勒”。</p></div><div class="actions"><button class="play-btn" data-play="038" data-rate="1" type="button" aria-label="听读 mil">▶ 听读</button><button class="slow-btn" data-play="038" data-rate="0.78" type="button" aria-label="慢读 mil">▷ 慢读</button></div></article>
+<article class="entry" id="entry-039" data-id="039" data-section="s04" data-group="" data-search="039 2 000｜两千 dois mil 【多伊】sh · 【米l】    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。">
+<div class="badge">№ 039</div><h4>2 000｜两千</h4>
+<p class="ptxt" lang="pt">dois mil</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【多伊】</strong>sh · <strong>【米l】</strong></div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。</p></div><div class="actions"><button class="play-btn" data-play="039" data-rate="1" type="button" aria-label="听读 dois mil">▶ 听读</button><button class="slow-btn" data-play="039" data-rate="0.78" type="button" aria-label="慢读 dois mil">▷ 慢读</button></div></article>
+<article class="entry" id="entry-040" data-id="040" data-section="s04" data-group="" data-search="040 3 000｜三千 três mil 【特雷】sh · 【米l】    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。">
+<div class="badge">№ 040</div><h4>3 000｜三千</h4>
+<p class="ptxt" lang="pt">três mil</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【特雷】</strong>sh · <strong>【米l】</strong></div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。</p></div><div class="actions"><button class="play-btn" data-play="040" data-rate="1" type="button" aria-label="听读 três mil">▶ 听读</button><button class="slow-btn" data-play="040" data-rate="0.78" type="button" aria-label="慢读 três mil">▷ 慢读</button></div></article>
+<article class="entry" id="entry-041" data-id="041" data-section="s04" data-group="" data-search="041 5 000｜五千 cinco mil 【辛~】-库 · 【米l】    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。">
+<div class="badge">№ 041</div><h4>5 000｜五千</h4>
+<p class="ptxt" lang="pt">cinco mil</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【辛~】</strong>-库 · <strong>【米l】</strong></div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。</p></div><div class="actions"><button class="play-btn" data-play="041" data-rate="1" type="button" aria-label="听读 cinco mil">▶ 听读</button><button class="slow-btn" data-play="041" data-rate="0.78" type="button" aria-label="慢读 cinco mil">▷ 慢读</button></div></article>
+<article class="entry" id="entry-042" data-id="042" data-section="s04" data-group="" data-search="042 10 000｜一万 dez mil 【戴】sh · 【米l】    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。">
+<div class="badge">№ 042</div><h4>10 000｜一万</h4>
+<p class="ptxt" lang="pt">dez mil</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【戴】</strong>sh · <strong>【米l】</strong></div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。</p></div><div class="actions"><button class="play-btn" data-play="042" data-rate="1" type="button" aria-label="听读 dez mil">▶ 听读</button><button class="slow-btn" data-play="042" data-rate="0.78" type="button" aria-label="慢读 dez mil">▷ 慢读</button></div></article>
+<article class="entry" id="entry-043" data-id="043" data-section="s04" data-group="" data-search="043 20 000｜两万 vinte mil 【vin~】-提(轻) · 【米l】    口型提示：vin~：上齿轻触下唇发 v，接鼻化 i；不是普通话的 w，也不是读字母 V-I-N。 l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。">
+<div class="badge">№ 043</div><h4>20 000｜两万</h4>
+<p class="ptxt" lang="pt">vinte mil</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【vin~】</strong>-提(轻) · <strong>【米l】</strong></div>
+<div class="notes"><p>口型提示：vin~：上齿轻触下唇发 v，接鼻化 i；不是普通话的 w，也不是读字母 V-I-N。 l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。</p></div><div class="actions"><button class="play-btn" data-play="043" data-rate="1" type="button" aria-label="听读 vinte mil">▶ 听读</button><button class="slow-btn" data-play="043" data-rate="0.78" type="button" aria-label="慢读 vinte mil">▷ 慢读</button></div></article>
+<article class="entry" id="entry-044" data-id="044" data-section="s04" data-group="" data-search="044 50 000｜五万 cinquenta mil 辛~-【昆~】-塔 · 【米l】    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。">
+<div class="badge">№ 044</div><h4>50 000｜五万</h4>
+<p class="ptxt" lang="pt">cinquenta mil</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>辛~-<strong>【昆~】</strong>-塔 · <strong>【米l】</strong></div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。</p></div><div class="actions"><button class="play-btn" data-play="044" data-rate="1" type="button" aria-label="听读 cinquenta mil">▶ 听读</button><button class="slow-btn" data-play="044" data-rate="0.78" type="button" aria-label="慢读 cinquenta mil">▷ 慢读</button></div></article>
+<article class="entry" id="entry-045" data-id="045" data-section="s04" data-group="" data-search="045 100 000｜十万 cem mil 【塞因~】 · 【米l】    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。">
+<div class="badge">№ 045</div><h4>100 000｜十万</h4>
+<p class="ptxt" lang="pt">cem mil</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【塞因~】</strong> · <strong>【米l】</strong></div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。</p></div><div class="actions"><button class="play-btn" data-play="045" data-rate="1" type="button" aria-label="听读 cem mil">▶ 听读</button><button class="slow-btn" data-play="045" data-rate="0.78" type="button" aria-label="慢读 cem mil">▷ 慢读</button></div></article>
+<article class="entry" id="entry-046" data-id="046" data-section="s04" data-group="" data-search="046 200 000｜二十万 duzentos mil 杜-【zen~】-图sh · 【米l】    口型提示：zen~ 中的 z 是声带振动的 s，不是汉语“资”的塞擦起音；最后 s 的实现随口音和连读变化。 l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。">
+<div class="badge">№ 046</div><h4>200 000｜二十万</h4>
+<p class="ptxt" lang="pt">duzentos mil</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>杜-<strong>【zen~】</strong>-图sh · <strong>【米l】</strong></div>
+<div class="notes"><p>口型提示：zen~ 中的 z 是声带振动的 s，不是汉语“资”的塞擦起音；最后 s 的实现随口音和连读变化。 l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。</p></div><div class="actions"><button class="play-btn" data-play="046" data-rate="1" type="button" aria-label="听读 duzentos mil">▶ 听读</button><button class="slow-btn" data-play="046" data-rate="0.78" type="button" aria-label="慢读 duzentos mil">▷ 慢读</button></div></article>
+<article class="entry" id="entry-047" data-id="047" data-section="s04" data-group="" data-search="047 500 000｜五十万 quinhentos mil ki-【涅~】-图sh · 【米l】    口型提示：qui-nhen-tos 共三个音节；ki 用 k 起音，不是汉语“基”的 j；nh 连成一个鼻音，别拆成“尼、耶、恩”三拍。 l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。">
+<div class="badge">№ 047</div><h4>500 000｜五十万</h4>
+<p class="ptxt" lang="pt">quinhentos mil</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>ki-<strong>【涅~】</strong>-图sh · <strong>【米l】</strong></div>
+<div class="notes"><p>口型提示：qui-nhen-tos 共三个音节；ki 用 k 起音，不是汉语“基”的 j；nh 连成一个鼻音，别拆成“尼、耶、恩”三拍。 l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。</p></div><div class="actions"><button class="play-btn" data-play="047" data-rate="1" type="button" aria-label="听读 quinhentos mil">▶ 听读</button><button class="slow-btn" data-play="047" data-rate="0.78" type="button" aria-label="慢读 quinhentos mil">▷ 慢读</button></div></article>
+<article class="entry" id="entry-048" data-id="048" data-section="s04" data-group="" data-search="048 1 000 000｜一百万 um milhão 【乌~】 · 米-【良乌~】    口型提示：lh 要连成一个腭化边音；“良乌”只是很粗的近音。ão 鼻化滑动，不是“昂＋乌”两个独立音节。 用法：lh 和 ão 都不能用普通话准确替代；“良”不要收成 ng。">
+<div class="badge">№ 048</div><h4>1 000 000｜一百万</h4>
+<p class="ptxt" lang="pt">um milhão</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【乌~】</strong> · 米-<strong>【良乌~】</strong></div>
+<div class="notes"><p>口型提示：lh 要连成一个腭化边音；“良乌”只是很粗的近音。ão 鼻化滑动，不是“昂＋乌”两个独立音节。</p><p>用法：lh 和 ão 都不能用普通话准确替代；“良”不要收成 ng。</p></div><div class="actions"><button class="play-btn" data-play="048" data-rate="1" type="button" aria-label="听读 um milhão">▶ 听读</button><button class="slow-btn" data-play="048" data-rate="0.78" type="button" aria-label="慢读 um milhão">▷ 慢读</button></div></article>
+<article class="entry" id="entry-049" data-id="049" data-section="s04" data-group="" data-search="049 2 000 000｜两百万 dois milhões 【多伊】sh · 米-【柳因~】sh    口型提示：lh 连读；ões 是鼻化双元音，与单数 ão 不同。“柳因”仅是近似，须重点听当地录音。 用法：复数是 milhões，不是 milhão。">
+<div class="badge">№ 049</div><h4>2 000 000｜两百万</h4>
+<p class="ptxt" lang="pt">dois milhões</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【多伊】</strong>sh · 米-<strong>【柳因~】</strong>sh</div>
+<div class="notes"><p>口型提示：lh 连读；ões 是鼻化双元音，与单数 ão 不同。“柳因”仅是近似，须重点听当地录音。</p><p>用法：复数是 milhões，不是 milhão。</p></div><div class="actions"><button class="play-btn" data-play="049" data-rate="1" type="button" aria-label="听读 dois milhões">▶ 听读</button><button class="slow-btn" data-play="049" data-rate="0.78" type="button" aria-label="慢读 dois milhões">▷ 慢读</button></div></article>
+<article class="entry" id="entry-050" data-id="050" data-section="s04" data-group="" data-search="050 10 000 000｜一千万 dez milhões 【戴】sh · 米-【柳因~】sh    口型提示：lh 连读；ões 是鼻化双元音，与单数 ão 不同。“柳因”仅是近似，须重点听当地录音。">
+<div class="badge">№ 050</div><h4>10 000 000｜一千万</h4>
+<p class="ptxt" lang="pt">dez milhões</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【戴】</strong>sh · 米-<strong>【柳因~】</strong>sh</div>
+<div class="notes"><p>口型提示：lh 连读；ões 是鼻化双元音，与单数 ão 不同。“柳因”仅是近似，须重点听当地录音。</p></div><div class="actions"><button class="play-btn" data-play="050" data-rate="1" type="button" aria-label="听读 dez milhões">▶ 听读</button><button class="slow-btn" data-play="050" data-rate="0.78" type="button" aria-label="慢读 dez milhões">▷ 慢读</button></div></article>
+<article class="entry" id="entry-051" data-id="051" data-section="s04" data-group="" data-search="051 100 000 000｜一亿 cem milhões 【塞因~】 · 米-【柳因~】sh    口型提示：lh 连读；ões 是鼻化双元音，与单数 ão 不同。“柳因”仅是近似，须重点听当地录音。">
+<div class="badge">№ 051</div><h4>100 000 000｜一亿</h4>
+<p class="ptxt" lang="pt">cem milhões</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【塞因~】</strong> · 米-<strong>【柳因~】</strong>sh</div>
+<div class="notes"><p>口型提示：lh 连读；ões 是鼻化双元音，与单数 ão 不同。“柳因”仅是近似，须重点听当地录音。</p></div><div class="actions"><button class="play-btn" data-play="051" data-rate="1" type="button" aria-label="听读 cem milhões">▶ 听读</button><button class="slow-btn" data-play="051" data-rate="0.78" type="button" aria-label="慢读 cem milhões">▷ 慢读</button></div></article>
+<article class="entry" id="entry-052" data-id="052" data-section="s04" data-group="" data-search="052 1 000 000 000｜十亿 mil milhões 【米l】 · 米-【柳因~】sh    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。 lh 连读；ões 是鼻化双元音，与单数 ão 不同。“柳因”仅是近似，须重点听当地录音。 用法：采用 mil milhões，避免不同地区 bilião/bilhão 的数值歧义。">
+<div class="badge">№ 052</div><h4>1 000 000 000｜十亿</h4>
+<p class="ptxt" lang="pt">mil milhões</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【米l】</strong> · 米-<strong>【柳因~】</strong>sh</div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。 lh 连读；ões 是鼻化双元音，与单数 ão 不同。“柳因”仅是近似，须重点听当地录音。</p><p>用法：采用 mil milhões，避免不同地区 bilião/bilhão 的数值歧义。</p></div><div class="actions"><button class="play-btn" data-play="052" data-rate="1" type="button" aria-label="听读 mil milhões">▶ 听读</button><button class="slow-btn" data-play="052" data-rate="0.78" type="button" aria-label="慢读 mil milhões">▷ 慢读</button></div></article>
+</div>
+</section>
+<section class="chapter" id="s05"><div class="chapter-heading"><div class="chapter-number">05</div><div><h2>组合数字与小数</h2><p class="subtitle" lang="pt">Números compostos</p></div></div><p class="lead">金额请写出来再确认。注音按词分开帮助练习，整句连读和句调应以当地人示范为准。</p>
+<div class="cards"><article class="entry" id="entry-053" data-id="053" data-section="s05" data-group="" data-search="053 21｜二十一 vinte e um 【vin~】-提(轻) · 伊 · 【乌~】    口型提示：vin~：上齿轻触下唇发 v，接鼻化 i；不是普通话的 w，也不是读字母 V-I-N。">
+<div class="badge">№ 053</div><h4>21｜二十一</h4>
+<p class="ptxt" lang="pt">vinte e um</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【vin~】</strong>-提(轻) · 伊 · <strong>【乌~】</strong></div>
+<div class="notes"><p>口型提示：vin~：上齿轻触下唇发 v，接鼻化 i；不是普通话的 w，也不是读字母 V-I-N。</p></div><div class="actions"><button class="play-btn" data-play="053" data-rate="1" type="button" aria-label="听读 vinte e um">▶ 听读</button><button class="slow-btn" data-play="053" data-rate="0.78" type="button" aria-label="慢读 vinte e um">▷ 慢读</button></div></article>
+<article class="entry" id="entry-054" data-id="054" data-section="s05" data-group="" data-search="054 25｜二十五 vinte e cinco 【vin~】-提(轻) · 伊 · 【辛~】-库    口型提示：vin~：上齿轻触下唇发 v，接鼻化 i；不是普通话的 w，也不是读字母 V-I-N。">
+<div class="badge">№ 054</div><h4>25｜二十五</h4>
+<p class="ptxt" lang="pt">vinte e cinco</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【vin~】</strong>-提(轻) · 伊 · <strong>【辛~】</strong>-库</div>
+<div class="notes"><p>口型提示：vin~：上齿轻触下唇发 v，接鼻化 i；不是普通话的 w，也不是读字母 V-I-N。</p></div><div class="actions"><button class="play-btn" data-play="054" data-rate="1" type="button" aria-label="听读 vinte e cinco">▶ 听读</button><button class="slow-btn" data-play="054" data-rate="0.78" type="button" aria-label="慢读 vinte e cinco">▷ 慢读</button></div></article>
+<article class="entry" id="entry-055" data-id="055" data-section="s05" data-group="" data-search="055 38｜三十八 trinta e oito 【特林~】-塔 · 伊 · 【奥伊】-图    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 055</div><h4>38｜三十八</h4>
+<p class="ptxt" lang="pt">trinta e oito</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【特林~】</strong>-塔 · 伊 · <strong>【奥伊】</strong>-图</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="055" data-rate="1" type="button" aria-label="听读 trinta e oito">▶ 听读</button><button class="slow-btn" data-play="055" data-rate="0.78" type="button" aria-label="慢读 trinta e oito">▷ 慢读</button></div></article>
+<article class="entry" id="entry-056" data-id="056" data-section="s05" data-group="" data-search="056 99｜九十九 noventa e nove 努-【ven~】-塔 · 伊 · 【诺】-维(v，轻)    口型提示：ven~ 近“文”的口型，但以唇齿 v 起音；鼻化，不额外念“恩”。">
+<div class="badge">№ 056</div><h4>99｜九十九</h4>
+<p class="ptxt" lang="pt">noventa e nove</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>努-<strong>【ven~】</strong>-塔 · 伊 · <strong>【诺】</strong>-维(v，轻)</div>
+<div class="notes"><p>口型提示：ven~ 近“文”的口型，但以唇齿 v 起音；鼻化，不额外念“恩”。</p></div><div class="actions"><button class="play-btn" data-play="056" data-rate="1" type="button" aria-label="听读 noventa e nove">▶ 听读</button><button class="slow-btn" data-play="056" data-rate="0.78" type="button" aria-label="慢读 noventa e nove">▷ 慢读</button></div></article>
+<article class="entry" id="entry-057" data-id="057" data-section="s05" data-group="" data-search="057 101｜一百零一 cento e um 【森~】-图 · 伊 · 【乌~】    口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。 用法：不是 cem e um。">
+<div class="badge">№ 057</div><h4>101｜一百零一</h4>
+<p class="ptxt" lang="pt">cento e um</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【森~】</strong>-图 · 伊 · <strong>【乌~】</strong></div>
+<div class="notes"><p>口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。</p><p>用法：不是 cem e um。</p></div><div class="actions"><button class="play-btn" data-play="057" data-rate="1" type="button" aria-label="听读 cento e um">▶ 听读</button><button class="slow-btn" data-play="057" data-rate="0.78" type="button" aria-label="慢读 cento e um">▷ 慢读</button></div></article>
+<article class="entry" id="entry-058" data-id="058" data-section="s05" data-group="" data-search="058 110｜一百一十 cento e dez 【森~】-图 · 伊 · 【戴】sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 058</div><h4>110｜一百一十</h4>
+<p class="ptxt" lang="pt">cento e dez</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【森~】</strong>-图 · 伊 · <strong>【戴】</strong>sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="058" data-rate="1" type="button" aria-label="听读 cento e dez">▶ 听读</button><button class="slow-btn" data-play="058" data-rate="0.78" type="button" aria-label="慢读 cento e dez">▷ 慢读</button></div></article>
+<article class="entry" id="entry-059" data-id="059" data-section="s05" data-group="" data-search="059 125｜一百二十五 cento e vinte e cinco 【森~】-图 · 伊 · 【vin~】-提(轻) · 伊 · 【辛~】-库    口型提示：vin~：上齿轻触下唇发 v，接鼻化 i；不是普通话的 w，也不是读字母 V-I-N。">
+<div class="badge">№ 059</div><h4>125｜一百二十五</h4>
+<p class="ptxt" lang="pt">cento e vinte e cinco</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【森~】</strong>-图 · 伊 · <strong>【vin~】</strong>-提(轻) · 伊 · <strong>【辛~】</strong>-库</div>
+<div class="notes"><p>口型提示：vin~：上齿轻触下唇发 v，接鼻化 i；不是普通话的 w，也不是读字母 V-I-N。</p></div><div class="actions"><button class="play-btn" data-play="059" data-rate="1" type="button" aria-label="听读 cento e vinte e cinco">▶ 听读</button><button class="slow-btn" data-play="059" data-rate="0.78" type="button" aria-label="慢读 cento e vinte e cinco">▷ 慢读</button></div></article>
+<article class="entry" id="entry-060" data-id="060" data-section="s05" data-group="" data-search="060 250｜二百五十 duzentos e cinquenta 杜-【zen~】-图sh · 伊 · 辛~-【昆~】-塔    口型提示：zen~ 中的 z 是声带振动的 s，不是汉语“资”的塞擦起音；最后 s 的实现随口音和连读变化。">
+<div class="badge">№ 060</div><h4>250｜二百五十</h4>
+<p class="ptxt" lang="pt">duzentos e cinquenta</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>杜-<strong>【zen~】</strong>-图sh · 伊 · 辛~-<strong>【昆~】</strong>-塔</div>
+<div class="notes"><p>口型提示：zen~ 中的 z 是声带振动的 s，不是汉语“资”的塞擦起音；最后 s 的实现随口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="060" data-rate="1" type="button" aria-label="听读 duzentos e cinquenta">▶ 听读</button><button class="slow-btn" data-play="060" data-rate="0.78" type="button" aria-label="慢读 duzentos e cinquenta">▷ 慢读</button></div></article>
+<article class="entry" id="entry-061" data-id="061" data-section="s05" data-group="" data-search="061 999｜九百九十九 novecentos e noventa e nove 努-维(v)-【森~】-图sh · 伊 · 努-【ven~】-塔 · 伊 · 【诺】-维(v，轻)    口型提示：ven~ 近“文”的口型，但以唇齿 v 起音；鼻化，不额外念“恩”。">
+<div class="badge">№ 061</div><h4>999｜九百九十九</h4>
+<p class="ptxt" lang="pt">novecentos e noventa e nove</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>努-维(v)-<strong>【森~】</strong>-图sh · 伊 · 努-<strong>【ven~】</strong>-塔 · 伊 · <strong>【诺】</strong>-维(v，轻)</div>
+<div class="notes"><p>口型提示：ven~ 近“文”的口型，但以唇齿 v 起音；鼻化，不额外念“恩”。</p></div><div class="actions"><button class="play-btn" data-play="061" data-rate="1" type="button" aria-label="听读 novecentos e noventa e nove">▶ 听读</button><button class="slow-btn" data-play="061" data-rate="0.78" type="button" aria-label="慢读 novecentos e noventa e nove">▷ 慢读</button></div></article>
+<article class="entry" id="entry-062" data-id="062" data-section="s05" data-group="" data-search="062 1 100｜一千一百 mil e cem 【米l】 · 伊 · 【塞因~】    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。">
+<div class="badge">№ 062</div><h4>1 100｜一千一百</h4>
+<p class="ptxt" lang="pt">mil e cem</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【米l】</strong> · 伊 · <strong>【塞因~】</strong></div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。</p></div><div class="actions"><button class="play-btn" data-play="062" data-rate="1" type="button" aria-label="听读 mil e cem">▶ 听读</button><button class="slow-btn" data-play="062" data-rate="0.78" type="button" aria-label="慢读 mil e cem">▷ 慢读</button></div></article>
+<article class="entry" id="entry-063" data-id="063" data-section="s05" data-group="" data-search="063 1 200｜一千二百 mil e duzentos 【米l】 · 伊 · 杜-【zen~】-图sh    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。 zen~ 中的 z 是声带振动的 s，不是汉语“资”的塞擦起音；最后 s 的实现随口音和连读变化。">
+<div class="badge">№ 063</div><h4>1 200｜一千二百</h4>
+<p class="ptxt" lang="pt">mil e duzentos</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【米l】</strong> · 伊 · 杜-<strong>【zen~】</strong>-图sh</div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。 zen~ 中的 z 是声带振动的 s，不是汉语“资”的塞擦起音；最后 s 的实现随口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="063" data-rate="1" type="button" aria-label="听读 mil e duzentos">▶ 听读</button><button class="slow-btn" data-play="063" data-rate="0.78" type="button" aria-label="慢读 mil e duzentos">▷ 慢读</button></div></article>
+<article class="entry" id="entry-064" data-id="064" data-section="s05" data-group="" data-search="064 1 500｜一千五百 mil e quinhentos 【米l】 · 伊 · ki-【涅~】-图sh    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。 qui-nhen-tos 共三个音节；ki 用 k 起音，不是汉语“基”的 j；nh 连成一个鼻音，别拆成“尼、耶、恩”三拍。">
+<div class="badge">№ 064</div><h4>1 500｜一千五百</h4>
+<p class="ptxt" lang="pt">mil e quinhentos</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【米l】</strong> · 伊 · ki-<strong>【涅~】</strong>-图sh</div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。 qui-nhen-tos 共三个音节；ki 用 k 起音，不是汉语“基”的 j；nh 连成一个鼻音，别拆成“尼、耶、恩”三拍。</p></div><div class="actions"><button class="play-btn" data-play="064" data-rate="1" type="button" aria-label="听读 mil e quinhentos">▶ 听读</button><button class="slow-btn" data-play="064" data-rate="0.78" type="button" aria-label="慢读 mil e quinhentos">▷ 慢读</button></div></article>
+<article class="entry" id="entry-065" data-id="065" data-section="s05" data-group="" data-search="065 2 500｜两千五百 dois mil e quinhentos 【多伊】sh · 【米l】 · 伊 · ki-【涅~】-图sh    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。 qui-nhen-tos 共三个音节；ki 用 k 起音，不是汉语“基”的 j；nh 连成一个鼻音，别拆成“尼、耶、恩”三拍。">
+<div class="badge">№ 065</div><h4>2 500｜两千五百</h4>
+<p class="ptxt" lang="pt">dois mil e quinhentos</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【多伊】</strong>sh · <strong>【米l】</strong> · 伊 · ki-<strong>【涅~】</strong>-图sh</div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。 qui-nhen-tos 共三个音节；ki 用 k 起音，不是汉语“基”的 j；nh 连成一个鼻音，别拆成“尼、耶、恩”三拍。</p></div><div class="actions"><button class="play-btn" data-play="065" data-rate="1" type="button" aria-label="听读 dois mil e quinhentos">▶ 听读</button><button class="slow-btn" data-play="065" data-rate="0.78" type="button" aria-label="慢读 dois mil e quinhentos">▷ 慢读</button></div></article>
+<article class="entry" id="entry-066" data-id="066" data-section="s05" data-group="" data-search="066 10 001｜一万零一 dez mil e um 【戴】sh · 【米l】 · 伊 · 【乌~】    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。">
+<div class="badge">№ 066</div><h4>10 001｜一万零一</h4>
+<p class="ptxt" lang="pt">dez mil e um</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【戴】</strong>sh · <strong>【米l】</strong> · 伊 · <strong>【乌~】</strong></div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。</p></div><div class="actions"><button class="play-btn" data-play="066" data-rate="1" type="button" aria-label="听读 dez mil e um">▶ 听读</button><button class="slow-btn" data-play="066" data-rate="0.78" type="button" aria-label="慢读 dez mil e um">▷ 慢读</button></div></article>
+<article class="entry" id="entry-067" data-id="067" data-section="s05" data-group="" data-search="067 2,5｜二点五 dois vírgula cinco 【多伊】sh · 【维(v)r】-古-拉 · 【辛~】-库    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。 用法：葡语常用逗号表示小数；vírgula 是“逗号”。">
+<div class="badge">№ 067</div><h4>2,5｜二点五</h4>
+<p class="ptxt" lang="pt">dois vírgula cinco</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【多伊】</strong>sh · <strong>【维(v)r】</strong>-古-拉 · <strong>【辛~】</strong>-库</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p><p>用法：葡语常用逗号表示小数；vírgula 是“逗号”。</p></div><div class="actions"><button class="play-btn" data-play="067" data-rate="1" type="button" aria-label="听读 dois vírgula cinco">▶ 听读</button><button class="slow-btn" data-play="067" data-rate="0.78" type="button" aria-label="慢读 dois vírgula cinco">▷ 慢读</button></div></article>
+</div>
+</section>
+<section class="chapter" id="s06"><div class="chapter-heading"><div class="chapter-number">06</div><div><h2>见面与礼貌</h2><p class="subtitle" lang="pt">Cumprimentos e cortesia</p></div></div><p class="lead">先学会问好、请、谢谢和对不起。感谢用语按说话者区分：爸爸 obrigado；妈妈 obrigada。</p>
+<div class="cards"><article class="entry" id="entry-068" data-id="068" data-section="s06" data-group="" data-search="068 你好 Olá. 乌-【拉】    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 068</div><h4>你好</h4>
+<p class="ptxt" lang="pt">Olá.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>乌-<strong>【拉】</strong></div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="068" data-rate="1" type="button" aria-label="听读 Olá.">▶ 听读</button><button class="slow-btn" data-play="068" data-rate="0.78" type="button" aria-label="慢读 Olá.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-069" data-id="069" data-section="s06" data-group="" data-search="069 早上好／日安 Bom dia. 【波~】 · 【迪】-阿    口型提示：此稿给出不把 d 改写成“吉”的分音节练法；不是断言莫桑所有地区都没有其他 d/t 变体。">
+<div class="badge">№ 069</div><h4>早上好／日安</h4>
+<p class="ptxt" lang="pt">Bom dia.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【波~】</strong> · <strong>【迪】</strong>-阿</div>
+<div class="notes"><p>口型提示：此稿给出不把 d 改写成“吉”的分音节练法；不是断言莫桑所有地区都没有其他 d/t 变体。</p></div><div class="actions"><button class="play-btn" data-play="069" data-rate="1" type="button" aria-label="听读 Bom dia.">▶ 听读</button><button class="slow-btn" data-play="069" data-rate="0.78" type="button" aria-label="慢读 Bom dia.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-070" data-id="070" data-section="s06" data-group="" data-search="070 下午好 Boa tarde. 【波】-阿 · 【塔r】-迪(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 070</div><h4>下午好</h4>
+<p class="ptxt" lang="pt">Boa tarde.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【波】</strong>-阿 · <strong>【塔r】</strong>-迪(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="070" data-rate="1" type="button" aria-label="听读 Boa tarde.">▶ 听读</button><button class="slow-btn" data-play="070" data-rate="0.78" type="button" aria-label="慢读 Boa tarde.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-071" data-id="071" data-section="s06" data-group="" data-search="071 晚上好／晚安 Boa noite. 【波】-阿 · 【诺伊】-提(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 071</div><h4>晚上好／晚安</h4>
+<p class="ptxt" lang="pt">Boa noite.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【波】</strong>-阿 · <strong>【诺伊】</strong>-提(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="071" data-rate="1" type="button" aria-label="听读 Boa noite.">▶ 听读</button><button class="slow-btn" data-play="071" data-rate="0.78" type="button" aria-label="慢读 Boa noite.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-072" data-id="072" data-section="s06" data-group="" data-search="072 谢谢｜男性说 Obrigado. 乌-布里-【嘎】-杜    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。 用法：爸爸表达感谢可用。">
+<div class="badge">№ 072</div><h4>谢谢｜男性说</h4>
+<p class="ptxt" lang="pt">Obrigado.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>乌-布里-<strong>【嘎】</strong>-杜</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p><p>用法：爸爸表达感谢可用。</p></div><div class="actions"><button class="play-btn" data-play="072" data-rate="1" type="button" aria-label="听读 Obrigado.">▶ 听读</button><button class="slow-btn" data-play="072" data-rate="0.78" type="button" aria-label="慢读 Obrigado.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-073" data-id="073" data-section="s06" data-group="" data-search="073 谢谢｜女性说 Obrigada. 乌-布里-【嘎】-达    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。 用法：妈妈表达感谢可用。">
+<div class="badge">№ 073</div><h4>谢谢｜女性说</h4>
+<p class="ptxt" lang="pt">Obrigada.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>乌-布里-<strong>【嘎】</strong>-达</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p><p>用法：妈妈表达感谢可用。</p></div><div class="actions"><button class="play-btn" data-play="073" data-rate="1" type="button" aria-label="听读 Obrigada.">▶ 听读</button><button class="slow-btn" data-play="073" data-rate="0.78" type="button" aria-label="慢读 Obrigada.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-074" data-id="074" data-section="s06" data-group="" data-search="074 请／麻烦您 Por favor. 普r · 法-【沃(v)r】    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 074</div><h4>请／麻烦您</h4>
+<p class="ptxt" lang="pt">Por favor.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>普r · 法-<strong>【沃(v)r】</strong></div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="074" data-rate="1" type="button" aria-label="听读 Por favor.">▶ 听读</button><button class="slow-btn" data-play="074" data-rate="0.78" type="button" aria-label="慢读 Por favor.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-075" data-id="075" data-section="s06" data-group="" data-search="075 不客气 De nada. 迪(轻) · 【娜】-达    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 075</div><h4>不客气</h4>
+<p class="ptxt" lang="pt">De nada.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>迪(轻) · <strong>【娜】</strong>-达</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="075" data-rate="1" type="button" aria-label="听读 De nada.">▶ 听读</button><button class="slow-btn" data-play="075" data-rate="0.78" type="button" aria-label="慢读 De nada.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-076" data-id="076" data-section="s06" data-group="" data-search="076 对不起 Desculpe. 迪sh-【库l】-皮(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 076</div><h4>对不起</h4>
+<p class="ptxt" lang="pt">Desculpe.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>迪sh-<strong>【库l】</strong>-皮(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="076" data-rate="1" type="button" aria-label="听读 Desculpe.">▶ 听读</button><button class="slow-btn" data-play="076" data-rate="0.78" type="button" aria-label="慢读 Desculpe.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-077" data-id="077" data-section="s06" data-group="" data-search="077 劳驾／借过 Com licença. 孔~ · 利-【森~】-萨    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 077</div><h4>劳驾／借过</h4>
+<p class="ptxt" lang="pt">Com licença.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>孔~ · 利-<strong>【森~】</strong>-萨</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="077" data-rate="1" type="button" aria-label="听读 Com licença.">▶ 听读</button><button class="slow-btn" data-play="077" data-rate="0.78" type="button" aria-label="慢读 Com licença.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-078" data-id="078" data-section="s06" data-group="" data-search="078 是／对 Sim. 【辛~】    口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。">
+<div class="badge">№ 078</div><h4>是／对</h4>
+<p class="ptxt" lang="pt">Sim.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【辛~】</strong></div>
+<div class="notes"><p>口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。</p></div><div class="actions"><button class="play-btn" data-play="078" data-rate="1" type="button" aria-label="听读 Sim.">▶ 听读</button><button class="slow-btn" data-play="078" data-rate="0.78" type="button" aria-label="慢读 Sim.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-079" data-id="079" data-section="s06" data-group="" data-search="079 不／不是 Não. 【瑙乌~】    口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。">
+<div class="badge">№ 079</div><h4>不／不是</h4>
+<p class="ptxt" lang="pt">Não.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【瑙乌~】</strong></div>
+<div class="notes"><p>口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。</p></div><div class="actions"><button class="play-btn" data-play="079" data-rate="1" type="button" aria-label="听读 Não.">▶ 听读</button><button class="slow-btn" data-play="079" data-rate="0.78" type="button" aria-label="慢读 Não.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-080" data-id="080" data-section="s06" data-group="" data-search="080 回头见 Até logo. 阿-【泰】 · 【洛】-古    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 080</div><h4>回头见</h4>
+<p class="ptxt" lang="pt">Até logo.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>阿-<strong>【泰】</strong> · <strong>【洛】</strong>-古</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="080" data-rate="1" type="button" aria-label="听读 Até logo.">▶ 听读</button><button class="slow-btn" data-play="080" data-rate="0.78" type="button" aria-label="慢读 Até logo.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-081" data-id="081" data-section="s06" data-group="" data-search="081 你好吗？／还好吗？ Tudo bem? 【图】-杜 · 【贝因~】    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 081</div><h4>你好吗？／还好吗？</h4>
+<p class="ptxt" lang="pt">Tudo bem?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【图】</strong>-杜 · <strong>【贝因~】</strong></div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="081" data-rate="1" type="button" aria-label="听读 Tudo bem?">▶ 听读</button><button class="slow-btn" data-play="081" data-rate="0.78" type="button" aria-label="慢读 Tudo bem?">▷ 慢读</button></div></article>
+</div>
+</section>
+<section class="chapter" id="s07"><div class="chapter-heading"><div class="chapter-number">07</div><div><h2>听不懂时怎么说</h2><p class="subtitle" lang="pt">Para facilitar a comunicação</p></div></div><p class="lead">每句尽量简短。听不懂时，让对方慢说、重复、写出来或指给你看。</p>
+<div class="cards"><article class="entry" id="entry-082" data-id="082" data-section="s07" data-group="" data-search="082 我不会说葡萄牙语 Não falo português. 【瑙乌~】 · 【法】-鲁 · 普r-图-【盖】sh    口型提示：末尾 sh 只提示一种常见练习读法；当地人的 s 音与连读可不同，不将它当作全国唯一形式。">
+<div class="badge">№ 082</div><h4>我不会说葡萄牙语</h4>
+<p class="ptxt" lang="pt">Não falo português.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【瑙乌~】</strong> · <strong>【法】</strong>-鲁 · 普r-图-<strong>【盖】</strong>sh</div>
+<div class="notes"><p>口型提示：末尾 sh 只提示一种常见练习读法；当地人的 s 音与连读可不同，不将它当作全国唯一形式。</p></div><div class="actions"><button class="play-btn" data-play="082" data-rate="1" type="button" aria-label="听读 Não falo português.">▶ 听读</button><button class="slow-btn" data-play="082" data-rate="0.78" type="button" aria-label="慢读 Não falo português.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-083" data-id="083" data-section="s07" data-group="" data-search="083 我说中文 Falo chinês. 【法】-鲁 · 希-【内】sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 083</div><h4>我说中文</h4>
+<p class="ptxt" lang="pt">Falo chinês.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【法】</strong>-鲁 · 希-<strong>【内】</strong>sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="083" data-rate="1" type="button" aria-label="听读 Falo chinês.">▶ 听读</button><button class="slow-btn" data-play="083" data-rate="0.78" type="button" aria-label="慢读 Falo chinês.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-084" data-id="084" data-section="s07" data-group="" data-search="084 能说慢一点吗？ Pode falar mais devagar? 【波】-迪(轻) · 法-【拉r】 · 【马伊】sh · 迪-瓦(v)-【嘎r】    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 084</div><h4>能说慢一点吗？</h4>
+<p class="ptxt" lang="pt">Pode falar mais devagar?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【波】</strong>-迪(轻) · 法-<strong>【拉r】</strong> · <strong>【马伊】</strong>sh · 迪-瓦(v)-<strong>【嘎r】</strong></div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="084" data-rate="1" type="button" aria-label="听读 Pode falar mais devagar?">▶ 听读</button><button class="slow-btn" data-play="084" data-rate="0.78" type="button" aria-label="慢读 Pode falar mais devagar?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-085" data-id="085" data-section="s07" data-group="" data-search="085 请再说一遍 Pode repetir, por favor? 【波】-迪(轻) · ri-佩-【提r】 · 普r · 法-【沃(v)r】    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 085</div><h4>请再说一遍</h4>
+<p class="ptxt" lang="pt">Pode repetir, por favor?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【波】</strong>-迪(轻) · ri-佩-<strong>【提r】</strong> · 普r · 法-<strong>【沃(v)r】</strong></div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="085" data-rate="1" type="button" aria-label="听读 Pode repetir, por favor?">▶ 听读</button><button class="slow-btn" data-play="085" data-rate="0.78" type="button" aria-label="慢读 Pode repetir, por favor?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-086" data-id="086" data-section="s07" data-group="" data-search="086 我没听懂 Não percebi. 【瑙乌~】 · 佩r-塞-【比】    口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。">
+<div class="badge">№ 086</div><h4>我没听懂</h4>
+<p class="ptxt" lang="pt">Não percebi.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【瑙乌~】</strong> · 佩r-塞-<strong>【比】</strong></div>
+<div class="notes"><p>口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。</p></div><div class="actions"><button class="play-btn" data-play="086" data-rate="1" type="button" aria-label="听读 Não percebi.">▶ 听读</button><button class="slow-btn" data-play="086" data-rate="0.78" type="button" aria-label="慢读 Não percebi.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-087" data-id="087" data-section="s07" data-group="" data-search="087 我听懂了 Percebi. 佩r-塞-【比】    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 087</div><h4>我听懂了</h4>
+<p class="ptxt" lang="pt">Percebi.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>佩r-塞-<strong>【比】</strong></div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="087" data-rate="1" type="button" aria-label="听读 Percebi.">▶ 听读</button><button class="slow-btn" data-play="087" data-rate="0.78" type="button" aria-label="慢读 Percebi.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-088" data-id="088" data-section="s07" data-group="" data-search="088 请写下来 Pode escrever, por favor? 【波】-迪(轻) · 伊sh-克里-【维(v)r】 · 普r · 法-【沃(v)r】    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 088</div><h4>请写下来</h4>
+<p class="ptxt" lang="pt">Pode escrever, por favor?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【波】</strong>-迪(轻) · 伊sh-克里-<strong>【维(v)r】</strong> · 普r · 法-<strong>【沃(v)r】</strong></div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="088" data-rate="1" type="button" aria-label="听读 Pode escrever, por favor?">▶ 听读</button><button class="slow-btn" data-play="088" data-rate="0.78" type="button" aria-label="慢读 Pode escrever, por favor?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-089" data-id="089" data-section="s07" data-group="" data-search="089 能在地图上指给我看吗？ Pode mostrar no mapa? 【波】-迪(轻) · 穆sh-【特拉r】 · 努 · 【马】-帕    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 089</div><h4>能在地图上指给我看吗？</h4>
+<p class="ptxt" lang="pt">Pode mostrar no mapa?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【波】</strong>-迪(轻) · 穆sh-<strong>【特拉r】</strong> · 努 · <strong>【马】</strong>-帕</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="089" data-rate="1" type="button" aria-label="听读 Pode mostrar no mapa?">▶ 听读</button><button class="slow-btn" data-play="089" data-rate="0.78" type="button" aria-label="慢读 Pode mostrar no mapa?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-090" data-id="090" data-section="s07" data-group="" data-search="090 这个用葡语怎么说？ Como se diz isto em português? 【科】-穆 · 西(轻) · 【迪】sh · 【伊】sh-图 · 因~ · 普r-图-【盖】sh    口型提示：末尾 sh 只提示一种常见练习读法；当地人的 s 音与连读可不同，不将它当作全国唯一形式。">
+<div class="badge">№ 090</div><h4>这个用葡语怎么说？</h4>
+<p class="ptxt" lang="pt">Como se diz isto em português?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【科】</strong>-穆 · 西(轻) · <strong>【迪】</strong>sh · <strong>【伊】</strong>sh-图 · 因~ · 普r-图-<strong>【盖】</strong>sh</div>
+<div class="notes"><p>口型提示：末尾 sh 只提示一种常见练习读法；当地人的 s 音与连读可不同，不将它当作全国唯一形式。</p></div><div class="actions"><button class="play-btn" data-play="090" data-rate="1" type="button" aria-label="听读 Como se diz isto em português?">▶ 听读</button><button class="slow-btn" data-play="090" data-rate="0.78" type="button" aria-label="慢读 Como se diz isto em português?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-091" data-id="091" data-section="s07" data-group="" data-search="091 请等一下 Espere um momento, por favor. 伊sh-【佩】-ri(轻) · 【乌~】 · 穆-【门~】-图 · 普r · 法-【沃(v)r】    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 091</div><h4>请等一下</h4>
+<p class="ptxt" lang="pt">Espere um momento, por favor.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>伊sh-<strong>【佩】</strong>-ri(轻) · <strong>【乌~】</strong> · 穆-<strong>【门~】</strong>-图 · 普r · 法-<strong>【沃(v)r】</strong></div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="091" data-rate="1" type="button" aria-label="听读 Espere um momento, por favor.">▶ 听读</button><button class="slow-btn" data-play="091" data-rate="0.78" type="button" aria-label="慢读 Espere um momento, por favor.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-092" data-id="092" data-section="s07" data-group="" data-search="092 您能帮我吗？ Pode ajudar-me? 【波】-迪(轻) · 阿-茹-【达r】·米    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 092</div><h4>您能帮我吗？</h4>
+<p class="ptxt" lang="pt">Pode ajudar-me?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【波】</strong>-迪(轻) · 阿-茹-<strong>【达r】</strong>·米</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="092" data-rate="1" type="button" aria-label="听读 Pode ajudar-me?">▶ 听读</button><button class="slow-btn" data-play="092" data-rate="0.78" type="button" aria-label="慢读 Pode ajudar-me?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-093" data-id="093" data-section="s07" data-group="" data-search="093 我来自中国 Sou da China. 【索乌】 · 达 · 【希】-娜    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 093</div><h4>我来自中国</h4>
+<p class="ptxt" lang="pt">Sou da China.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【索乌】</strong> · 达 · <strong>【希】</strong>-娜</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="093" data-rate="1" type="button" aria-label="听读 Sou da China.">▶ 听读</button><button class="slow-btn" data-play="093" data-rate="0.78" type="button" aria-label="慢读 Sou da China.">▷ 慢读</button></div></article>
+</div>
+</section>
+<section class="chapter" id="s08"><div class="chapter-heading"><div class="chapter-number">08</div><div><h2>买东西与付款</h2><p class="subtitle" lang="pt">Compras e pagamentos</p></div></div><p class="lead">先确认总价、币种与找零。以下只是语言示例，不代表商家一定接受银行卡。</p>
+<div class="cards"><article class="entry" id="entry-094" data-id="094" data-section="s08" data-group="" data-search="094 多少钱？ Quanto custa? 【宽~】-图 · 【库】sh-塔    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 094</div><h4>多少钱？</h4>
+<p class="ptxt" lang="pt">Quanto custa?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【宽~】</strong>-图 · <strong>【库】</strong>sh-塔</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="094" data-rate="1" type="button" aria-label="听读 Quanto custa?">▶ 听读</button><button class="slow-btn" data-play="094" data-rate="0.78" type="button" aria-label="慢读 Quanto custa?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-095" data-id="095" data-section="s08" data-group="" data-search="095 总共多少钱？ Quanto é tudo? 【宽~】-图 · 【艾】 · 【图】-杜    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 095</div><h4>总共多少钱？</h4>
+<p class="ptxt" lang="pt">Quanto é tudo?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【宽~】</strong>-图 · <strong>【艾】</strong> · <strong>【图】</strong>-杜</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="095" data-rate="1" type="button" aria-label="听读 Quanto é tudo?">▶ 听读</button><button class="slow-btn" data-play="095" data-rate="0.78" type="button" aria-label="慢读 Quanto é tudo?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-096" data-id="096" data-section="s08" data-group="" data-search="096 太贵了 Está muito caro. 伊sh-【塔】 · 【穆因~】-图 · 【卡】-ru    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 096</div><h4>太贵了</h4>
+<p class="ptxt" lang="pt">Está muito caro.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>伊sh-<strong>【塔】</strong> · <strong>【穆因~】</strong>-图 · <strong>【卡】</strong>-ru</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="096" data-rate="1" type="button" aria-label="听读 Está muito caro.">▶ 听读</button><button class="slow-btn" data-play="096" data-rate="0.78" type="button" aria-label="慢读 Está muito caro.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-097" data-id="097" data-section="s08" data-group="" data-search="097 能便宜一点吗？ Pode fazer um desconto? 【波】-迪(轻) · 法-【泽r】 · 【乌~】 · 迪sh-【孔~】-图    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 097</div><h4>能便宜一点吗？</h4>
+<p class="ptxt" lang="pt">Pode fazer um desconto?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【波】</strong>-迪(轻) · 法-<strong>【泽r】</strong> · <strong>【乌~】</strong> · 迪sh-<strong>【孔~】</strong>-图</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="097" data-rate="1" type="button" aria-label="听读 Pode fazer um desconto?">▶ 听读</button><button class="slow-btn" data-play="097" data-rate="0.78" type="button" aria-label="慢读 Pode fazer um desconto?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-098" data-id="098" data-section="s08" data-group="" data-search="098 我要这个 Quero este. 【凯】-ru · 【艾】sh-提(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。 用法：配合指向物品使用。">
+<div class="badge">№ 098</div><h4>我要这个</h4>
+<p class="ptxt" lang="pt">Quero este.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【凯】</strong>-ru · <strong>【艾】</strong>sh-提(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p><p>用法：配合指向物品使用。</p></div><div class="actions"><button class="play-btn" data-play="098" data-rate="1" type="button" aria-label="听读 Quero este.">▶ 听读</button><button class="slow-btn" data-play="098" data-rate="0.78" type="button" aria-label="慢读 Quero este.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-099" data-id="099" data-section="s08" data-group="" data-search="099 我要一瓶水 Quero uma garrafa de água. 【凯】-ru · 【乌】-马 · 嘎-【ra】-法 · 迪(轻) · 【阿】-瓜    口型提示：rr 不宜固定写成中文“胡”；舌尖颤音或其他强 r 实现应跟具体当地说话者确认。 用法：garrafa 为阴性，所以是一瓶 uma。">
+<div class="badge">№ 099</div><h4>我要一瓶水</h4>
+<p class="ptxt" lang="pt">Quero uma garrafa de água.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【凯】</strong>-ru · <strong>【乌】</strong>-马 · 嘎-<strong>【ra】</strong>-法 · 迪(轻) · <strong>【阿】</strong>-瓜</div>
+<div class="notes"><p>口型提示：rr 不宜固定写成中文“胡”；舌尖颤音或其他强 r 实现应跟具体当地说话者确认。</p><p>用法：garrafa 为阴性，所以是一瓶 uma。</p></div><div class="actions"><button class="play-btn" data-play="099" data-rate="1" type="button" aria-label="听读 Quero uma garrafa de água.">▶ 听读</button><button class="slow-btn" data-play="099" data-rate="0.78" type="button" aria-label="慢读 Quero uma garrafa de água.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-100" data-id="100" data-section="s08" data-group="" data-search="100 我要两瓶水 Quero duas garrafas de água. 【凯】-ru · 【杜】-阿sh · 嘎-【ra】-法sh · 迪(轻) · 【阿】-瓜    口型提示：rr 的当地读法待核对；不要把这里的 ra 念成英文字母名。 用法：两瓶用 duas，不用 dois。">
+<div class="badge">№ 100</div><h4>我要两瓶水</h4>
+<p class="ptxt" lang="pt">Quero duas garrafas de água.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【凯】</strong>-ru · <strong>【杜】</strong>-阿sh · 嘎-<strong>【ra】</strong>-法sh · 迪(轻) · <strong>【阿】</strong>-瓜</div>
+<div class="notes"><p>口型提示：rr 的当地读法待核对；不要把这里的 ra 念成英文字母名。</p><p>用法：两瓶用 duas，不用 dois。</p></div><div class="actions"><button class="play-btn" data-play="100" data-rate="1" type="button" aria-label="听读 Quero duas garrafas de água.">▶ 听读</button><button class="slow-btn" data-play="100" data-rate="0.78" type="button" aria-label="慢读 Quero duas garrafas de água.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-101" data-id="101" data-section="s08" data-group="" data-search="101 请给我一公斤 Um quilo, por favor. 【乌~】 · 【ki】-鲁 · 普r · 法-【沃(v)r】    口型提示：ki 用 k 接 i 连读；这里的 l 是普通 l，不是 r。">
+<div class="badge">№ 101</div><h4>请给我一公斤</h4>
+<p class="ptxt" lang="pt">Um quilo, por favor.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【乌~】</strong> · <strong>【ki】</strong>-鲁 · 普r · 法-<strong>【沃(v)r】</strong></div>
+<div class="notes"><p>口型提示：ki 用 k 接 i 连读；这里的 l 是普通 l，不是 r。</p></div><div class="actions"><button class="play-btn" data-play="101" data-rate="1" type="button" aria-label="听读 Um quilo, por favor.">▶ 听读</button><button class="slow-btn" data-play="101" data-rate="0.78" type="button" aria-label="慢读 Um quilo, por favor.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-102" data-id="102" data-section="s08" data-group="" data-search="102 请给我半公斤 Meio quilo, por favor. 【梅伊】-乌 · 【ki】-鲁 · 普r · 法-【沃(v)r】    口型提示：ki 用 k 接 i 连读；这里的 l 是普通 l，不是 r。">
+<div class="badge">№ 102</div><h4>请给我半公斤</h4>
+<p class="ptxt" lang="pt">Meio quilo, por favor.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【梅伊】</strong>-乌 · <strong>【ki】</strong>-鲁 · 普r · 法-<strong>【沃(v)r】</strong></div>
+<div class="notes"><p>口型提示：ki 用 k 接 i 连读；这里的 l 是普通 l，不是 r。</p></div><div class="actions"><button class="play-btn" data-play="102" data-rate="1" type="button" aria-label="听读 Meio quilo, por favor.">▶ 听读</button><button class="slow-btn" data-play="102" data-rate="0.78" type="button" aria-label="慢读 Meio quilo, por favor.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-103" data-id="103" data-section="s08" data-group="" data-search="103 有零钱找吗？ Tem troco? 【泰因~】 · 【特洛】-库    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 103</div><h4>有零钱找吗？</h4>
+<p class="ptxt" lang="pt">Tem troco?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【泰因~】</strong> · <strong>【特洛】</strong>-库</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="103" data-rate="1" type="button" aria-label="听读 Tem troco?">▶ 听读</button><button class="slow-btn" data-play="103" data-rate="0.78" type="button" aria-label="慢读 Tem troco?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-104" data-id="104" data-section="s08" data-group="" data-search="104 可以刷卡吗？ Posso pagar com cartão? 【波】-苏 · 帕-【嘎r】 · 孔~ · 卡r-【套乌~】    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 104</div><h4>可以刷卡吗？</h4>
+<p class="ptxt" lang="pt">Posso pagar com cartão?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【波】</strong>-苏 · 帕-<strong>【嘎r】</strong> · 孔~ · 卡r-<strong>【套乌~】</strong></div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="104" data-rate="1" type="button" aria-label="听读 Posso pagar com cartão?">▶ 听读</button><button class="slow-btn" data-play="104" data-rate="0.78" type="button" aria-label="慢读 Posso pagar com cartão?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-105" data-id="105" data-section="s08" data-group="" data-search="105 我用现金付款 Vou pagar em dinheiro. 【沃乌(v)】 · 帕-【嘎r】 · 因~ · 迪-【涅伊】-ru    口型提示：nh 不是普通 n；“涅伊”连成一个带滑动的音节，末尾 r 不用汉语 l 替代。">
+<div class="badge">№ 105</div><h4>我用现金付款</h4>
+<p class="ptxt" lang="pt">Vou pagar em dinheiro.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【沃乌(v)】</strong> · 帕-<strong>【嘎r】</strong> · 因~ · 迪-<strong>【涅伊】</strong>-ru</div>
+<div class="notes"><p>口型提示：nh 不是普通 n；“涅伊”连成一个带滑动的音节，末尾 r 不用汉语 l 替代。</p></div><div class="actions"><button class="play-btn" data-play="105" data-rate="1" type="button" aria-label="听读 Vou pagar em dinheiro.">▶ 听读</button><button class="slow-btn" data-play="105" data-rate="0.78" type="button" aria-label="慢读 Vou pagar em dinheiro.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-106" data-id="106" data-section="s08" data-group="" data-search="106 请给我收据 Quero o recibo, por favor. 【凯】-ru · 乌 · ri-【西】-布 · 普r · 法-【沃(v)r】    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 106</div><h4>请给我收据</h4>
+<p class="ptxt" lang="pt">Quero o recibo, por favor.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【凯】</strong>-ru · 乌 · ri-<strong>【西】</strong>-布 · 普r · 法-<strong>【沃(v)r】</strong></div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="106" data-rate="1" type="button" aria-label="听读 Quero o recibo, por favor.">▶ 听读</button><button class="slow-btn" data-play="106" data-rate="0.78" type="button" aria-label="慢读 Quero o recibo, por favor.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-107" data-id="107" data-section="s08" data-group="" data-search="107 不用了，谢谢｜男性说 Não quero, obrigado. 【瑙乌~】 · 【凯】-ru · 乌-布里-【嘎】-杜    口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。">
+<div class="badge">№ 107</div><h4>不用了，谢谢｜男性说</h4>
+<p class="ptxt" lang="pt">Não quero, obrigado.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【瑙乌~】</strong> · <strong>【凯】</strong>-ru · 乌-布里-<strong>【嘎】</strong>-杜</div>
+<div class="notes"><p>口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。</p></div><div class="actions"><button class="play-btn" data-play="107" data-rate="1" type="button" aria-label="听读 Não quero, obrigado.">▶ 听读</button><button class="slow-btn" data-play="107" data-rate="0.78" type="button" aria-label="慢读 Não quero, obrigado.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-108" data-id="108" data-section="s08" data-group="" data-search="108 不用了，谢谢｜女性说 Não quero, obrigada. 【瑙乌~】 · 【凯】-ru · 乌-布里-【嘎】-达    口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。">
+<div class="badge">№ 108</div><h4>不用了，谢谢｜女性说</h4>
+<p class="ptxt" lang="pt">Não quero, obrigada.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【瑙乌~】</strong> · <strong>【凯】</strong>-ru · 乌-布里-<strong>【嘎】</strong>-达</div>
+<div class="notes"><p>口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。</p></div><div class="actions"><button class="play-btn" data-play="108" data-rate="1" type="button" aria-label="听读 Não quero, obrigada.">▶ 听读</button><button class="slow-btn" data-play="108" data-rate="0.78" type="button" aria-label="慢读 Não quero, obrigada.">▷ 慢读</button></div></article>
+</div>
+</section>
+<section class="chapter" id="s09"><div class="chapter-heading"><div class="chapter-number">09</div><div><h2>当地金额与数量</h2><p class="subtitle" lang="pt">Valores em meticais</p></div></div><p class="lead">莫桑比克货币：单数 metical，复数 meticais。数字后直接接币名；整百万后接 de meticais。</p>
+<div class="cards"><article class="entry" id="entry-109" data-id="109" data-section="s09" data-group="" data-search="109 1 梅蒂卡尔 um metical 【乌~】 · 梅-提-【卡l】    口型提示：词尾是 l，不是 r；“卡l”收在同一音节，不加“尔”。">
+<div class="badge">№ 109</div><h4>1 梅蒂卡尔</h4>
+<p class="ptxt" lang="pt">um metical</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【乌~】</strong> · 梅-提-<strong>【卡l】</strong></div>
+<div class="notes"><p>口型提示：词尾是 l，不是 r；“卡l”收在同一音节，不加“尔”。</p></div><div class="actions"><button class="play-btn" data-play="109" data-rate="1" type="button" aria-label="听读 um metical">▶ 听读</button><button class="slow-btn" data-play="109" data-rate="0.78" type="button" aria-label="慢读 um metical">▷ 慢读</button></div></article>
+<article class="entry" id="entry-110" data-id="110" data-section="s09" data-group="" data-search="110 10 梅蒂卡尔 dez meticais 【戴】sh · 梅-提-【凯】sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 110</div><h4>10 梅蒂卡尔</h4>
+<p class="ptxt" lang="pt">dez meticais</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【戴】</strong>sh · 梅-提-<strong>【凯】</strong>sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="110" data-rate="1" type="button" aria-label="听读 dez meticais">▶ 听读</button><button class="slow-btn" data-play="110" data-rate="0.78" type="button" aria-label="慢读 dez meticais">▷ 慢读</button></div></article>
+<article class="entry" id="entry-111" data-id="111" data-section="s09" data-group="" data-search="111 100 梅蒂卡尔 cem meticais 【塞因~】 · 梅-提-【凯】sh    口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。">
+<div class="badge">№ 111</div><h4>100 梅蒂卡尔</h4>
+<p class="ptxt" lang="pt">cem meticais</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【塞因~】</strong> · 梅-提-<strong>【凯】</strong>sh</div>
+<div class="notes"><p>口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。</p></div><div class="actions"><button class="play-btn" data-play="111" data-rate="1" type="button" aria-label="听读 cem meticais">▶ 听读</button><button class="slow-btn" data-play="111" data-rate="0.78" type="button" aria-label="慢读 cem meticais">▷ 慢读</button></div></article>
+<article class="entry" id="entry-112" data-id="112" data-section="s09" data-group="" data-search="112 250 梅蒂卡尔 duzentos e cinquenta meticais 杜-【zen~】-图sh · 伊 · 辛~-【昆~】-塔 · 梅-提-【凯】sh    口型提示：zen~ 中的 z 是声带振动的 s，不是汉语“资”的塞擦起音；最后 s 的实现随口音和连读变化。">
+<div class="badge">№ 112</div><h4>250 梅蒂卡尔</h4>
+<p class="ptxt" lang="pt">duzentos e cinquenta meticais</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>杜-<strong>【zen~】</strong>-图sh · 伊 · 辛~-<strong>【昆~】</strong>-塔 · 梅-提-<strong>【凯】</strong>sh</div>
+<div class="notes"><p>口型提示：zen~ 中的 z 是声带振动的 s，不是汉语“资”的塞擦起音；最后 s 的实现随口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="112" data-rate="1" type="button" aria-label="听读 duzentos e cinquenta meticais">▶ 听读</button><button class="slow-btn" data-play="112" data-rate="0.78" type="button" aria-label="慢读 duzentos e cinquenta meticais">▷ 慢读</button></div></article>
+<article class="entry" id="entry-113" data-id="113" data-section="s09" data-group="" data-search="113 500 梅蒂卡尔 quinhentos meticais ki-【涅~】-图sh · 梅-提-【凯】sh    口型提示：qui-nhen-tos 共三个音节；ki 用 k 起音，不是汉语“基”的 j；nh 连成一个鼻音，别拆成“尼、耶、恩”三拍。">
+<div class="badge">№ 113</div><h4>500 梅蒂卡尔</h4>
+<p class="ptxt" lang="pt">quinhentos meticais</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>ki-<strong>【涅~】</strong>-图sh · 梅-提-<strong>【凯】</strong>sh</div>
+<div class="notes"><p>口型提示：qui-nhen-tos 共三个音节；ki 用 k 起音，不是汉语“基”的 j；nh 连成一个鼻音，别拆成“尼、耶、恩”三拍。</p></div><div class="actions"><button class="play-btn" data-play="113" data-rate="1" type="button" aria-label="听读 quinhentos meticais">▶ 听读</button><button class="slow-btn" data-play="113" data-rate="0.78" type="button" aria-label="慢读 quinhentos meticais">▷ 慢读</button></div></article>
+<article class="entry" id="entry-114" data-id="114" data-section="s09" data-group="" data-search="114 1 000 梅蒂卡尔 mil meticais 【米l】 · 梅-提-【凯】sh    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。">
+<div class="badge">№ 114</div><h4>1 000 梅蒂卡尔</h4>
+<p class="ptxt" lang="pt">mil meticais</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【米l】</strong> · 梅-提-<strong>【凯】</strong>sh</div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。</p></div><div class="actions"><button class="play-btn" data-play="114" data-rate="1" type="button" aria-label="听读 mil meticais">▶ 听读</button><button class="slow-btn" data-play="114" data-rate="0.78" type="button" aria-label="慢读 mil meticais">▷ 慢读</button></div></article>
+<article class="entry" id="entry-115" data-id="115" data-section="s09" data-group="" data-search="115 10 000 梅蒂卡尔 dez mil meticais 【戴】sh · 【米l】 · 梅-提-【凯】sh    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。">
+<div class="badge">№ 115</div><h4>10 000 梅蒂卡尔</h4>
+<p class="ptxt" lang="pt">dez mil meticais</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【戴】</strong>sh · <strong>【米l】</strong> · 梅-提-<strong>【凯】</strong>sh</div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。</p></div><div class="actions"><button class="play-btn" data-play="115" data-rate="1" type="button" aria-label="听读 dez mil meticais">▶ 听读</button><button class="slow-btn" data-play="115" data-rate="0.78" type="button" aria-label="慢读 dez mil meticais">▷ 慢读</button></div></article>
+<article class="entry" id="entry-116" data-id="116" data-section="s09" data-group="" data-search="116 100 000 梅蒂卡尔 cem mil meticais 【塞因~】 · 【米l】 · 梅-提-【凯】sh    口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。">
+<div class="badge">№ 116</div><h4>100 000 梅蒂卡尔</h4>
+<p class="ptxt" lang="pt">cem mil meticais</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【塞因~】</strong> · <strong>【米l】</strong> · 梅-提-<strong>【凯】</strong>sh</div>
+<div class="notes"><p>口型提示：l 是收尾辅音：舌尖靠上齿龈，不另读“尔／勒”。这里不把葡萄牙词典的音值当作莫桑全国标准。</p></div><div class="actions"><button class="play-btn" data-play="116" data-rate="1" type="button" aria-label="听读 cem mil meticais">▶ 听读</button><button class="slow-btn" data-play="116" data-rate="0.78" type="button" aria-label="慢读 cem mil meticais">▷ 慢读</button></div></article>
+<article class="entry" id="entry-117" data-id="117" data-section="s09" data-group="" data-search="117 1 000 000 梅蒂卡尔 um milhão de meticais 【乌~】 · 米-【良乌~】 · 迪(轻) · 梅-提-【凯】sh    口型提示：lh 要连成一个腭化边音；“良乌”只是很粗的近音。ão 鼻化滑动，不是“昂＋乌”两个独立音节。 用法：整百万修饰币名时有 de。">
+<div class="badge">№ 117</div><h4>1 000 000 梅蒂卡尔</h4>
+<p class="ptxt" lang="pt">um milhão de meticais</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【乌~】</strong> · 米-<strong>【良乌~】</strong> · 迪(轻) · 梅-提-<strong>【凯】</strong>sh</div>
+<div class="notes"><p>口型提示：lh 要连成一个腭化边音；“良乌”只是很粗的近音。ão 鼻化滑动，不是“昂＋乌”两个独立音节。</p><p>用法：整百万修饰币名时有 de。</p></div><div class="actions"><button class="play-btn" data-play="117" data-rate="1" type="button" aria-label="听读 um milhão de meticais">▶ 听读</button><button class="slow-btn" data-play="117" data-rate="0.78" type="button" aria-label="慢读 um milhão de meticais">▷ 慢读</button></div></article>
+<article class="entry" id="entry-118" data-id="118" data-section="s09" data-group="" data-search="118 两百瓶 duzentas garrafas 杜-【zen~】-塔sh · 嘎-【ra】-法sh    口型提示：zen~ 同 duzentos；阴性复数以 -as 结尾。 rr 的当地读法待核对；不要把这里的 ra 念成英文字母名。 用法：阴性复数 garrafas 要搭配 duzentas；不是 duzentos。">
+<div class="badge">№ 118</div><h4>两百瓶</h4>
+<p class="ptxt" lang="pt">duzentas garrafas</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>杜-<strong>【zen~】</strong>-塔sh · 嘎-<strong>【ra】</strong>-法sh</div>
+<div class="notes"><p>口型提示：zen~ 同 duzentos；阴性复数以 -as 结尾。 rr 的当地读法待核对；不要把这里的 ra 念成英文字母名。</p><p>用法：阴性复数 garrafas 要搭配 duzentas；不是 duzentos。</p></div><div class="actions"><button class="play-btn" data-play="118" data-rate="1" type="button" aria-label="听读 duzentas garrafas">▶ 听读</button><button class="slow-btn" data-play="118" data-rate="0.78" type="button" aria-label="慢读 duzentas garrafas">▷ 慢读</button></div></article>
+</div>
+</section>
+<section class="chapter" id="s10"><div class="chapter-heading"><div class="chapter-number">10</div><div><h2>吃饭与住宿</h2><p class="subtitle" lang="pt">Refeições e alojamento</p></div></div><p class="lead">需要时把整句出示给对方看。涉及食物过敏时，应另外写清具体食材，不要只用泛泛一句。</p>
+<div class="cards"><article class="entry" id="entry-119" data-id="119" data-section="s10" data-group="" data-search="119 请给我水 Quero água, por favor. 【凯】-ru · 【阿】-瓜 · 普r · 法-【沃(v)r】    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 119</div><h4>请给我水</h4>
+<p class="ptxt" lang="pt">Quero água, por favor.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【凯】</strong>-ru · <strong>【阿】</strong>-瓜 · 普r · 法-<strong>【沃(v)r】</strong></div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="119" data-rate="1" type="button" aria-label="听读 Quero água, por favor.">▶ 听读</button><button class="slow-btn" data-play="119" data-rate="0.78" type="button" aria-label="慢读 Quero água, por favor.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-120" data-id="120" data-section="s10" data-group="" data-search="120 请不要冰 Sem gelo, por favor. 【塞因~】 · 【热】-鲁 · 普r · 法-【沃(v)r】    口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。">
+<div class="badge">№ 120</div><h4>请不要冰</h4>
+<p class="ptxt" lang="pt">Sem gelo, por favor.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【塞因~】</strong> · <strong>【热】</strong>-鲁 · 普r · 法-<strong>【沃(v)r】</strong></div>
+<div class="notes"><p>口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。</p></div><div class="actions"><button class="play-btn" data-play="120" data-rate="1" type="button" aria-label="听读 Sem gelo, por favor.">▶ 听读</button><button class="slow-btn" data-play="120" data-rate="0.78" type="button" aria-label="慢读 Sem gelo, por favor.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-121" data-id="121" data-section="s10" data-group="" data-search="121 请不要糖 Sem açúcar, por favor. 【塞因~】 · 阿-【苏】-卡r · 普r · 法-【沃(v)r】    口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。">
+<div class="badge">№ 121</div><h4>请不要糖</h4>
+<p class="ptxt" lang="pt">Sem açúcar, por favor.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【塞因~】</strong> · 阿-<strong>【苏】</strong>-卡r · 普r · 法-<strong>【沃(v)r】</strong></div>
+<div class="notes"><p>口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。</p></div><div class="actions"><button class="play-btn" data-play="121" data-rate="1" type="button" aria-label="听读 Sem açúcar, por favor.">▶ 听读</button><button class="slow-btn" data-play="121" data-rate="0.78" type="button" aria-label="慢读 Sem açúcar, por favor.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-122" data-id="122" data-section="s10" data-group="" data-search="122 请不要辣 Sem picante, por favor. 【塞因~】 · 皮-【坎~】-提(轻) · 普r · 法-【沃(v)r】    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 122</div><h4>请不要辣</h4>
+<p class="ptxt" lang="pt">Sem picante, por favor.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【塞因~】</strong> · 皮-<strong>【坎~】</strong>-提(轻) · 普r · 法-<strong>【沃(v)r】</strong></div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="122" data-rate="1" type="button" aria-label="听读 Sem picante, por favor.">▶ 听读</button><button class="slow-btn" data-play="122" data-rate="0.78" type="button" aria-label="慢读 Sem picante, por favor.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-123" data-id="123" data-section="s10" data-group="" data-search="123 我不能吃这个 Não posso comer isto. 【瑙乌~】 · 【波】-苏 · 库-【梅r】 · 【伊】sh-图    口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。">
+<div class="badge">№ 123</div><h4>我不能吃这个</h4>
+<p class="ptxt" lang="pt">Não posso comer isto.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【瑙乌~】</strong> · <strong>【波】</strong>-苏 · 库-<strong>【梅r】</strong> · <strong>【伊】</strong>sh-图</div>
+<div class="notes"><p>口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。</p></div><div class="actions"><button class="play-btn" data-play="123" data-rate="1" type="button" aria-label="听读 Não posso comer isto.">▶ 听读</button><button class="slow-btn" data-play="123" data-rate="0.78" type="button" aria-label="慢读 Não posso comer isto.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-124" data-id="124" data-section="s10" data-group="" data-search="124 请结账 A conta, por favor. 阿 · 【孔~】-塔 · 普r · 法-【沃(v)r】    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 124</div><h4>请结账</h4>
+<p class="ptxt" lang="pt">A conta, por favor.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>阿 · <strong>【孔~】</strong>-塔 · 普r · 法-<strong>【沃(v)r】</strong></div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="124" data-rate="1" type="button" aria-label="听读 A conta, por favor.">▶ 听读</button><button class="slow-btn" data-play="124" data-rate="0.78" type="button" aria-label="慢读 A conta, por favor.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-125" data-id="125" data-section="s10" data-group="" data-search="125 洗手间在哪里？ Onde fica a casa de banho? 【翁~】-迪(轻) · 【菲】-卡 · 阿 · 【卡】-扎 · 迪(轻) · 【巴】-纽    口型提示：nh 是腭鼻音；“纽”仅为粗略近音。">
+<div class="badge">№ 125</div><h4>洗手间在哪里？</h4>
+<p class="ptxt" lang="pt">Onde fica a casa de banho?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【翁~】</strong>-迪(轻) · <strong>【菲】</strong>-卡 · 阿 · <strong>【卡】</strong>-扎 · 迪(轻) · <strong>【巴】</strong>-纽</div>
+<div class="notes"><p>口型提示：nh 是腭鼻音；“纽”仅为粗略近音。</p></div><div class="actions"><button class="play-btn" data-play="125" data-rate="1" type="button" aria-label="听读 Onde fica a casa de banho?">▶ 听读</button><button class="slow-btn" data-play="125" data-rate="0.78" type="button" aria-label="慢读 Onde fica a casa de banho?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-126" data-id="126" data-section="s10" data-group="" data-search="126 我有预订 Tenho uma reserva. 【泰】-纽 · 【乌】-马 · ri-【泽r】-瓦(v)    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 126</div><h4>我有预订</h4>
+<p class="ptxt" lang="pt">Tenho uma reserva.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【泰】</strong>-纽 · <strong>【乌】</strong>-马 · ri-<strong>【泽r】</strong>-瓦(v)</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="126" data-rate="1" type="button" aria-label="听读 Tenho uma reserva.">▶ 听读</button><button class="slow-btn" data-play="126" data-rate="0.78" type="button" aria-label="慢读 Tenho uma reserva.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-127" data-id="127" data-section="s10" data-group="" data-search="127 我需要一个房间 Preciso de um quarto. 普里-【西】-祖 · 迪(轻) · 【乌~】 · 【夸r】-图    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 127</div><h4>我需要一个房间</h4>
+<p class="ptxt" lang="pt">Preciso de um quarto.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>普里-<strong>【西】</strong>-祖 · 迪(轻) · <strong>【乌~】</strong> · <strong>【夸r】</strong>-图</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="127" data-rate="1" type="button" aria-label="听读 Preciso de um quarto.">▶ 听读</button><button class="slow-btn" data-play="127" data-rate="0.78" type="button" aria-label="慢读 Preciso de um quarto.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-128" data-id="128" data-section="s10" data-group="" data-search="128 没有热水 Não há água quente. 【瑙乌~】 · 【阿】 · 【阿】-瓜 · 【肯~】-提(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 128</div><h4>没有热水</h4>
+<p class="ptxt" lang="pt">Não há água quente.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【瑙乌~】</strong> · <strong>【阿】</strong> · <strong>【阿】</strong>-瓜 · <strong>【肯~】</strong>-提(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="128" data-rate="1" type="button" aria-label="听读 Não há água quente.">▶ 听读</button><button class="slow-btn" data-play="128" data-rate="0.78" type="button" aria-label="慢读 Não há água quente.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-129" data-id="129" data-section="s10" data-group="" data-search="129 空调不工作 O ar condicionado não funciona. 乌 · 【阿r】 · 孔~-迪-西乌-【娜】-杜 · 【瑙乌~】 · 丰~-西-【奥】-娜    口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。">
+<div class="badge">№ 129</div><h4>空调不工作</h4>
+<p class="ptxt" lang="pt">O ar condicionado não funciona.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>乌 · <strong>【阿r】</strong> · 孔~-迪-西乌-<strong>【娜】</strong>-杜 · <strong>【瑙乌~】</strong> · 丰~-西-<strong>【奥】</strong>-娜</div>
+<div class="notes"><p>口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。</p></div><div class="actions"><button class="play-btn" data-play="129" data-rate="1" type="button" aria-label="听读 O ar condicionado não funciona.">▶ 听读</button><button class="slow-btn" data-play="129" data-rate="0.78" type="button" aria-label="慢读 O ar condicionado não funciona.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-130" data-id="130" data-section="s10" data-group="" data-search="130 Wi-Fi密码是什么？ Qual é a senha do Wi-Fi? 【夸l】 · 【艾】 · 阿 · 【塞】-尼亚 · 杜 · 【外】-【法伊】    口型提示：Wi-Fi 可有不止一种读法；“外法伊”为常见借词读法提示，未核准莫桑某地区用法。 用法：senha 中 nh 近似连在一起的“尼耶”，不可按汉字逐字读。">
+<div class="badge">№ 130</div><h4>Wi-Fi密码是什么？</h4>
+<p class="ptxt" lang="pt">Qual é a senha do Wi-Fi?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【夸l】</strong> · <strong>【艾】</strong> · 阿 · <strong>【塞】</strong>-尼亚 · 杜 · <strong>【外】</strong>-<strong>【法伊】</strong></div>
+<div class="notes"><p>口型提示：Wi-Fi 可有不止一种读法；“外法伊”为常见借词读法提示，未核准莫桑某地区用法。</p><p>用法：senha 中 nh 近似连在一起的“尼耶”，不可按汉字逐字读。</p></div><div class="actions"><button class="play-btn" data-play="130" data-rate="1" type="button" aria-label="听读 Qual é a senha do Wi-Fi?">▶ 听读</button><button class="slow-btn" data-play="130" data-rate="0.78" type="button" aria-label="慢读 Qual é a senha do Wi-Fi?">▷ 慢读</button></div></article>
+</div>
+</section>
+<section class="chapter" id="s11"><div class="chapter-heading"><div class="chapter-number">11</div><div><h2>出行与方向</h2><p class="subtitle" lang="pt">Transportes e direções</p></div></div><p class="lead">上车前确认目的地和价格。地址保留葡语文字，最好同时给司机看定位。</p>
+<div class="cards"><article class="entry" id="entry-131" data-id="131" data-section="s11" data-group="" data-search="131 我要去这个地址 Quero ir para este endereço. 【凯】-ru · 【伊r】 · 【帕】-ra · 【艾】sh-提(轻) · 因~-迪-【雷】-苏    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 131</div><h4>我要去这个地址</h4>
+<p class="ptxt" lang="pt">Quero ir para este endereço.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【凯】</strong>-ru · <strong>【伊r】</strong> · <strong>【帕】</strong>-ra · <strong>【艾】</strong>sh-提(轻) · 因~-迪-<strong>【雷】</strong>-苏</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="131" data-rate="1" type="button" aria-label="听读 Quero ir para este endereço.">▶ 听读</button><button class="slow-btn" data-play="131" data-rate="0.78" type="button" aria-label="慢读 Quero ir para este endereço.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-132" data-id="132" data-section="s11" data-group="" data-search="132 这趟车多少钱？ Quanto custa a viagem? 【宽~】-图 · 【库】sh-塔 · 阿 · 维(v)-【阿】-热因~    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 132</div><h4>这趟车多少钱？</h4>
+<p class="ptxt" lang="pt">Quanto custa a viagem?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【宽~】</strong>-图 · <strong>【库】</strong>sh-塔 · 阿 · 维(v)-<strong>【阿】</strong>-热因~</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="132" data-rate="1" type="button" aria-label="听读 Quanto custa a viagem?">▶ 听读</button><button class="slow-btn" data-play="132" data-rate="0.78" type="button" aria-label="慢读 Quanto custa a viagem?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-133" data-id="133" data-section="s11" data-group="" data-search="133 请在这里停车 Pare aqui, por favor. 【帕】-ri(轻) · 阿-【ki】 · 普r · 法-【沃(v)r】    口型提示：ki 用 k 接 i 连读，不念字母名称，也不把 k 改成汉语“基”的 j。">
+<div class="badge">№ 133</div><h4>请在这里停车</h4>
+<p class="ptxt" lang="pt">Pare aqui, por favor.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【帕】</strong>-ri(轻) · 阿-<strong>【ki】</strong> · 普r · 法-<strong>【沃(v)r】</strong></div>
+<div class="notes"><p>口型提示：ki 用 k 接 i 连读，不念字母名称，也不把 k 改成汉语“基”的 j。</p></div><div class="actions"><button class="play-btn" data-play="133" data-rate="1" type="button" aria-label="听读 Pare aqui, por favor.">▶ 听读</button><button class="slow-btn" data-play="133" data-rate="0.78" type="button" aria-label="慢读 Pare aqui, por favor.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-134" data-id="134" data-section="s11" data-group="" data-search="134 向左 À esquerda. 阿 · 伊sh-【凯r】-达    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 134</div><h4>向左</h4>
+<p class="ptxt" lang="pt">À esquerda.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>阿 · 伊sh-<strong>【凯r】</strong>-达</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="134" data-rate="1" type="button" aria-label="听读 À esquerda.">▶ 听读</button><button class="slow-btn" data-play="134" data-rate="0.78" type="button" aria-label="慢读 À esquerda.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-135" data-id="135" data-section="s11" data-group="" data-search="135 向右 À direita. 阿 · 迪-【雷伊】-塔    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 135</div><h4>向右</h4>
+<p class="ptxt" lang="pt">À direita.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>阿 · 迪-<strong>【雷伊】</strong>-塔</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="135" data-rate="1" type="button" aria-label="听读 À direita.">▶ 听读</button><button class="slow-btn" data-play="135" data-rate="0.78" type="button" aria-label="慢读 À direita.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-136" data-id="136" data-section="s11" data-group="" data-search="136 往前／直走 Em frente. 因~ · 【弗伦~】-提(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 136</div><h4>往前／直走</h4>
+<p class="ptxt" lang="pt">Em frente.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>因~ · <strong>【弗伦~】</strong>-提(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="136" data-rate="1" type="button" aria-label="听读 Em frente.">▶ 听读</button><button class="slow-btn" data-play="136" data-rate="0.78" type="button" aria-label="慢读 Em frente.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-137" data-id="137" data-section="s11" data-group="" data-search="137 远吗？ É longe? 【艾】 · 【隆~】-日(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 137</div><h4>远吗？</h4>
+<p class="ptxt" lang="pt">É longe?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【艾】</strong> · <strong>【隆~】</strong>-日(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="137" data-rate="1" type="button" aria-label="听读 É longe?">▶ 听读</button><button class="slow-btn" data-play="137" data-rate="0.78" type="button" aria-label="慢读 É longe?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-138" data-id="138" data-section="s11" data-group="" data-search="138 市场在哪里？ Onde fica o mercado? 【翁~】-迪(轻) · 【菲】-卡 · 乌 · 梅r-【卡】-杜    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 138</div><h4>市场在哪里？</h4>
+<p class="ptxt" lang="pt">Onde fica o mercado?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【翁~】</strong>-迪(轻) · <strong>【菲】</strong>-卡 · 乌 · 梅r-<strong>【卡】</strong>-杜</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="138" data-rate="1" type="button" aria-label="听读 Onde fica o mercado?">▶ 听读</button><button class="slow-btn" data-play="138" data-rate="0.78" type="button" aria-label="慢读 Onde fica o mercado?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-139" data-id="139" data-section="s11" data-group="" data-search="139 药房在哪里？ Onde fica a farmácia? 【翁~】-迪(轻) · 【菲】-卡 · 阿 · 法r-【马】-西阿    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 139</div><h4>药房在哪里？</h4>
+<p class="ptxt" lang="pt">Onde fica a farmácia?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【翁~】</strong>-迪(轻) · <strong>【菲】</strong>-卡 · 阿 · 法r-<strong>【马】</strong>-西阿</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="139" data-rate="1" type="button" aria-label="听读 Onde fica a farmácia?">▶ 听读</button><button class="slow-btn" data-play="139" data-rate="0.78" type="button" aria-label="慢读 Onde fica a farmácia?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-140" data-id="140" data-section="s11" data-group="" data-search="140 能叫一辆出租车吗？ Pode chamar um táxi? 【波】-迪(轻) · 沙-【马r】 · 【乌~】 · 【塔】k-西    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 140</div><h4>能叫一辆出租车吗？</h4>
+<p class="ptxt" lang="pt">Pode chamar um táxi?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【波】</strong>-迪(轻) · 沙-<strong>【马r】</strong> · <strong>【乌~】</strong> · <strong>【塔】</strong>k-西</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="140" data-rate="1" type="button" aria-label="听读 Pode chamar um táxi?">▶ 听读</button><button class="slow-btn" data-play="140" data-rate="0.78" type="button" aria-label="慢读 Pode chamar um táxi?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-141" data-id="141" data-section="s11" data-group="" data-search="141 我们几点出发？ A que horas saímos? 阿 · ki(轻) · 【奥】-ra-sh · 萨-【伊】-穆sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 141</div><h4>我们几点出发？</h4>
+<p class="ptxt" lang="pt">A que horas saímos?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>阿 · ki(轻) · <strong>【奥】</strong>-ra-sh · 萨-<strong>【伊】</strong>-穆sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="141" data-rate="1" type="button" aria-label="听读 A que horas saímos?">▶ 听读</button><button class="slow-btn" data-play="141" data-rate="0.78" type="button" aria-label="慢读 A que horas saímos?">▷ 慢读</button></div></article>
+<article class="entry" id="entry-142" data-id="142" data-section="s11" data-group="" data-search="142 不是这里 Não é aqui. 【瑙乌~】 · 【艾】 · 阿-【ki】    口型提示：ki 用 k 接 i 连读，不念字母名称，也不把 k 改成汉语“基”的 j。">
+<div class="badge">№ 142</div><h4>不是这里</h4>
+<p class="ptxt" lang="pt">Não é aqui.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【瑙乌~】</strong> · <strong>【艾】</strong> · 阿-<strong>【ki】</strong></div>
+<div class="notes"><p>口型提示：ki 用 k 接 i 连读，不念字母名称，也不把 k 改成汉语“基”的 j。</p></div><div class="actions"><button class="play-btn" data-play="142" data-rate="1" type="button" aria-label="听读 Não é aqui.">▶ 听读</button><button class="slow-btn" data-play="142" data-rate="0.78" type="button" aria-label="慢读 Não é aqui.">▷ 慢读</button></div></article>
+</div>
+</section>
+<section class="chapter" id="s12"><div class="chapter-heading"><div class="chapter-number">12</div><div><h2>求助与身体不适</h2><p class="subtitle" lang="pt">Ajuda e mal-estar</p></div></div><p class="lead">这是应急沟通卡，不是医疗建议。紧急时把葡语句子直接出示给附近能帮助你的人。</p>
+<div class="cards"><article class="entry" id="entry-143" data-id="143" data-section="s12" data-group="" data-search="143 救命！ Socorro! 苏-【科】-ru    口型提示：rr 是需要单独跟读的强 r；“科-ru”只提示音节，不足以确定当地 r 的实际音值。">
+<div class="badge">№ 143</div><h4>救命！</h4>
+<p class="ptxt" lang="pt">Socorro!</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>苏-<strong>【科】</strong>-ru</div>
+<div class="notes"><p>口型提示：rr 是需要单独跟读的强 r；“科-ru”只提示音节，不足以确定当地 r 的实际音值。</p></div><div class="actions"><button class="play-btn" data-play="143" data-rate="1" type="button" aria-label="听读 Socorro!">▶ 听读</button><button class="slow-btn" data-play="143" data-rate="0.78" type="button" aria-label="慢读 Socorro!">▷ 慢读</button></div></article>
+<article class="entry" id="entry-144" data-id="144" data-section="s12" data-group="" data-search="144 我需要帮助 Preciso de ajuda. 普里-【西】-祖 · 迪(轻) · 阿-【茹】-达    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 144</div><h4>我需要帮助</h4>
+<p class="ptxt" lang="pt">Preciso de ajuda.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>普里-<strong>【西】</strong>-祖 · 迪(轻) · 阿-<strong>【茹】</strong>-达</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="144" data-rate="1" type="button" aria-label="听读 Preciso de ajuda.">▶ 听读</button><button class="slow-btn" data-play="144" data-rate="0.78" type="button" aria-label="慢读 Preciso de ajuda.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-145" data-id="145" data-section="s12" data-group="" data-search="145 我需要医生 Preciso de um médico. 普里-【西】-祖 · 迪(轻) · 【乌~】 · 【梅】-迪-库    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 145</div><h4>我需要医生</h4>
+<p class="ptxt" lang="pt">Preciso de um médico.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>普里-<strong>【西】</strong>-祖 · 迪(轻) · <strong>【乌~】</strong> · <strong>【梅】</strong>-迪-库</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="145" data-rate="1" type="button" aria-label="听读 Preciso de um médico.">▶ 听读</button><button class="slow-btn" data-play="145" data-rate="0.78" type="button" aria-label="慢读 Preciso de um médico.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-146" data-id="146" data-section="s12" data-group="" data-search="146 我不舒服 Não me sinto bem. 【瑙乌~】 · 米(轻) · 【辛~】-图 · 【贝因~】    口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。">
+<div class="badge">№ 146</div><h4>我不舒服</h4>
+<p class="ptxt" lang="pt">Não me sinto bem.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【瑙乌~】</strong> · 米(轻) · <strong>【辛~】</strong>-图 · <strong>【贝因~】</strong></div>
+<div class="notes"><p>口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。</p></div><div class="actions"><button class="play-btn" data-play="146" data-rate="1" type="button" aria-label="听读 Não me sinto bem.">▶ 听读</button><button class="slow-btn" data-play="146" data-rate="0.78" type="button" aria-label="慢读 Não me sinto bem.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-147" data-id="147" data-section="s12" data-group="" data-search="147 我这里痛 Tenho dor aqui. 【泰】-纽 · 【多r】 · 阿-【ki】    口型提示：ki 用 k 接 i 连读，不念字母名称，也不把 k 改成汉语“基”的 j。 用法：说的时候指向疼痛处。">
+<div class="badge">№ 147</div><h4>我这里痛</h4>
+<p class="ptxt" lang="pt">Tenho dor aqui.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【泰】</strong>-纽 · <strong>【多r】</strong> · 阿-<strong>【ki】</strong></div>
+<div class="notes"><p>口型提示：ki 用 k 接 i 连读，不念字母名称，也不把 k 改成汉语“基”的 j。</p><p>用法：说的时候指向疼痛处。</p></div><div class="actions"><button class="play-btn" data-play="147" data-rate="1" type="button" aria-label="听读 Tenho dor aqui.">▶ 听读</button><button class="slow-btn" data-play="147" data-rate="0.78" type="button" aria-label="慢读 Tenho dor aqui.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-148" data-id="148" data-section="s12" data-group="" data-search="148 我呼吸困难 Não consigo respirar. 【瑙乌~】 · 孔~-【西】-古 · ri-sh-皮-【拉r】    口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。">
+<div class="badge">№ 148</div><h4>我呼吸困难</h4>
+<p class="ptxt" lang="pt">Não consigo respirar.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【瑙乌~】</strong> · 孔~-<strong>【西】</strong>-古 · ri-sh-皮-<strong>【拉r】</strong></div>
+<div class="notes"><p>口型提示：~ 表示鼻化，不另加汉语的“恩／昂”；双元音要滑过去，不要按每个汉字各读一拍。</p></div><div class="actions"><button class="play-btn" data-play="148" data-rate="1" type="button" aria-label="听读 Não consigo respirar.">▶ 听读</button><button class="slow-btn" data-play="148" data-rate="0.78" type="button" aria-label="慢读 Não consigo respirar.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-149" data-id="149" data-section="s12" data-group="" data-search="149 请叫救护车 Chame uma ambulância, por favor. 【沙】-米(轻) · 【乌】-马 · 昂~-布-【兰~】-西阿 · 普r · 法-【沃(v)r】    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 149</div><h4>请叫救护车</h4>
+<p class="ptxt" lang="pt">Chame uma ambulância, por favor.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【沙】</strong>-米(轻) · <strong>【乌】</strong>-马 · 昂~-布-<strong>【兰~】</strong>-西阿 · 普r · 法-<strong>【沃(v)r】</strong></div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="149" data-rate="1" type="button" aria-label="听读 Chame uma ambulância, por favor.">▶ 听读</button><button class="slow-btn" data-play="149" data-rate="0.78" type="button" aria-label="慢读 Chame uma ambulância, por favor.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-150" data-id="150" data-section="s12" data-group="" data-search="150 请叫警察 Chame a polícia, por favor. 【沙】-米(轻) · 阿 · 普-【利】-西阿 · 普r · 法-【沃(v)r】    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 150</div><h4>请叫警察</h4>
+<p class="ptxt" lang="pt">Chame a polícia, por favor.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【沙】</strong>-米(轻) · 阿 · 普-<strong>【利】</strong>-西阿 · 普r · 法-<strong>【沃(v)r】</strong></div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="150" data-rate="1" type="button" aria-label="听读 Chame a polícia, por favor.">▶ 听读</button><button class="slow-btn" data-play="150" data-rate="0.78" type="button" aria-label="慢读 Chame a polícia, por favor.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-151" data-id="151" data-section="s12" data-group="" data-search="151 我的护照丢了 Perdi o meu passaporte. 佩r-【迪】 · 乌 · 【梅乌】 · 帕-萨-【波r】-提(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 151</div><h4>我的护照丢了</h4>
+<p class="ptxt" lang="pt">Perdi o meu passaporte.</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>佩r-<strong>【迪】</strong> · 乌 · <strong>【梅乌】</strong> · 帕-萨-<strong>【波r】</strong>-提(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="151" data-rate="1" type="button" aria-label="听读 Perdi o meu passaporte.">▶ 听读</button><button class="slow-btn" data-play="151" data-rate="0.78" type="button" aria-label="慢读 Perdi o meu passaporte.">▷ 慢读</button></div></article>
+<article class="entry" id="entry-152" data-id="152" data-section="s12" data-group="" data-search="152 能给我的家人打电话吗？ Pode ligar para a minha família? 【波】-迪(轻) · 利-【嘎r】 · 【帕】-ra · 阿 · 【米】-尼亚 · 法-【米】-利阿    口型提示：nh 连读，近似“尼亚”但不要拆成两个清楚的音节。">
+<div class="badge">№ 152</div><h4>能给我的家人打电话吗？</h4>
+<p class="ptxt" lang="pt">Pode ligar para a minha família?</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【波】</strong>-迪(轻) · 利-<strong>【嘎r】</strong> · <strong>【帕】</strong>-ra · 阿 · <strong>【米】</strong>-尼亚 · 法-<strong>【米】</strong>-利阿</div>
+<div class="notes"><p>口型提示：nh 连读，近似“尼亚”但不要拆成两个清楚的音节。</p></div><div class="actions"><button class="play-btn" data-play="152" data-rate="1" type="button" aria-label="听读 Pode ligar para a minha família?">▶ 听读</button><button class="slow-btn" data-play="152" data-rate="0.78" type="button" aria-label="慢读 Pode ligar para a minha família?">▷ 慢读</button></div></article>
+</div>
+</section>
+<section class="chapter" id="s13"><div class="chapter-heading"><div class="chapter-number">13</div><div><h2>常用时间</h2><p class="subtitle" lang="pt">Tempo e horas</p></div></div><p class="lead">先认今天、明天、现在和几个简单时间单位。</p>
+<div class="cards"><article class="entry" id="entry-153" data-id="153" data-section="s13" data-group="" data-search="153 今天 hoje 【奥】-日(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 153</div><h4>今天</h4>
+<p class="ptxt" lang="pt">hoje</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【奥】</strong>-日(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="153" data-rate="1" type="button" aria-label="听读 hoje">▶ 听读</button><button class="slow-btn" data-play="153" data-rate="0.78" type="button" aria-label="慢读 hoje">▷ 慢读</button></div></article>
+<article class="entry" id="entry-154" data-id="154" data-section="s13" data-group="" data-search="154 明天 amanhã 阿-马-【尼亚~】    口型提示：最后一个音节重读；nh 与鼻化不宜只靠汉字模仿。">
+<div class="badge">№ 154</div><h4>明天</h4>
+<p class="ptxt" lang="pt">amanhã</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>阿-马-<strong>【尼亚~】</strong></div>
+<div class="notes"><p>口型提示：最后一个音节重读；nh 与鼻化不宜只靠汉字模仿。</p></div><div class="actions"><button class="play-btn" data-play="154" data-rate="1" type="button" aria-label="听读 amanhã">▶ 听读</button><button class="slow-btn" data-play="154" data-rate="0.78" type="button" aria-label="慢读 amanhã">▷ 慢读</button></div></article>
+<article class="entry" id="entry-155" data-id="155" data-section="s13" data-group="" data-search="155 昨天 ontem 【翁~】-泰因~    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 155</div><h4>昨天</h4>
+<p class="ptxt" lang="pt">ontem</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【翁~】</strong>-泰因~</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="155" data-rate="1" type="button" aria-label="听读 ontem">▶ 听读</button><button class="slow-btn" data-play="155" data-rate="0.78" type="button" aria-label="慢读 ontem">▷ 慢读</button></div></article>
+<article class="entry" id="entry-156" data-id="156" data-section="s13" data-group="" data-search="156 现在 agora 阿-【戈】-ra    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 156</div><h4>现在</h4>
+<p class="ptxt" lang="pt">agora</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>阿-<strong>【戈】</strong>-ra</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="156" data-rate="1" type="button" aria-label="听读 agora">▶ 听读</button><button class="slow-btn" data-play="156" data-rate="0.78" type="button" aria-label="慢读 agora">▷ 慢读</button></div></article>
+<article class="entry" id="entry-157" data-id="157" data-section="s13" data-group="" data-search="157 之后／稍后 depois 迪-【波伊】sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 157</div><h4>之后／稍后</h4>
+<p class="ptxt" lang="pt">depois</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>迪-<strong>【波伊】</strong>sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="157" data-rate="1" type="button" aria-label="听读 depois">▶ 听读</button><button class="slow-btn" data-play="157" data-rate="0.78" type="button" aria-label="慢读 depois">▷ 慢读</button></div></article>
+<article class="entry" id="entry-158" data-id="158" data-section="s13" data-group="" data-search="158 上午／早上 de manhã 迪(轻) · 马-【尼亚~】    口型提示：nh 和末尾鼻化需要听读；“尼亚~”只作口型辅助。">
+<div class="badge">№ 158</div><h4>上午／早上</h4>
+<p class="ptxt" lang="pt">de manhã</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>迪(轻) · 马-<strong>【尼亚~】</strong></div>
+<div class="notes"><p>口型提示：nh 和末尾鼻化需要听读；“尼亚~”只作口型辅助。</p></div><div class="actions"><button class="play-btn" data-play="158" data-rate="1" type="button" aria-label="听读 de manhã">▶ 听读</button><button class="slow-btn" data-play="158" data-rate="0.78" type="button" aria-label="慢读 de manhã">▷ 慢读</button></div></article>
+<article class="entry" id="entry-159" data-id="159" data-section="s13" data-group="" data-search="159 下午 à tarde 阿 · 【塔r】-迪(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 159</div><h4>下午</h4>
+<p class="ptxt" lang="pt">à tarde</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>阿 · <strong>【塔r】</strong>-迪(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="159" data-rate="1" type="button" aria-label="听读 à tarde">▶ 听读</button><button class="slow-btn" data-play="159" data-rate="0.78" type="button" aria-label="慢读 à tarde">▷ 慢读</button></div></article>
+<article class="entry" id="entry-160" data-id="160" data-section="s13" data-group="" data-search="160 晚上 à noite 阿 · 【诺伊】-提(轻)    口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。">
+<div class="badge">№ 160</div><h4>晚上</h4>
+<p class="ptxt" lang="pt">à noite</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>阿 · <strong>【诺伊】</strong>-提(轻)</div>
+<div class="notes"><p>口型提示：“轻”不等于吞掉；这里把音节写开帮助起步。末尾元音可更弱或更清楚，须按你认可的当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="160" data-rate="1" type="button" aria-label="听读 à noite">▶ 听读</button><button class="slow-btn" data-play="160" data-rate="0.78" type="button" aria-label="慢读 à noite">▷ 慢读</button></div></article>
+<article class="entry" id="entry-161" data-id="161" data-section="s13" data-group="" data-search="161 一小时 uma hora 【乌】-马 · 【奥】-ra    口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。">
+<div class="badge">№ 161</div><h4>一小时</h4>
+<p class="ptxt" lang="pt">uma hora</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【乌】</strong>-马 · <strong>【奥】</strong>-ra</div>
+<div class="notes"><p>口型提示：【】标单词重音；“-”是练习分节，整句说话不要一字一顿。</p></div><div class="actions"><button class="play-btn" data-play="161" data-rate="1" type="button" aria-label="听读 uma hora">▶ 听读</button><button class="slow-btn" data-play="161" data-rate="0.78" type="button" aria-label="慢读 uma hora">▷ 慢读</button></div></article>
+<article class="entry" id="entry-162" data-id="162" data-section="s13" data-group="" data-search="162 两小时 duas horas 【杜】-阿sh · 【奥】-ra-sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 162</div><h4>两小时</h4>
+<p class="ptxt" lang="pt">duas horas</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【杜】</strong>-阿sh · <strong>【奥】</strong>-ra-sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="162" data-rate="1" type="button" aria-label="听读 duas horas">▶ 听读</button><button class="slow-btn" data-play="162" data-rate="0.78" type="button" aria-label="慢读 duas horas">▷ 慢读</button></div></article>
+<article class="entry" id="entry-163" data-id="163" data-section="s13" data-group="" data-search="163 十分钟 dez minutos 【戴】sh · 米-【努】-图sh    口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。">
+<div class="badge">№ 163</div><h4>十分钟</h4>
+<p class="ptxt" lang="pt">dez minutos</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【戴】</strong>sh · 米-<strong>【努】</strong>-图sh</div>
+<div class="notes"><p>口型提示：sh 只发擦音，不加“诗”的尾元音；整句中的词尾音会因当地口音和连读变化。</p></div><div class="actions"><button class="play-btn" data-play="163" data-rate="1" type="button" aria-label="听读 dez minutos">▶ 听读</button><button class="slow-btn" data-play="163" data-rate="0.78" type="button" aria-label="慢读 dez minutos">▷ 慢读</button></div></article>
+</div>
+</section>
+<section class="chapter" id="s14"><div class="chapter-heading"><div class="chapter-number">14</div><div><h2>地名注音示例</h2><p class="subtitle" lang="pt">Províncias, cidades e outras localidades</p></div></div><p class="lead">按省分组，先学省名，再学省内城市与城镇。马普托市独立列组。以下注音是按拼写拟写的练习近音，未与莫桑当地录音逐条校准；不是国际音标。</p>
+<p class="chapter-note">省名与同名城市分别设卡；“城市或城镇”是便于查找的统称，不表示全部具有法定城市地位。地名注音仍须向当地人核对。照片中的 Sokilin / AL-KARIM / Aliza 暂未确认性质，未当作省市收录。</p>
+<section class="place-group" id="group-maputo-prov" data-group="maputo-prov"><h3>马普托省<span lang="pt">Província de Maputo</span></h3><p class="group-note">省名与首都同名，但行政上分开；马普托省省会为 Matola。</p><div class="cards"><article class="entry" id="entry-164" data-id="164" data-section="s14" data-group="maputo-prov" data-search="164 马普托省 Maputo 马-【普】-图  马普托省 Província de Maputo 听读只念省名 Maputo；不要把本省与马普托市混为一处。">
+<div class="badge">省名 / Província</div><h4>马普托省</h4>
+<p class="ptxt" lang="pt">Maputo</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>马-<strong>【普】</strong>-图</div>
+<div class="notes"><p>听读只念省名 Maputo；不要把本省与马普托市混为一处。</p></div><div class="actions"><button class="play-btn" data-play="164" data-rate="1" type="button" aria-label="听读 Maputo">▶ 听读</button><button class="slow-btn" data-play="164" data-rate="0.78" type="button" aria-label="慢读 Maputo">▷ 慢读</button></div></article>
+<article class="entry" id="entry-165" data-id="165" data-section="s14" data-group="maputo-prov" data-search="165 马托拉 Matola 马-【托】-拉  马普托省 Província de Maputo 重音练在 to；中文译名用于辨认，注音用于跟读。">
+<div class="badge">省会 / Capital provincial</div><h4>马托拉</h4>
+<p class="ptxt" lang="pt">Matola</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>马-<strong>【托】</strong>-拉</div>
+<div class="notes"><p>重音练在 to；中文译名用于辨认，注音用于跟读。</p></div><div class="actions"><button class="play-btn" data-play="165" data-rate="1" type="button" aria-label="听读 Matola">▶ 听读</button><button class="slow-btn" data-play="165" data-rate="0.78" type="button" aria-label="慢读 Matola">▷ 慢读</button></div></article>
+</div></section>
+<section class="place-group" id="group-maputo-city" data-group="maputo-city"><h3>马普托市<span lang="pt">Cidade de Maputo</span></h3><p class="group-note">首都单独列组，不放在马普托省下面。</p><div class="cards"><article class="entry" id="entry-166" data-id="166" data-section="s14" data-group="maputo-city" data-search="166 马普托市 Maputo 马-【普】-图  马普托市 Cidade de Maputo 与马普托省同名；本条指首都这座城市。">
+<div class="badge">首都／省级市 / Capital nacional</div><h4>马普托市</h4>
+<p class="ptxt" lang="pt">Maputo</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>马-<strong>【普】</strong>-图</div>
+<div class="notes"><p>与马普托省同名；本条指首都这座城市。</p></div><div class="actions"><button class="play-btn" data-play="166" data-rate="1" type="button" aria-label="听读 Maputo">▶ 听读</button><button class="slow-btn" data-play="166" data-rate="0.78" type="button" aria-label="慢读 Maputo">▷ 慢读</button></div></article>
+</div></section>
+<section class="place-group" id="group-gaza" data-group="gaza"><h3>加扎省<span lang="pt">Gaza</span></h3><p class="group-note">先读省名，再读省内城市与城镇。</p><div class="cards"><article class="entry" id="entry-167" data-id="167" data-section="s14" data-group="gaza" data-search="167 加扎省 Gaza 【嘎】-扎(z) 加沙省 加扎省 Gaza 这里 z 是浊擦音；“扎”只是辅助字，不按普通话塞擦音硬念。">
+<div class="badge">省名 / Província</div><h4>加扎省</h4>
+<p class="ptxt" lang="pt">Gaza</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【嘎】</strong>-扎(z)</div>
+<div class="notes"><p>这里 z 是浊擦音；“扎”只是辅助字，不按普通话塞擦音硬念。</p></div><div class="actions"><button class="play-btn" data-play="167" data-rate="1" type="button" aria-label="听读 Gaza">▶ 听读</button><button class="slow-btn" data-play="167" data-rate="0.78" type="button" aria-label="慢读 Gaza">▷ 慢读</button></div></article>
+<article class="entry" id="entry-168" data-id="168" data-section="s14" data-group="gaza" data-search="168 赛赛 Xai-Xai 【沙伊】-【沙伊】  加扎省 Gaza Xai 先按 shai 连读练习；不要按照中文译名读成“赛赛”。">
+<div class="badge">省会 / Capital provincial</div><h4>赛赛</h4>
+<p class="ptxt" lang="pt">Xai-Xai</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【沙伊】</strong>-<strong>【沙伊】</strong></div>
+<div class="notes"><p>Xai 先按 shai 连读练习；不要按照中文译名读成“赛赛”。</p></div><div class="actions"><button class="play-btn" data-play="168" data-rate="1" type="button" aria-label="听读 Xai-Xai">▶ 听读</button><button class="slow-btn" data-play="168" data-rate="0.78" type="button" aria-label="慢读 Xai-Xai">▷ 慢读</button></div></article>
+<article class="entry" id="entry-169" data-id="169" data-section="s14" data-group="gaza" data-search="169 绍奎 Chókwè 【绍】-奎 Chokwe Chókwé 加扎省 Gaza kw 连起来练，不拆成“克、乌”；具体地方发音仍以当地人示范为准。">
+<div class="badge">城市或城镇 / Localidade</div><h4>绍奎</h4>
+<p class="ptxt" lang="pt">Chókwè</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【绍】</strong>-奎</div>
+<div class="notes"><p>kw 连起来练，不拆成“克、乌”；具体地方发音仍以当地人示范为准。</p></div><div class="actions"><button class="play-btn" data-play="169" data-rate="1" type="button" aria-label="听读 Chókwè">▶ 听读</button><button class="slow-btn" data-play="169" data-rate="0.78" type="button" aria-label="慢读 Chókwè">▷ 慢读</button></div></article>
+<article class="entry" id="entry-170" data-id="170" data-section="s14" data-group="gaza" data-search="170 希布托 Chibuto 希-【布】-图  加扎省 Gaza 重音练在 bu；ch 按 sh 一类擦音练习。">
+<div class="badge">城市或城镇 / Localidade</div><h4>希布托</h4>
+<p class="ptxt" lang="pt">Chibuto</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>希-<strong>【布】</strong>-图</div>
+<div class="notes"><p>重音练在 bu；ch 按 sh 一类擦音练习。</p></div><div class="actions"><button class="play-btn" data-play="170" data-rate="1" type="button" aria-label="听读 Chibuto">▶ 听读</button><button class="slow-btn" data-play="170" data-rate="0.78" type="button" aria-label="慢读 Chibuto">▷ 慢读</button></div></article>
+</div></section>
+<section class="place-group" id="group-inhambane" data-group="inhambane"><h3>伊尼扬巴内省<span lang="pt">Inhambane</span></h3><p class="group-note">省与省会同名，分别设卡，方便分清省名与城市。</p><div class="cards"><article class="entry" id="entry-171" data-id="171" data-section="s14" data-group="inhambane" data-search="171 伊尼扬巴内省 Inhambane 伊-娘~-【巴】-尼(轻)  伊尼扬巴内省 Inhambane nh 连成一个腭鼻音；“娘~”不是另加一个普通话 ng 韵尾。">
+<div class="badge">省名 / Província</div><h4>伊尼扬巴内省</h4>
+<p class="ptxt" lang="pt">Inhambane</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>伊-娘~-<strong>【巴】</strong>-尼(轻)</div>
+<div class="notes"><p>nh 连成一个腭鼻音；“娘~”不是另加一个普通话 ng 韵尾。</p></div><div class="actions"><button class="play-btn" data-play="171" data-rate="1" type="button" aria-label="听读 Inhambane">▶ 听读</button><button class="slow-btn" data-play="171" data-rate="0.78" type="button" aria-label="慢读 Inhambane">▷ 慢读</button></div></article>
+<article class="entry" id="entry-172" data-id="172" data-section="s14" data-group="inhambane" data-search="172 伊尼扬巴内 Inhambane 伊-娘~-【巴】-尼(轻)  伊尼扬巴内省 Inhambane 与省名同读；最后 e 的清晰程度随口音变化。">
+<div class="badge">省会 / Capital provincial</div><h4>伊尼扬巴内</h4>
+<p class="ptxt" lang="pt">Inhambane</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>伊-娘~-<strong>【巴】</strong>-尼(轻)</div>
+<div class="notes"><p>与省名同读；最后 e 的清晰程度随口音变化。</p></div><div class="actions"><button class="play-btn" data-play="172" data-rate="1" type="button" aria-label="听读 Inhambane">▶ 听读</button><button class="slow-btn" data-play="172" data-rate="0.78" type="button" aria-label="慢读 Inhambane">▷ 慢读</button></div></article>
+<article class="entry" id="entry-173" data-id="173" data-section="s14" data-group="inhambane" data-search="173 马希谢 Maxixe 马-【希】-sh(尾轻) Maxixie 伊尼扬巴内省 Inhambane 两个 x 都先按 sh 练；词尾元音很轻时，不另加一个完整的“诗”。">
+<div class="badge">城市或城镇 / Localidade</div><h4>马希谢</h4>
+<p class="ptxt" lang="pt">Maxixe</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>马-<strong>【希】</strong>-sh(尾轻)</div>
+<div class="notes"><p>两个 x 都先按 sh 练；词尾元音很轻时，不另加一个完整的“诗”。</p></div><div class="actions"><button class="play-btn" data-play="173" data-rate="1" type="button" aria-label="听读 Maxixe">▶ 听读</button><button class="slow-btn" data-play="173" data-rate="0.78" type="button" aria-label="慢读 Maxixe">▷ 慢读</button></div></article>
+<article class="entry" id="entry-174" data-id="174" data-section="s14" data-group="inhambane" data-search="174 维兰库洛 Vilanculo 维(v)-兰~-【库】-鲁(l) Vilankulo Vilanculos 伊尼扬巴内省 Inhambane 按拼写拟写的练习近音。也会见到 Vilankulo / Vilanculos；末尾 l 不是 r。">
+<div class="badge">城市或城镇 / Localidade</div><h4>维兰库洛</h4>
+<p class="ptxt" lang="pt">Vilanculo</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>维(v)-兰~-<strong>【库】</strong>-鲁(l)</div>
+<div class="notes"><p>按拼写拟写的练习近音。也会见到 Vilankulo / Vilanculos；末尾 l 不是 r。</p></div><div class="actions"><button class="play-btn" data-play="174" data-rate="1" type="button" aria-label="听读 Vilanculo">▶ 听读</button><button class="slow-btn" data-play="174" data-rate="0.78" type="button" aria-label="慢读 Vilanculo">▷ 慢读</button></div></article>
+<article class="entry" id="entry-175" data-id="175" data-section="s14" data-group="inhambane" data-search="175 马辛加 Massinga 马-【辛~】-嘎  伊尼扬巴内省 Inhambane ss 是清 s；sin 的鼻化不要额外读成“恩”。">
+<div class="badge">城市或城镇 / Localidade</div><h4>马辛加</h4>
+<p class="ptxt" lang="pt">Massinga</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>马-<strong>【辛~】</strong>-嘎</div>
+<div class="notes"><p>ss 是清 s；sin 的鼻化不要额外读成“恩”。</p></div><div class="actions"><button class="play-btn" data-play="175" data-rate="1" type="button" aria-label="听读 Massinga">▶ 听读</button><button class="slow-btn" data-play="175" data-rate="0.78" type="button" aria-label="慢读 Massinga">▷ 慢读</button></div></article>
+</div></section>
+<section class="place-group" id="group-sofala" data-group="sofala"><h3>索法拉省<span lang="pt">Sofala</span></h3><p class="group-note">包含照片中的贝拉、卡亚、栋多和 Marromeu。</p><div class="cards"><article class="entry" id="entry-176" data-id="176" data-section="s14" data-group="sofala" data-search="176 索法拉省 Sofala 苏-【法】-拉  索法拉省 Sofala 重音练在 fa；省名中文译法不等于葡语发音。">
+<div class="badge">省名 / Província</div><h4>索法拉省</h4>
+<p class="ptxt" lang="pt">Sofala</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>苏-<strong>【法】</strong>-拉</div>
+<div class="notes"><p>重音练在 fa；省名中文译法不等于葡语发音。</p></div><div class="actions"><button class="play-btn" data-play="176" data-rate="1" type="button" aria-label="听读 Sofala">▶ 听读</button><button class="slow-btn" data-play="176" data-rate="0.78" type="button" aria-label="慢读 Sofala">▷ 慢读</button></div></article>
+<article class="entry" id="entry-177" data-id="177" data-section="s14" data-group="sofala" data-search="177 贝拉 Beira 【贝伊】-ra  索法拉省 Sofala ei 连成滑动音；r 轻带过，不固定改成汉语 l。">
+<div class="badge">省会 / Capital provincial</div><h4>贝拉</h4>
+<p class="ptxt" lang="pt">Beira</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【贝伊】</strong>-ra</div>
+<div class="notes"><p>ei 连成滑动音；r 轻带过，不固定改成汉语 l。</p></div><div class="actions"><button class="play-btn" data-play="177" data-rate="1" type="button" aria-label="听读 Beira">▶ 听读</button><button class="slow-btn" data-play="177" data-rate="0.78" type="button" aria-label="慢读 Beira">▷ 慢读</button></div></article>
+<article class="entry" id="entry-178" data-id="178" data-section="s14" data-group="sofala" data-search="178 卡亚 Caia 【卡伊】-阿  索法拉省 Sofala ai 连起来，末尾 a 单独轻接；不是逐个汉字各读一拍。">
+<div class="badge">城市或城镇 / Localidade</div><h4>卡亚</h4>
+<p class="ptxt" lang="pt">Caia</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【卡伊】</strong>-阿</div>
+<div class="notes"><p>ai 连起来，末尾 a 单独轻接；不是逐个汉字各读一拍。</p></div><div class="actions"><button class="play-btn" data-play="178" data-rate="1" type="button" aria-label="听读 Caia">▶ 听读</button><button class="slow-btn" data-play="178" data-rate="0.78" type="button" aria-label="慢读 Caia">▷ 慢读</button></div></article>
+<article class="entry" id="entry-179" data-id="179" data-section="s14" data-group="sofala" data-search="179 栋多 Dondo 【东~】-杜 东多 索法拉省 Sofala 首音节带鼻化；不要在鼻化元音后再补一个“恩”。">
+<div class="badge">城市或城镇 / Localidade</div><h4>栋多</h4>
+<p class="ptxt" lang="pt">Dondo</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【东~】</strong>-杜</div>
+<div class="notes"><p>首音节带鼻化；不要在鼻化元音后再补一个“恩”。</p></div><div class="actions"><button class="play-btn" data-play="179" data-rate="1" type="button" aria-label="听读 Dondo">▶ 听读</button><button class="slow-btn" data-play="179" data-rate="0.78" type="button" aria-label="慢读 Dondo">▷ 慢读</button></div></article>
+<article class="entry" id="entry-180" data-id="180" data-section="s14" data-group="sofala" data-search="180 马罗梅乌 Marromeu 马-ru-【梅乌】 marroumeu 马如me乌 索法拉省 Sofala 本条仅提示音节与重音；rr 与中间元音仍待当地录音校准。">
+<div class="badge">城市或城镇 / Localidade</div><h4>马罗梅乌</h4>
+<p class="ptxt" lang="pt">Marromeu</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>马-ru-<strong>【梅乌】</strong></div>
+<div class="notes"><p>本条仅提示音节与重音；rr 与中间元音仍待当地录音校准。</p></div><div class="actions"><button class="play-btn" data-play="180" data-rate="1" type="button" aria-label="听读 Marromeu">▶ 听读</button><button class="slow-btn" data-play="180" data-rate="0.78" type="button" aria-label="慢读 Marromeu">▷ 慢读</button></div></article>
+</div></section>
+<section class="place-group" id="group-manica" data-group="manica"><h3>马尼卡省<span lang="pt">Manica</span></h3><p class="group-note">省会是 Chimoio；同名 Manica 另列为城镇地名。</p><div class="cards"><article class="entry" id="entry-181" data-id="181" data-section="s14" data-group="manica" data-search="181 马尼卡省 Manica 马-【尼】-卡  马尼卡省 Manica 省名 Manica；不要因为同名就把 Manica 市误当省会。">
+<div class="badge">省名 / Província</div><h4>马尼卡省</h4>
+<p class="ptxt" lang="pt">Manica</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>马-<strong>【尼】</strong>-卡</div>
+<div class="notes"><p>省名 Manica；不要因为同名就把 Manica 市误当省会。</p></div><div class="actions"><button class="play-btn" data-play="181" data-rate="1" type="button" aria-label="听读 Manica">▶ 听读</button><button class="slow-btn" data-play="181" data-rate="0.78" type="button" aria-label="慢读 Manica">▷ 慢读</button></div></article>
+<article class="entry" id="entry-182" data-id="182" data-section="s14" data-group="manica" data-search="182 希莫尤 Chimoio 希-【莫伊】-乌  马尼卡省 Manica oi 连起来练；ch 不按英语“吃”的起音硬念。">
+<div class="badge">省会 / Capital provincial</div><h4>希莫尤</h4>
+<p class="ptxt" lang="pt">Chimoio</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>希-<strong>【莫伊】</strong>-乌</div>
+<div class="notes"><p>oi 连起来练；ch 不按英语“吃”的起音硬念。</p></div><div class="actions"><button class="play-btn" data-play="182" data-rate="1" type="button" aria-label="听读 Chimoio">▶ 听读</button><button class="slow-btn" data-play="182" data-rate="0.78" type="button" aria-label="慢读 Chimoio">▷ 慢读</button></div></article>
+<article class="entry" id="entry-183" data-id="183" data-section="s14" data-group="manica" data-search="183 马尼卡 Manica 马-【尼】-卡  马尼卡省 Manica 本条指同名城市，不是整个省。">
+<div class="badge">城市或城镇 / Localidade</div><h4>马尼卡</h4>
+<p class="ptxt" lang="pt">Manica</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>马-<strong>【尼】</strong>-卡</div>
+<div class="notes"><p>本条指同名城市，不是整个省。</p></div><div class="actions"><button class="play-btn" data-play="183" data-rate="1" type="button" aria-label="听读 Manica">▶ 听读</button><button class="slow-btn" data-play="183" data-rate="0.78" type="button" aria-label="慢读 Manica">▷ 慢读</button></div></article>
+</div></section>
+<section class="place-group" id="group-tete" data-group="tete"><h3>太特省<span lang="pt">Tete</span></h3><p class="group-note">省与省会同名，分别设卡。</p><div class="cards"><article class="entry" id="entry-184" data-id="184" data-section="s14" data-group="tete" data-search="184 太特省 Tete 【泰】-提(轻)  太特省 Tete 重音练在首音节；末尾 e 轻读，具体元音请跟随所选声音及当地示范。">
+<div class="badge">省名 / Província</div><h4>太特省</h4>
+<p class="ptxt" lang="pt">Tete</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【泰】</strong>-提(轻)</div>
+<div class="notes"><p>重音练在首音节；末尾 e 轻读，具体元音请跟随所选声音及当地示范。</p></div><div class="actions"><button class="play-btn" data-play="184" data-rate="1" type="button" aria-label="听读 Tete">▶ 听读</button><button class="slow-btn" data-play="184" data-rate="0.78" type="button" aria-label="慢读 Tete">▷ 慢读</button></div></article>
+<article class="entry" id="entry-185" data-id="185" data-section="s14" data-group="tete" data-search="185 太特 Tete 【泰】-提(轻)  太特省 Tete 本条指城市 Tete。">
+<div class="badge">省会 / Capital provincial</div><h4>太特</h4>
+<p class="ptxt" lang="pt">Tete</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【泰】</strong>-提(轻)</div>
+<div class="notes"><p>本条指城市 Tete。</p></div><div class="actions"><button class="play-btn" data-play="185" data-rate="1" type="button" aria-label="听读 Tete">▶ 听读</button><button class="slow-btn" data-play="185" data-rate="0.78" type="button" aria-label="慢读 Tete">▷ 慢读</button></div></article>
+</div></section>
+<section class="place-group" id="group-zambezia" data-group="zambezia"><h3>赞比西亚省<span lang="pt">Zambézia</span></h3><p class="group-note">照片中的 Molocue 暂按 Alto Molócuè 收录；应再用地址核对。</p><div class="cards"><article class="entry" id="entry-186" data-id="186" data-section="s14" data-group="zambezia" data-search="186 赞比西亚省 Zambézia 赞~-【贝】-兹亚(zia) Zambezia 赞比西亚省 Zambézia zia 连成一组滑音；z 是浊擦音，不按“资”的塞擦起音读。">
+<div class="badge">省名 / Província</div><h4>赞比西亚省</h4>
+<p class="ptxt" lang="pt">Zambézia</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>赞~-<strong>【贝】</strong>-兹亚(zia)</div>
+<div class="notes"><p>zia 连成一组滑音；z 是浊擦音，不按“资”的塞擦起音读。</p></div><div class="actions"><button class="play-btn" data-play="186" data-rate="1" type="button" aria-label="听读 Zambézia">▶ 听读</button><button class="slow-btn" data-play="186" data-rate="0.78" type="button" aria-label="慢读 Zambézia">▷ 慢读</button></div></article>
+<article class="entry" id="entry-187" data-id="187" data-section="s14" data-group="zambezia" data-search="187 克利马内 Quelimane 凯-利-【马】-尼(轻)  赞比西亚省 Zambézia que 用 k 起音，不读成普通话“切”；最后 e 轻读。">
+<div class="badge">省会 / Capital provincial</div><h4>克利马内</h4>
+<p class="ptxt" lang="pt">Quelimane</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>凯-利-<strong>【马】</strong>-尼(轻)</div>
+<div class="notes"><p>que 用 k 起音，不读成普通话“切”；最后 e 轻读。</p></div><div class="actions"><button class="play-btn" data-play="187" data-rate="1" type="button" aria-label="听读 Quelimane">▶ 听读</button><button class="slow-btn" data-play="187" data-rate="0.78" type="button" aria-label="慢读 Quelimane">▷ 慢读</button></div></article>
+<article class="entry" id="entry-188" data-id="188" data-section="s14" data-group="zambezia" data-search="188 莫库巴 Mocuba 莫-【库】-巴  赞比西亚省 Zambézia 重音练在 cu，c 在这里读 k。">
+<div class="badge">城市或城镇 / Localidade</div><h4>莫库巴</h4>
+<p class="ptxt" lang="pt">Mocuba</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>莫-<strong>【库】</strong>-巴</div>
+<div class="notes"><p>重音练在 cu，c 在这里读 k。</p></div><div class="actions"><button class="play-btn" data-play="188" data-rate="1" type="button" aria-label="听读 Mocuba">▶ 听读</button><button class="slow-btn" data-play="188" data-rate="0.78" type="button" aria-label="慢读 Mocuba">▷ 慢读</button></div></article>
+<article class="entry" id="entry-189" data-id="189" data-section="s14" data-group="zambezia" data-search="189 上莫洛奎（暂对应） Alto Molócuè 【阿l】-图 · 莫-【洛】-库埃 Molocue Molócuè Alto Molocue 赞比西亚省 Zambézia 照片写作 Molocue。本条暂按 Alto Molócuè 整理，名字对应及当地重音仍待核对；不要据此确认目的地。">
+<div class="badge">地名候选 / Nome a confirmar</div><h4>上莫洛奎（暂对应）</h4>
+<p class="ptxt" lang="pt">Alto Molócuè</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【阿l】</strong>-图 · 莫-<strong>【洛】</strong>-库埃</div>
+<div class="notes"><p>照片写作 Molocue。本条暂按 Alto Molócuè 整理，名字对应及当地重音仍待核对；不要据此确认目的地。</p></div><div class="actions"><button class="play-btn" data-play="189" data-rate="1" type="button" aria-label="听读 Alto Molócuè">▶ 听读</button><button class="slow-btn" data-play="189" data-rate="0.78" type="button" aria-label="慢读 Alto Molócuè">▷ 慢读</button></div></article>
+<article class="entry" id="entry-190" data-id="190" data-section="s14" data-group="zambezia" data-search="190 米兰热 Milange 米-【兰~】-zh(尾轻)  赞比西亚省 Zambézia zh 是带声的 sh，不是汉语拼音 zh；末尾 e 可能较弱。">
+<div class="badge">城市或城镇 / Localidade</div><h4>米兰热</h4>
+<p class="ptxt" lang="pt">Milange</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>米-<strong>【兰~】</strong>-zh(尾轻)</div>
+<div class="notes"><p>zh 是带声的 sh，不是汉语拼音 zh；末尾 e 可能较弱。</p></div><div class="actions"><button class="play-btn" data-play="190" data-rate="1" type="button" aria-label="听读 Milange">▶ 听读</button><button class="slow-btn" data-play="190" data-rate="0.78" type="button" aria-label="慢读 Milange">▷ 慢读</button></div></article>
+<article class="entry" id="entry-191" data-id="191" data-section="s14" data-group="zambezia" data-search="191 莫伦巴拉 Morrumbala 莫-rum~-【巴】-拉  赞比西亚省 Zambézia rr 不宜一律写成“胡”；中间的鼻化和 r 音需要跟当地人练。">
+<div class="badge">城市或城镇 / Localidade</div><h4>莫伦巴拉</h4>
+<p class="ptxt" lang="pt">Morrumbala</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>莫-rum~-<strong>【巴】</strong>-拉</div>
+<div class="notes"><p>rr 不宜一律写成“胡”；中间的鼻化和 r 音需要跟当地人练。</p></div><div class="actions"><button class="play-btn" data-play="191" data-rate="1" type="button" aria-label="听读 Morrumbala">▶ 听读</button><button class="slow-btn" data-play="191" data-rate="0.78" type="button" aria-label="慢读 Morrumbala">▷ 慢读</button></div></article>
+<article class="entry" id="entry-192" data-id="192" data-section="s14" data-group="zambezia" data-search="192 伊莱 Ile 【伊】-利(轻) ile yile 伊勒 赞比西亚省 Zambézia 按照片识别为 Ile；它与 Gilé 是不同地名，不能自动互换。">
+<div class="badge">区名／地名 / Distrito e localidade</div><h4>伊莱</h4>
+<p class="ptxt" lang="pt">Ile</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【伊】</strong>-利(轻)</div>
+<div class="notes"><p>按照片识别为 Ile；它与 Gilé 是不同地名，不能自动互换。</p></div><div class="actions"><button class="play-btn" data-play="192" data-rate="1" type="button" aria-label="听读 Ile">▶ 听读</button><button class="slow-btn" data-play="192" data-rate="0.78" type="button" aria-label="慢读 Ile">▷ 慢读</button></div></article>
+</div></section>
+<section class="place-group" id="group-nampula" data-group="nampula"><h3>楠普拉省<span lang="pt">Nampula</span></h3><p class="group-note">省与省会同名；Nacala 使用短名，附完整名称方便检索。</p><div class="cards"><article class="entry" id="entry-193" data-id="193" data-section="s14" data-group="nampula" data-search="193 楠普拉省 Nampula 南~-【普】-拉  楠普拉省 Nampula 首音节先按鼻化练；重音放在 pu。">
+<div class="badge">省名 / Província</div><h4>楠普拉省</h4>
+<p class="ptxt" lang="pt">Nampula</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>南~-<strong>【普】</strong>-拉</div>
+<div class="notes"><p>首音节先按鼻化练；重音放在 pu。</p></div><div class="actions"><button class="play-btn" data-play="193" data-rate="1" type="button" aria-label="听读 Nampula">▶ 听读</button><button class="slow-btn" data-play="193" data-rate="0.78" type="button" aria-label="慢读 Nampula">▷ 慢读</button></div></article>
+<article class="entry" id="entry-194" data-id="194" data-section="s14" data-group="nampula" data-search="194 楠普拉 Nampula 南~-【普】-拉  楠普拉省 Nampula 本条指城市 Nampula。">
+<div class="badge">省会 / Capital provincial</div><h4>楠普拉</h4>
+<p class="ptxt" lang="pt">Nampula</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>南~-<strong>【普】</strong>-拉</div>
+<div class="notes"><p>本条指城市 Nampula。</p></div><div class="actions"><button class="play-btn" data-play="194" data-rate="1" type="button" aria-label="听读 Nampula">▶ 听读</button><button class="slow-btn" data-play="194" data-rate="0.78" type="button" aria-label="慢读 Nampula">▷ 慢读</button></div></article>
+<article class="entry" id="entry-195" data-id="195" data-section="s14" data-group="nampula" data-search="195 纳卡拉 Nacala 纳-【卡】-拉 Nacala-Porto 纳卡拉港市 楠普拉省 Nampula 常见检索名称 Nacala-Porto；本卡听读使用照片中的短名 Nacala。">
+<div class="badge">城市或城镇 / Localidade</div><h4>纳卡拉</h4>
+<p class="ptxt" lang="pt">Nacala</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>纳-<strong>【卡】</strong>-拉</div>
+<div class="notes"><p>常见检索名称 Nacala-Porto；本卡听读使用照片中的短名 Nacala。</p></div><div class="actions"><button class="play-btn" data-play="195" data-rate="1" type="button" aria-label="听读 Nacala">▶ 听读</button><button class="slow-btn" data-play="195" data-rate="0.78" type="button" aria-label="慢读 Nacala">▷ 慢读</button></div></article>
+</div></section>
+<section class="place-group" id="group-niassa" data-group="niassa"><h3>尼亚萨省<span lang="pt">Niassa</span></h3><p class="group-note">Mecanhelas 保留，但标成区名／所在地常用名，不一概称为大城市。</p><div class="cards"><article class="entry" id="entry-196" data-id="196" data-section="s14" data-group="niassa" data-search="196 尼亚萨省 Niassa 尼-【阿】-萨  尼亚萨省 Niassa 把 ni-a 的衔接练顺，不要每个汉字都带普通话声调。">
+<div class="badge">省名 / Província</div><h4>尼亚萨省</h4>
+<p class="ptxt" lang="pt">Niassa</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>尼-<strong>【阿】</strong>-萨</div>
+<div class="notes"><p>把 ni-a 的衔接练顺，不要每个汉字都带普通话声调。</p></div><div class="actions"><button class="play-btn" data-play="196" data-rate="1" type="button" aria-label="听读 Niassa">▶ 听读</button><button class="slow-btn" data-play="196" data-rate="0.78" type="button" aria-label="慢读 Niassa">▷ 慢读</button></div></article>
+<article class="entry" id="entry-197" data-id="197" data-section="s14" data-group="niassa" data-search="197 利欣加 Lichinga 利-【辛~】-嘎  尼亚萨省 Niassa ch 先按 sh 练；chin 为重读鼻化音节。">
+<div class="badge">省会 / Capital provincial</div><h4>利欣加</h4>
+<p class="ptxt" lang="pt">Lichinga</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>利-<strong>【辛~】</strong>-嘎</div>
+<div class="notes"><p>ch 先按 sh 练；chin 为重读鼻化音节。</p></div><div class="actions"><button class="play-btn" data-play="197" data-rate="1" type="button" aria-label="听读 Lichinga">▶ 听读</button><button class="slow-btn" data-play="197" data-rate="0.78" type="button" aria-label="慢读 Lichinga">▷ 慢读</button></div></article>
+<article class="entry" id="entry-198" data-id="198" data-section="s14" data-group="niassa" data-search="198 库安巴 Cuamba 【宽~】-巴  尼亚萨省 Niassa cua 连作 kwa 一组，不拆成“库、乌、阿”。">
+<div class="badge">城市或城镇 / Localidade</div><h4>库安巴</h4>
+<p class="ptxt" lang="pt">Cuamba</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【宽~】</strong>-巴</div>
+<div class="notes"><p>cua 连作 kwa 一组，不拆成“库、乌、阿”。</p></div><div class="actions"><button class="play-btn" data-play="198" data-rate="1" type="button" aria-label="听读 Cuamba">▶ 听读</button><button class="slow-btn" data-play="198" data-rate="0.78" type="button" aria-label="慢读 Cuamba">▷ 慢读</button></div></article>
+<article class="entry" id="entry-199" data-id="199" data-section="s14" data-group="niassa" data-search="199 曼丁巴 Mandimba 曼~-【丁~】-巴  尼亚萨省 Niassa 鼻化不要另添“恩”；重音练在 dim。">
+<div class="badge">城市或城镇 / Localidade</div><h4>曼丁巴</h4>
+<p class="ptxt" lang="pt">Mandimba</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>曼~-<strong>【丁~】</strong>-巴</div>
+<div class="notes"><p>鼻化不要另添“恩”；重音练在 dim。</p></div><div class="actions"><button class="play-btn" data-play="199" data-rate="1" type="button" aria-label="听读 Mandimba">▶ 听读</button><button class="slow-btn" data-play="199" data-rate="0.78" type="button" aria-label="慢读 Mandimba">▷ 慢读</button></div></article>
+<article class="entry" id="entry-200" data-id="200" data-section="s14" data-group="niassa" data-search="200 梅卡涅拉斯 Mecanhelas 梅-卡-【涅】-拉sh mecanhela Insaca 尼亚萨省 Niassa 末尾有 s。nh 为腭鼻音；地名也与所在地 Insaca 的叫法有关，地址应同时核对。">
+<div class="badge">区名／常用地名 / Distrito</div><h4>梅卡涅拉斯</h4>
+<p class="ptxt" lang="pt">Mecanhelas</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>梅-卡-<strong>【涅】</strong>-拉sh</div>
+<div class="notes"><p>末尾有 s。nh 为腭鼻音；地名也与所在地 Insaca 的叫法有关，地址应同时核对。</p></div><div class="actions"><button class="play-btn" data-play="200" data-rate="1" type="button" aria-label="听读 Mecanhelas">▶ 听读</button><button class="slow-btn" data-play="200" data-rate="0.78" type="button" aria-label="慢读 Mecanhelas">▷ 慢读</button></div></article>
+</div></section>
+<section class="place-group" id="group-cabo-delgado" data-group="cabo-delgado"><h3>德尔加杜角省<span lang="pt">Cabo Delgado</span></h3><p class="group-note">Cabo 与 Delgado 是两个词；省内列出 Pemba 和 Montepuez。</p><div class="cards"><article class="entry" id="entry-201" data-id="201" data-section="s14" data-group="cabo-delgado" data-search="201 德尔加杜角省 Cabo Delgado 【卡】-布 · 德l-【嘎】-杜 德尔加多角 德尔加杜角省 Cabo Delgado Delgado 中的 l 接在前一音节末尾，不额外加“勒”。">
+<div class="badge">省名 / Província</div><h4>德尔加杜角省</h4>
+<p class="ptxt" lang="pt">Cabo Delgado</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【卡】</strong>-布 · 德l-<strong>【嘎】</strong>-杜</div>
+<div class="notes"><p>Delgado 中的 l 接在前一音节末尾，不额外加“勒”。</p></div><div class="actions"><button class="play-btn" data-play="201" data-rate="1" type="button" aria-label="听读 Cabo Delgado">▶ 听读</button><button class="slow-btn" data-play="201" data-rate="0.78" type="button" aria-label="慢读 Cabo Delgado">▷ 慢读</button></div></article>
+<article class="entry" id="entry-202" data-id="202" data-section="s14" data-group="cabo-delgado" data-search="202 彭巴 Pemba 【彭~】-巴  德尔加杜角省 Cabo Delgado pen 带鼻化；不要把末尾另念成“恩”。">
+<div class="badge">省会 / Capital provincial</div><h4>彭巴</h4>
+<p class="ptxt" lang="pt">Pemba</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span><strong>【彭~】</strong>-巴</div>
+<div class="notes"><p>pen 带鼻化；不要把末尾另念成“恩”。</p></div><div class="actions"><button class="play-btn" data-play="202" data-rate="1" type="button" aria-label="听读 Pemba">▶ 听读</button><button class="slow-btn" data-play="202" data-rate="0.78" type="button" aria-label="慢读 Pemba">▷ 慢读</button></div></article>
+<article class="entry" id="entry-203" data-id="203" data-section="s14" data-group="cabo-delgado" data-search="203 蒙特普埃兹 Montepuez 蒙~-提-【普埃】sh  德尔加杜角省 Cabo Delgado puez 先连滑练习，重音在末部；词尾 z 和当地连读仍须跟读核对。">
+<div class="badge">城市或城镇 / Localidade</div><h4>蒙特普埃兹</h4>
+<p class="ptxt" lang="pt">Montepuez</p>
+<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>蒙~-提-<strong>【普埃】</strong>sh</div>
+<div class="notes"><p>puez 先连滑练习，重音在末部；词尾 z 和当地连读仍须跟读核对。</p></div><div class="actions"><button class="play-btn" data-play="203" data-rate="1" type="button" aria-label="听读 Montepuez">▶ 听读</button><button class="slow-btn" data-play="203" data-rate="0.78" type="button" aria-label="慢读 Montepuez">▷ 慢读</button></div></article>
+</div></section>
+</section>
+</div><section class="sources" id="sources"><h2>资料与版本说明</h2><p>地名范围来自你提供的手写照片；数字和常用语沿用上一版。省名及部分疑难拼写参照以下资料。中文注音为编写的练习近音，不代表任何来源已认证本册发音。</p><p class="source-item"><b>[1] <a href="https://portaldogoverno.gov.mz/informacao-geral/" target="_blank" rel="noopener">莫桑比克政府：国家概况与省名</a></b><br>用于核对省名及行政分组。</p><p class="source-item"><b>[2] <a href="https://portaldogoverno.gov.mz/governos-provinciais/" target="_blank" rel="noopener">莫桑比克政府：省级政府名录</a></b><br>用于核对10个省的名称。</p><p class="source-item"><b>[3] <a href="https://ine.gov.mz/en/d/mecanhelas" target="_blank" rel="noopener">莫桑比克国家统计局：Mecanhelas</a></b><br>用于核对地名拼写；照片中的城镇并非全是大城市。</p><p class="source-item"><b>[4] <a href="https://research-repository.uwa.edu.au/en/publications/map-explanation-of-sheets-alto-mol%C3%B3cu%C3%A8-1537-murrupula-1538-nampul/" target="_blank" rel="noopener">莫桑比克地质局：Alto Molócuè 图幅说明</a></b><br>用于核对 Alto Molócuè 拼写；无法单凭手写 Molocue 唯一确认地点。</p><p class="source-item"><b>[5] <a href="https://catedraportugues.uem.mz/storage/app/media/2024/09/Varia%C3%A7%C3%A3o%20dialectal.pdf" target="_blank" rel="noopener">UEM：莫桑比克葡语发音地域差异材料</a></b><br>用于理解地域差异；本册中文注音不是该资料的逐音转写。</p><p class="source-item"><b>[6] <a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/getVoices" target="_blank" rel="noopener">MDN：获取设备语音与语言标签</a></b><br>语音列表由当前设备与浏览器提供。</p><p class="source-item"><b>[7] <a href="https://support.apple.com/zh-cn/guide/iphone/iphea86e5236/ios" target="_blank" rel="noopener">Apple：在 Safari 中将网站变为 App</a></b><br>适用于已通过网站访问的网页，不代表本地 HTML 附件已经发布。</p><p>2026-10-04 · v6 离线语音版。内置 Google pt-PT（欧洲葡语）合成语音（女声，机器合成音，非莫桑比克真人录音）；仍可切换设备系统声音。PDF 为无音频文字版。</p></section>
+<footer class="footer"><div><p id="statusText" role="status">点“听读”或“慢读”即可播放；连点多条会依次排队。</p><p id="queueText"></p></div><button id="stop" type="button">停止</button></footer>
+</main><script>'use strict';
+(() => {
+  const $ = id => document.getElementById(id);
+  const synth = ('speechSynthesis' in window) ? window.speechSynthesis : null;
+  const entries = [...document.querySelectorAll('.entry')];
+  const chapters = [...document.querySelectorAll('.chapter')];
+  const groups = [...document.querySelectorAll('.place-group')];
+  const byId = new Map(entries.map(e => [e.dataset.id,e]));
+  const KEY='mz-portuguese-v5';
+  let prefs={};
+  try{prefs=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(_){prefs={};}
+  if(typeof prefs!=='object'||Array.isArray(prefs))prefs={};
+  const store=()=>{try{localStorage.setItem(KEY,JSON.stringify(prefs));return true;}catch(_){return false;}};
+  const normalise=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  entries.forEach(e=>e._search=normalise(e.dataset.search));
+  let available=[];
+  let currentVoice=null;
+  let queue=[];
+  let active=null;
+  let activeCard=null;
+  let nextTimer=null;
+  let startTimer=null;
+  let generation=0;
+  let lastVoiceKey='';
+  const keyOf=v=>[v.voiceURI||'',v.lang||'',v.name||''].join('|');
+  const isPortuguese=v=>/^pt(?:[-_]|$)/i.test(v.lang||'');
+  const isReed=v=>/\breed\b/i.test(v.name||'');
+  const isRocko=v=>/\brocko\b/i.test(v.name||'');
+  const rank=v=> (isReed(v)?0:isRocko(v)?10:20)+(/^pt[-_]MZ$/i.test(v.lang)?0:/^pt[-_]PT$/i.test(v.lang)?1:/^pt[-_]BR$/i.test(v.lang)?2:3);
+  const voiceLabel=v=>`${v.name} · ${v.lang}${v.localService===true?' · 本机服务':v.localService===false?' · 在线服务':''}`;
+  function status(text){$('statusText').textContent=text;updateQueueLabel();}
+  function updateQueueLabel(){
+    $('queueText').textContent=queue.length ? `还有 ${queue.length} 次朗读在队列中` : active ? '点击另一条会排队，不截断前一句。' : '';
+  }
+  function clearHighlight(){if(activeCard){activeCard.classList.remove('playing');activeCard.removeAttribute('aria-busy');}activeCard=null;}
+  function stop(message='已停止朗读并清空队列。'){
+    generation++;
+    queue=[];
+    if(nextTimer){clearTimeout(nextTimer);nextTimer=null;}
+    if(startTimer){clearTimeout(startTimer);startTimer=null;}
+    active=null;clearHighlight();
+    if(synth){try{synth.cancel();}catch(_){}}
+    status(message);
+  }
+  function updateVoiceUI(message=''){
+    const ready=!!currentVoice&&!!synth;
+    document.querySelectorAll('[data-play],#testVoice,#sequence').forEach(b=>b.disabled=!ready);
+    if(currentVoice){
+      $('voiceInfo').textContent=`当前：${voiceLabel(currentVoice)}。可以自行切换；这不是内置录音。`;
+    } else if(message){$('voiceInfo').textContent=message;}
+  }
+  function refreshVoices(){
+    if(!synth||typeof window.SpeechSynthesisUtterance==='undefined'){
+      $('voiceSelect').replaceChildren(new Option('此预览器不支持网页朗读',''));
+      $('voiceSelect').disabled=true;
+      currentVoice=null;updateVoiceUI('此预览器不支持网页朗读。全部文字仍可阅读。');return;
+    }
+    let found=[];try{found=synth.getVoices();}catch(_){found=[];}
+    const unique=new Map();found.filter(isPortuguese).forEach(v=>unique.set(keyOf(v),v));
+    available=[...unique.values()].sort((a,b)=>rank(a)-rank(b)||(a.name+' '+a.lang).localeCompare(b.name+' '+b.lang));
+    const wanted=prefs.voice||lastVoiceKey;
+    const match=wanted?available.find(v=>keyOf(v)===wanted):null;
+    if(active&&wanted&&!match){stop('所选声音暂不可用，请重新选择。');}
+    $('voiceSelect').replaceChildren();
+    if(!available.length){
+      currentVoice=null;$('voiceSelect').append(new Option('尚未检测到可用的葡语声音',''));
+      $('voiceSelect').disabled=true;
+      updateVoiceUI('没有检测到葡语声音；不会改用英语或中文代读。可检查系统的葡语声音，然后点“刷新声音”。');
+      return;
+    }
+    $('voiceSelect').disabled=false;
+    const missing=!!wanted&&!match;
+    if(missing){const op=new Option('上次所选声音未列出，请重新选择','');op.disabled=true;$('voiceSelect').append(op);}
+    available.forEach(v=>$('voiceSelect').append(new Option(voiceLabel(v),keyOf(v))));
+    currentVoice=match||(!wanted?available[0]:null);
+    $('voiceSelect').value=currentVoice?keyOf(currentVoice):'';
+    if(currentVoice)lastVoiceKey=keyOf(currentVoice);
+    updateVoiceUI('上次选择的声音当前未列出。请选择一个葡语声音；不会静默换成另一种音色。');
+  }
+  function requireVoice(){
+    if(!currentVoice)refreshVoices();
+    if(!currentVoice){status('请先在“朗读声音”选择可用的葡语声音。');return false;}
+    return true;
+  }
+  function runQueue(){
+    if(active||nextTimer||!queue.length)return;
+    if(!requireVoice()){queue=[];updateQueueLabel();return;}
+    const task=queue.shift();
+    const token=generation;
+    const utterance=new SpeechSynthesisUtterance(task.text);
+    utterance.voice=currentVoice;
+    utterance.lang=currentVoice.lang;
+    utterance.rate=task.rate;
+    utterance.pitch=1;
+    active=utterance;activeCard=task.card||null;
+    if(activeCard){activeCard.classList.add('playing');activeCard.setAttribute('aria-busy','true');}
+    status(`正在朗读：${task.text}`);
+    const finish=()=>{
+      if(token!==generation||active!==utterance)return;
+      if(startTimer){clearTimeout(startTimer);startTimer=null;}
+      active=null;clearHighlight();
+      if(queue.length){
+        updateQueueLabel();
+        nextTimer=setTimeout(()=>{nextTimer=null;runQueue();},350);
+      } else status('朗读完成。');
+    };
+    utterance.onstart=()=>{if(token===generation&&startTimer){clearTimeout(startTimer);startTimer=null;}};
+    utterance.onend=finish;
+    utterance.onerror=event=>{
+      if(token!==generation||active!==utterance)return;
+      stop(`这次朗读未完成（${event.error||'系统语音错误'}）。请检查所选声音后重新点读。`);
+    };
+    startTimer=setTimeout(()=>{if(token===generation&&active===utterance){stop('系统没有开始朗读。请刷新声音或换一个可用的葡语声音。');}},20000);
+    try{synth.speak(utterance);if(synth.paused)synth.resume();}
+    catch(_){stop('系统未能开始朗读，请重新选择声音。');}
+  }
+  function enqueueBatch(items){
+    if(!requireVoice())return;
+    // Limit accidental tapping without interrupting a sentence already in progress.
+    if(queue.length+items.length>80){status('待播内容较多，请先听完，或点“停止”清空。');return;}
+    queue.push(...items);updateQueueLabel();runQueue();
+  }
+  function enqueueCard(id,rate){
+    const card=byId.get(id);if(!card)return;
+    const task={text:card.querySelector('.ptxt').textContent.trim(),rate,card};
+    enqueueBatch($('repeatTwice').checked?[task,{...task}]:[task]);
+  }
+  function applyFilters(){
+    const section=$('chapterSelect').value;
+    const group=section==='s14'?$('provinceSelect').value:'all';
+    const q=normalise($('search').value.trim());
+    const terms=q.split(/\s+/).filter(Boolean);
+    $('provinceFilterWrap').hidden=section!=='s14';
+    let n=0;
+    for(const e of entries){
+      const sectionOK=section==='all'||e.dataset.section===section;
+      const groupOK=group==='all'||e.dataset.group===group;
+      const textOK=terms.every(t=>e._search.includes(t));
+      e.hidden=!(sectionOK&&groupOK&&textOK);if(!e.hidden)n++;
+    }
+    groups.forEach(g=>g.hidden=![...g.querySelectorAll('.entry')].some(e=>!e.hidden));
+    chapters.forEach(s=>s.hidden=![...s.querySelectorAll('.entry')].some(e=>!e.hidden));
+    $('count').textContent=`当前显示 ${n} 条${section==='s14'?'地名卡':''} ／ 全册 203 条`;
+    $('empty').hidden=n!==0;
+  }
+  function selectChapter(id){
+    $('chapterSelect').value=id;$('provinceSelect').value='all';$('search').value='';
+    prefs.chapter=id;store();applyFilters();
+  }
+  document.addEventListener('click',event=>{
+    const b=event.target.closest('button[data-play]');
+    if(b&&!b.disabled)enqueueCard(b.dataset.play,Number(b.dataset.rate)||1);
+  });
+  $('voiceSelect').addEventListener('change',()=>{
+    const choice=available.find(v=>keyOf(v)===$('voiceSelect').value);
+    if(!choice)return;
+    stop('声音已切换，请重新点击需要听读的内容。');
+    currentVoice=choice;lastVoiceKey=keyOf(choice);prefs.voice=lastVoiceKey;
+    const saved=store();updateVoiceUI();
+    status(`已选择 ${choice.name} · ${choice.lang}${saved?'；已保存选择。':'；本次预览无法保存设置。'}`);
+  });
+  $('refreshVoices').addEventListener('click',refreshVoices);
+  $('testVoice').addEventListener('click',()=>enqueueBatch([{text:'Bom dia. Maputo. Sofala. Beira. Montepuez.',rate:1,card:null}]));
+  $('stop').addEventListener('click',()=>stop());
+  $('repeatTwice').checked=!!prefs.repeat;
+  $('repeatTwice').addEventListener('change',()=>{prefs.repeat=$('repeatTwice').checked;store();});
+  if([...$('chapterSelect').options].some(o=>o.value===prefs.chapter))$('chapterSelect').value=prefs.chapter;
+  $('chapterSelect').addEventListener('change',()=>{$('provinceSelect').value='all';prefs.chapter=$('chapterSelect').value;store();applyFilters();});
+  $('provinceSelect').addEventListener('change',applyFilters);
+  $('search').addEventListener('input',applyFilters);
+  $('reset').addEventListener('click',()=>selectChapter('all'));
+  $('goPlaces').addEventListener('click',()=>{selectChapter('s14');$('learningContent').scrollIntoView({block:'start',behavior:'smooth'});});
+  $('goNumbers').addEventListener('click',()=>selectChapter('s01'));
+  $('sequence').addEventListener('click',()=>{
+    const visible=entries.filter(e=>!e.hidden).slice(0,20);
+    const tasks=[];visible.forEach(card=>{const t={text:card.querySelector('.ptxt').textContent.trim(),rate:1,card};tasks.push(t);if($('repeatTwice').checked)tasks.push({...t});});
+    enqueueBatch(tasks);
+  });
+  if(synth){
+    if(synth.addEventListener)synth.addEventListener('voiceschanged',refreshVoices);
+    else synth.onvoiceschanged=refreshVoices;
+  }
+  refreshVoices();applyFilters();
+  setTimeout(refreshVoices,250);setTimeout(refreshVoices,1250);
+  window.addEventListener('pagehide',()=>stop('页面已关闭或切换。'));
+})();
+</script></body></html>
