@@ -205,10 +205,10 @@
   }
   function applyFilters() {
     const section = $('chapterSelect').value;
-    const group = section === 's14' ? $('provinceSelect').value : 'all';
+    const group = section === 's15' ? $('provinceSelect').value : 'all';
     const q = normalise($('search').value.trim());
     const terms = q.split(/\s+/).filter(Boolean);
-    $('provinceFilterWrap').hidden = section !== 's14';
+    $('provinceFilterWrap').hidden = section !== 's15';
     let n = 0;
     for (const e of entries) {
       const sectionOK = section === 'all' || e.dataset.section === section;
@@ -218,7 +218,7 @@
     }
     groups.forEach(g => g.hidden = ![...g.querySelectorAll('.entry')].some(e => !e.hidden));
     chapters.forEach(s => s.hidden = ![...s.querySelectorAll('.entry')].some(e => !e.hidden));
-    $('count').textContent = `当前显示 ${n} 条${section === 's14' ? '地名卡' : ''} ／ 全册 203 条`;
+    $('count').textContent = `当前显示 ${n} 条${section === 's15' ? '地名卡' : ''} ／ 全册 ${entries.length} 条`;
     $('empty').hidden = n !== 0;
   }
   function selectChapter(id) {

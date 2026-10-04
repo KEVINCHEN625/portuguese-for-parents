@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Produce src/handbook.html: v5 body + new design system CSS + new header + final copy."""
+import json
 import pathlib
 import re
 import sys
@@ -25,7 +26,7 @@ NEW_HEADER = (
     '<p class="eyebrow">PORTUGUÊS PARA A VIDA EM MOÇAMBIQUE</p>'
     '<h1>莫桑比克生活葡语</h1>'
     '<p class="deck" lang="pt">Português para a vida em Mo&ccedil;ambique</p>'
-    '<p class="version">v7.0 · 2026-10-04</p>'
+    '<p class="version">v7.1 · 2026-10-04</p>'
     '</div></header>'
 )
 html = html[:header_marker.start()] + NEW_HEADER + html[header_marker.end():]
@@ -97,6 +98,60 @@ for old, new in REPLACEMENTS:
 # 4) 徽标：CARD 001 → № 001（仅数字章；地名章为文字徽标，保持原样）
 html, n_badge = re.subn(r'<div class="badge">CARD (\d+)</div>', r'<div class="badge">№ \1</div>', html)
 print(f"badge rewritten: {n_badge}")
+
+# 9) 新增第 14 章「工厂」（家人整理的工厂常用词），地名章顺延为 15
+FACTORY = json.load(open(BASE / "tools" / "factory_entries.json", encoding="utf-8"))
+if len(FACTORY) != 39:
+    sys.exit(f"expected 39 factory entries, got {len(FACTORY)}")
+
+
+def factory_card(e):
+    phon_html = re.sub(r"【[^】]+】", lambda m: f"<strong>{m.group(0)}</strong>", e["phon"])
+    search = " ".join([e["id"], e["zh"], e["pt"], e["phon"], e["note"]])
+    return (
+        f'<article class="entry" id="entry-{e["id"]}" data-id="{e["id"]}" data-section="s14" '
+        f'data-group="" data-search="{search}">\n'
+        f'<div class="badge">№ {e["id"]}</div><h4>{e["zh"]}</h4>\n'
+        f'<p class="ptxt" lang="pt">{e["pt"]}</p>\n'
+        f'<div class="phon"><span class="phon-label">中文辅助注音 · 近似</span>{phon_html}</div>\n'
+        f'<div class="notes"><p>{e["note"]}</p></div>'
+        f'<div class="actions"><button class="play-btn" data-play="{e["id"]}" data-rate="1" type="button" '
+        f'aria-label="听读 {e["pt"]}">▶ 听读</button>'
+        f'<button class="slow-btn" data-play="{e["id"]}" data-rate="0.5" type="button" '
+        f'aria-label="慢读 {e["pt"]}">▷ 慢读</button></div></article>\n'
+    )
+
+
+# 9a) 既有地名章 s14 → s15（章号、卡片 data-section、下拉选项）
+if html.count('data-section="s14"') != 40:
+    sys.exit(f"expected 40 place cards in s14, got {html.count('data-section=\"s14\"')}")
+for old, new, n_expect in [
+    ('<section class="chapter" id="s14">', '<section class="chapter" id="s15">', 1),
+    ('data-section="s14"', 'data-section="s15"', 40),
+    ('<div class="chapter-number">14</div>', '<div class="chapter-number">15</div>', 1),
+    ('<option value="s14">14｜地名注音示例（40条）</option>',
+     '<option value="s14">14｜工厂（39条）</option><option value="s15">15｜地名注音示例（40条）</option>', 1),
+    ('<option value="all">全部内容（203条）</option>', '<option value="all">全部内容（242条）</option>', 1),
+]:
+    n = html.count(old)
+    if n != n_expect:
+        sys.exit(f"renumber anchor {old[:40]!r} found {n} times (need {n_expect})")
+    html = html.replace(old, new)
+
+# 9b) 在（已改名为 s15 的）地名章之前插入工厂章
+NEW_CH = (
+    '<section class="chapter" id="s14"><div class="chapter-heading"><div class="chapter-number">14</div>'
+    '<div><h2>工厂</h2><p class="subtitle" lang="pt">Palavras para o trabalho na fábrica</p></div></div>'
+    '<p class="lead">按家人在饼干厂的实际场景整理：车间与设备、原料、包装与仓储、单据与客户。'
+    '注音按拼写拟写，供起步练习，不等于当地录音。</p>\n'
+    '<p class="chapter-note">本章来自家人提供的工厂常用词清单（v7.1 新增）；拼写按莫桑比克通用的葡葡习惯，'
+    '如 factura、eléctrico、camião。</p>\n'
+    '<div class="cards">' + "".join(factory_card(e) for e in FACTORY) + "</div></section>\n\n"
+)
+anchor = '<section class="chapter" id="s15">'
+if html.count(anchor) != 1:
+    sys.exit("s15 insertion anchor not unique")
+html = html.replace(anchor, NEW_CH + anchor)
 
 dst = BASE / "src" / "handbook.html"
 dst.write_text(html, encoding="utf-8")
