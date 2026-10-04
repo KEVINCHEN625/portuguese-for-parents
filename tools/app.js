@@ -18,6 +18,7 @@
   const EMB_PREFIX = 'embedded:';
   const EMBED_LABEL = {
     main: '内置声音一 · pt-PT 女声（清晰合成 · 离线）',
+    fish: '内置声音二 · Valentino 葡语（高质量合成 · 离线）',
     reed: '内置声音二 · Reed（苹果合成 · 离线）',
     fernanda: '内置女声 · Fernanda（pt-PT 神经网络 · 离线）',
     duarte: '内置男声 · Duarte（pt-PT 神经网络 · 离线）'

@@ -10,6 +10,10 @@
   - 备选升级：edge-tts（Azure 神经网络 pt-PT：Fernanda/Duarte，质量最好），
     但本网络连通性极不稳定（2026-10-04 当天两次尝试，除偶发单次成功外全部被拒），
     `tools/gen_audio_azure.py` 带重试，网络畅通时跑完再 `build_html.py` 即可整批替换。
+  - 备选升级 2：Fish Audio S2.1-Pro（83 语言含葡语、原生 `prosody.speed` 语速控制、
+    有 `s2.1-pro-free` 免费档）。用法：`export FISH_API_KEY=...`（必填）、
+    `FISH_VOICE_ID=...`（可选，声音库发音人）、然后跑 `tools/gen_audio_fish.py`。
+    **Key 只从环境变量读，绝不写入本仓库（公开仓库）。**
 - 慢读按钮 = 同一音频 0.78 倍速重放（保音高）。
 - 机器合成音不是莫桑比克真人录音；将来拿到真人录音后可整批替换。
 
