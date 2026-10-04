@@ -1,4 +1,4 @@
-const CACHE = 'pt-handbook-v9';
+const CACHE = 'pt-handbook-v10';
 const ASSETS = [
   './',
   './index.html',

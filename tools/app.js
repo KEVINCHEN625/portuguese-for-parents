@@ -11,7 +11,10 @@
   try { prefs = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (_) { prefs = {}; }
   if (typeof prefs !== 'object' || Array.isArray(prefs)) prefs = {};
   const store = () => { try { localStorage.setItem(KEY, JSON.stringify(prefs)); return true; } catch (_) { return false; } };
-  const normalise = s => String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const normalise = s => String(s)
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[Ａ-Ｚａ-ｚ０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0)) /* 全角转半角 */
+    .toLowerCase();
   entries.forEach(e => e._search = normalise(e.dataset.search));
 
   /* ---------- 内置音频库 ---------- */
@@ -269,7 +272,18 @@
   if ([...$('chapterSelect').options].some(o => o.value === prefs.chapter)) $('chapterSelect').value = prefs.chapter;
   $('chapterSelect').addEventListener('change', () => { $('provinceSelect').value = 'all'; prefs.chapter = $('chapterSelect').value; store(); applyFilters(); scrollToFirstCard(); });
   $('provinceSelect').addEventListener('change', () => { applyFilters(); scrollToFirstCard(); });
-  $('search').addEventListener('input', applyFilters);
+  let searchTimer = null;
+  $('search').addEventListener('input', () => {
+    /* 一旦输入搜索词，自动切回“全部内容”，全书搜索 */
+    if ($('search').value.trim() && $('chapterSelect').value !== 'all') {
+      $('chapterSelect').value = 'all';
+      prefs.chapter = 'all'; store();
+    }
+    applyFilters();
+    /* 输入停顿后跳到第一条结果 */
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(scrollToFirstCard, 450);
+  });
   if (synth) {
     if (synth.addEventListener) synth.addEventListener('voiceschanged', refreshVoices);
     else synth.onvoiceschanged = refreshVoices;
