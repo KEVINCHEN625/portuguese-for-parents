@@ -39,7 +39,7 @@ html = html.replace("/*FONTFACE*/", font_block)
 # ---------- 音频库 ----------
 voices = {}
 missing = []
-for comm in ("main",):
+for comm in ("main", "reed"):
     items = {}
     for e in ENTRIES:
         m4a = BASE / "audio" / comm / f"{e['id']}.m4a"
@@ -61,9 +61,9 @@ if missing and not PARTIAL:
 bank = {
     "meta": {
         "generated": datetime.date.today().isoformat(),
-        "engine": "Google Translate TTS (tl=pt-PT)",
-        "voices": {"main": "pt-PT female"},
-        "rate": "default (约0.78x慢读由播放器变速)",
+        "engine": "Google Translate TTS (tl=pt-PT) + macOS say (Reed pt-BR)",
+        "voices": {"main": "pt-PT female (Google)", "reed": "pt-BR (Apple Reed)"},
+        "rate": "default (慢读 0.78x 由播放器变速)",
         "partial": bool(missing),
         "note": "机器合成音（欧洲葡语），非莫桑比克真人录音；慢读为同一音频 0.78 倍速重放。"
     },

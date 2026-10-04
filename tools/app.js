@@ -16,7 +16,12 @@
 
   /* ---------- 内置音频库 ---------- */
   const EMB_PREFIX = 'embedded:';
-  const EMBED_LABEL = { main: '内置女声 · pt-PT（欧洲葡语 · 离线）' };
+  const EMBED_LABEL = {
+    main: '内置声音一 · pt-PT 女声（清晰合成 · 离线）',
+    reed: '内置声音二 · Reed（苹果合成 · 离线）',
+    fernanda: '内置女声 · Fernanda（pt-PT 神经网络 · 离线）',
+    duarte: '内置男声 · Duarte（pt-PT 神经网络 · 离线）'
+  };
   let bank = { meta: {}, voices: {} };
   try {
     const bankEl = document.getElementById('audio-bank');

@@ -3,10 +3,13 @@
 给父母用的葡萄牙语学习手册：203 条中葡对照学习卡（14 章 + 地名按省分组），
 内置 pt-PT（欧洲葡语）神经网络语音，可添加到 iPhone 主屏幕、完全离线使用。
 
-- 语音引擎：Google Translate TTS（`tl=pt-PT`，欧洲葡语女声）。
-  原计划用 edge-tts（Azure 神经网络 pt-PT：Fernanda/Duarte），但本网络环境下
-  edge-tts 请求全部被拒（`NoAudioReceived`），故改用可用的 Google 端点。
-  将来若在网络可达的环境，可改回 edge-tts 重新生成并重建（改 `tools/gen_audio.py` 即可）。
+- 语音引擎（两套内置，页面内可切换）：
+  - 声音一：Google Translate TTS（`tl=pt-PT`，欧洲葡语口音女声，`tools/gen_audio.py`）
+  - 声音二：macOS `say` 的 Reed（苹果葡语合成（巴西口音），与 iPhone 上的 Reed 同源，
+    `tools/gen_audio_reed.py`，本地生成）
+  - 备选升级：edge-tts（Azure 神经网络 pt-PT：Fernanda/Duarte，质量最好），
+    但本网络连通性极不稳定（2026-10-04 当天两次尝试，除偶发单次成功外全部被拒），
+    `tools/gen_audio_azure.py` 带重试，网络畅通时跑完再 `build_html.py` 即可整批替换。
 - 慢读按钮 = 同一音频 0.78 倍速重放（保音高）。
 - 机器合成音不是莫桑比克真人录音；将来拿到真人录音后可整批替换。
 
@@ -19,7 +22,9 @@ manifest.webmanifest  PWA 清单
 icon-*.png            主屏幕图标
 entries.json          从 v5 提取的 203 条词条（id / section / pt）
 tools/extract.py      从 v5 HTML 提取词条 → entries.json
-tools/gen_audio.py    Google TTS (tl=pt-PT) 批量生成音频 → audio/main/*.mp3
+tools/gen_audio.py    声音一：Google TTS (tl=pt-PT) → audio/main/*.mp3
+tools/gen_audio_joana.py  声音二：macOS say Joana (pt-PT) → audio/joana/*.m4a
+tools/gen_audio_azure.py  备选：edge-tts Azure 神经声音（网络畅通时用）
 tools/make_icons.py   生成图标
 tools/style.css       设计系统（make_src 会嵌入）
 tools/make_src.py     v5 + 新样式/页眉/最终文案 → src/handbook.html
