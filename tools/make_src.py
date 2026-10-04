@@ -25,18 +25,31 @@ NEW_HEADER = (
     '<p class="eyebrow">PORTUGUÊS PARA A VIDA EM MOÇAMBIQUE</p>'
     '<h1>莫桑比克生活葡语</h1>'
     '<p class="deck" lang="pt">Português para a vida em Mo&ccedil;ambique</p>'
-    '<ul class="facts">'
-    '<li><b>203</b><span>学习卡</span></li>'
-    '<li><b>14</b><span>章节</span></li>'
-    '<li><b>11</b><span>省份地名</span></li>'
-    '<li><b>2</b><span>内置声音</span></li>'
-    '</ul>'
-    '<p class="version">v6.5 · 2026-10-04</p>'
+    '<p class="version">v6.6 · 2026-10-04</p>'
     '</div></header>'
 )
 html = html[:header_marker.start()] + NEW_HEADER + html[header_marker.end():]
 
-# 3) 最终文案（此前 build_html.py 中的替换，烘进源文件）
+# 3) 删除页尾“资料与版本说明”区块（内部参考信息，家人不需要）
+src_marker = re.search(r'<section class="sources".*?</section>\s*', html, re.S)
+if not src_marker:
+    sys.exit("sources section not found")
+html = html[:src_marker.start()] + html[src_marker.end():]
+
+# 4) footer 改为“播放中才出现”的停止钮；状态文字仅保留给读屏软件
+footer_marker = re.search(r'<footer class="footer">.*?</footer>', html, re.S)
+if not footer_marker:
+    sys.exit("footer not found")
+NEW_FOOTER = (
+    '<footer class="footer" id="playbar" hidden>'
+    '<p id="statusText" role="status" class="sr-only"></p>'
+    '<span id="queueText" class="sr-only"></span>'
+    '<button id="stop" type="button">■ 停止</button>'
+    '</footer>'
+)
+html = html[:footer_marker.start()] + NEW_FOOTER + html[footer_marker.end():]
+
+# 5) 最终文案（此前 build_html.py 中的替换，烘进源文件）
 REPLACEMENTS = [
     ("<title>父母学葡语 · 地名分组与可选语音版</title>",
      "<title>父母学葡语 · 离线语音版</title>"),
@@ -45,7 +58,7 @@ REPLACEMENTS = [
     ("<p>本页只列设备提供的葡语声音，并显示完整名称和语言标签。你可以切换 Reed、Rocko 或其他葡语声音；同一浏览器允许本地保存时，会记住选择。不会使用英语版 Reed 代读葡语；上次所选声音消失时，会要求重新选择。</p>",
      "<p>两套内置语音都是机器合成音，不是莫桑比克当地人的真人录音。声音一为欧洲葡语口音，拼写与读音与莫桑比克官方用法一致；声音二 Valentino 为 Fish Audio 平台合成（家人试听后选定）。仍可切换其他系统声音；选择会被记住。</p>"),
     ("<p>此交付是本地 HTML 文件，不是已发布的网站。iPhone 的“文件”或聊天预览器可能不运行脚本，不能保证直接点附件就可听读。通过网站在 Safari 打开后，才可按 Apple 的方法添加到主屏幕。本次没有发布网站，也没有在你的实际 iPhone 上完成测试。<a href=\"#sources\">资料见页末</a>。</p>",
-     "<p>本页已发布为网站并支持离线使用：首次在有网络时用 Safari 完整打开一次，文字与内置语音即存入手机；之后即使无网络，也能从主屏幕图标打开点读。添加到主屏幕：Safari 底部“分享”→“添加到主屏幕”。若图标被误删，重新打开链接再添加一次即可。<a href=\"#sources\">资料见页末</a>。</p>"),
+     "<p>本页已发布为网站并支持离线使用：首次在有网络时用 Safari 完整打开一次，文字与内置语音即存入手机；之后即使无网络，也能从主屏幕图标打开点读。添加到主屏幕：Safari 底部“分享”→“添加到主屏幕”。若图标被误删，重新打开链接再添加一次即可。</p>"),
     ("<p>音色是否可用、是否需联网，由系统与所选声音决定。网页不能添加未提供给它的声音；切换声音会停止当前朗读并清空队列。点击另一条卡片则加入队列，不主动截断前一句。</p>",
      "<p>内置语音不联网、不需要系统下载任何语音包。切换声音会停止当前朗读并清空队列；点击另一条卡片则加入队列，不主动截断前一句。</p>"),
     ('<meta name="apple-mobile-web-app-capable" content="yes">',
@@ -57,12 +70,8 @@ REPLACEMENTS = [
      '<link rel="apple-touch-icon" href="icon-180.png">'
      '<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">'
      '<meta name="theme-color" content="#122e26">'),
-    ('<p id="statusText" role="status">先选择声音，再点“听读”或“慢读”。</p>',
-     '<p id="statusText" role="status">点“听读”或“慢读”即可播放；连点多条会依次排队。</p>'),
     ('<option value="">正在读取可用的葡语声音…</option>',
      '<option value="">读取中…</option>'),
-    ("<p>2026-10-04 · v5 地名分组与可选语音版。PDF 为无音频文字版；HTML 调用设备提供的葡语声音，没有内置 Reed 或 Rocko 录音。</p>",
-     "<p>2026-10-04 · v6.5 离线语音版。内置两套合成语音（声音一 · 欧洲葡语口音女声，在线翻译引擎合成；声音二 · Valentino，Fish Audio S2.1 合成，家人试听选定；均为机器合成音，非莫桑比克真人录音）；仍可切换设备系统声音。PDF 为无音频文字版。</p>"),
 ]
 for old, new in REPLACEMENTS:
     n = html.count(old)

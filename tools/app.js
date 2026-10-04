@@ -55,9 +55,14 @@
   const isRocko = v => /\brocko\b/i.test(v.name || '');
   const rank = v => (isReed(v) ? 0 : isRocko(v) ? 10 : 20) + (/^pt[-_]MZ$/i.test(v.lang) ? 0 : /^pt[-_]PT$/i.test(v.lang) ? 1 : /^pt[-_]BR$/i.test(v.lang) ? 2 : 3);
 
-  function status(text) { $('statusText').textContent = text; updateQueueLabel(); }
-  function updateQueueLabel() {
+  function status(text){$('statusText').textContent=text;updateQueueLabel();}
+  function updateQueueLabel(){
     $('queueText').textContent = queue.length ? `还有 ${queue.length} 次朗读在队列中` : active ? '点击另一条会排队，不截断前一句。' : '';
+    const bar = $('playbar');
+    if (bar) {
+      bar.hidden = !(active || queue.length > 0);
+      $('stop').textContent = queue.length ? `■ 停止（${queue.length}）` : '■ 停止';
+    }
   }
   function clearHighlight() { if (activeCard) { activeCard.classList.remove('playing'); activeCard.removeAttribute('aria-busy'); } activeCard = null; }
   function stop(message = '已停止朗读并清空队列。') {

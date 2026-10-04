@@ -79,31 +79,16 @@ header h1{
   font-size:clamp(18px,2.8vw,23px);letter-spacing:.01em;
   color:#eec294;text-shadow:0 1px 0 rgba(0,0,0,.14);
 }
-.facts{
-  list-style:none;display:flex;flex-wrap:wrap;gap:0;margin:30px 0 0;padding:0;
-  border-top:1px solid rgba(224,232,222,.18);
-}
-.facts li{
-  display:flex;flex-direction:column;gap:7px;align-items:flex-start;
-  padding:18px 34px 0 0;margin-right:34px;
-  border-right:1px solid rgba(224,232,222,.22);
-}
-.facts li:last-child{border-right:none;margin-right:0;padding-right:0}
-.facts b{
-  font-family:var(--serif);font-weight:560;font-size:33px;line-height:1;
-  color:#f8f5ec;font-variant-numeric:tabular-nums lining-nums;
-}
-.facts span{font-size:13px;color:#c2d6c8;letter-spacing:.14em}
 .version{margin:20px 0 0;font-size:12px;color:#8aa394;letter-spacing:.1em}
 
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-header .eyebrow,header h1,header .deck,header .facts{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+header .eyebrow,header h1,header .deck,header .version{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
 header h1{animation-delay:.07s}
 header .deck{animation-delay:.14s}
-header .facts{animation-delay:.21s}
+header .version{animation-delay:.21s}
 
 /* ============ 主体 ============ */
-main{max-width:1000px;margin:auto;padding:30px 18px 190px}
+main{max-width:1000px;margin:auto;padding:30px 18px 120px}
 
 .controls-panel{
   background:var(--card);border:1px solid var(--hair);border-radius:20px;
@@ -282,34 +267,20 @@ details[open] summary::before{transform:rotate(45deg);margin-top:-1px}
 }
 [hidden]{display:none!important}
 
-/* ============ 资料区 ============ */
-.sources{
-  font-size:13.5px;color:var(--muted);border-top:1px solid var(--hair);
-  padding-top:26px;margin:64px 0 0;line-height:1.85;
-}
-.sources h2{font-size:19px;color:var(--ink);margin:0 0 10px;font-weight:800}
-.source-item{margin:12px 0}
-.sources a{color:var(--green);overflow-wrap:anywhere;text-underline-offset:3px}
-.sources b{color:var(--ink)}
-
-/* ============ 底部状态栏 ============ */
+/* ============ 播放时才出现的停止钮（平时不占界面） ============ */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .footer{
-  position:fixed;bottom:0;left:0;right:0;z-index:50;
-  display:flex;gap:16px;align-items:center;justify-content:space-between;
-  margin:0 auto;max-width:calc(1000px - 28px);
+  position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:60;
+  display:flex;align-items:center;gap:10px;
   background:rgba(18,46,38,.94);
-  -webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);
-  color:#f0f3ee;border:1px solid rgba(255,255,255,.09);border-bottom:none;
-  border-radius:16px 16px 0 0;
-  padding:13px 18px calc(13px + env(safe-area-inset-bottom));
-  box-shadow:0 -14px 44px -12px rgba(15,38,30,.55);
+  -webkit-backdrop-filter:blur(12px) saturate(1.2);backdrop-filter:blur(12px) saturate(1.2);
+  border:1px solid rgba(255,255,255,.12);border-radius:999px;
+  padding:6px 8px 6px 16px;
+  box-shadow:0 10px 30px -10px rgba(15,38,30,.55);
 }
-.footer div{min-width:0}
-.footer p{margin:0;font-size:15px;line-height:1.5;overflow-wrap:anywhere}
-#queueText{font-size:12.5px;color:#c3d6c8;margin-top:4px;min-height:1em}
 .footer button{
   background:#f6f3ec;color:var(--ink-strong);border:none;border-radius:999px;
-  min-width:76px;min-height:46px;font-weight:750;font-size:15px;white-space:nowrap;
+  min-height:44px;min-width:88px;font-weight:750;font-size:15px;white-space:nowrap;
   transition:transform .12s,background .18s;
 }
 .footer button:active{transform:scale(.94)}
@@ -324,12 +295,8 @@ a{color:var(--green)}
 /* ============ 响应式 ============ */
 @media(max-width:650px){
   header{padding:40px 18px 36px}
-  main{padding:22px 12px 200px}
+  main{padding:22px 12px 140px}
   .eyebrow{letter-spacing:.18em;font-size:11.5px}
-  .facts{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px 12px}
-  .facts li{border-right:none;margin:0;padding:0;align-items:flex-start}
-  .facts b{font-size:28px}
-  .facts span{font-size:12.5px;letter-spacing:.1em}
   .controls-panel{padding:18px;border-radius:16px}
   .toolbar{grid-template-columns:1fr}
   /* 手机一行两卡：紧凑学习卡 */
@@ -348,8 +315,6 @@ a{color:var(--green)}
   .chapter{margin:48px 0 6px}
   .chapter-heading{gap:14px}
   .check{margin-left:0}
-  .footer{left:10px;right:10px;max-width:none;border-radius:16px;border-bottom:1px solid rgba(255,255,255,.09);margin-bottom:calc(8px + env(safe-area-inset-bottom))}
-  .footer p{font-size:14px}
 }
 
 /* ============ 动效偏好 ============ */
@@ -357,7 +322,7 @@ a{color:var(--green)}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .js .entry{opacity:1;transform:none}
-  header .eyebrow,header h1,header .deck,header .facts,.controls-panel{animation:none}
+  header .eyebrow,header h1,header .deck,header .version,.controls-panel{animation:none}
 }
 
 /* ============ 打印 ============ */
@@ -365,11 +330,9 @@ a{color:var(--green)}
   body{background:#fff}
   body::after{display:none}
   header{background:none;color:var(--ink-strong)}
-  header .eyebrow,header .facts span{color:var(--muted)}
+  header .eyebrow,header .version{color:var(--muted)}
   header h1{color:var(--ink-strong)}
   .deck{color:var(--accent-deep)}
-  .facts{border-color:var(--hair)}
-  .facts b{color:var(--ink-strong)}
   .controls-panel,.list-tools,.count,.footer,.actions,noscript{display:none!important}
   main{padding:0;max-width:none}
   .js .entry{opacity:1;transform:none}
@@ -378,11 +341,10 @@ a{color:var(--green)}
   .entry{margin:0 0 12px;box-shadow:none;border-color:var(--hair)}
   .chapter{break-before:page}
   .chapter:first-of-type{break-before:auto}
-  .sources{break-before:page}
 }
 
 </style></head><body>
-<header><div class="wrap"><p class="eyebrow">PORTUGUÊS PARA A VIDA EM MOÇAMBIQUE</p><h1>莫桑比克生活葡语</h1><p class="deck" lang="pt">Português para a vida em Mo&ccedil;ambique</p><ul class="facts"><li><b>203</b><span>学习卡</span></li><li><b>14</b><span>章节</span></li><li><b>11</b><span>省份地名</span></li><li><b>2</b><span>内置声音</span></li></ul><p class="version">v6.5 · 2026-10-04</p></div></header>
+<header><div class="wrap"><p class="eyebrow">PORTUGUÊS PARA A VIDA EM MOÇAMBIQUE</p><h1>莫桑比克生活葡语</h1><p class="deck" lang="pt">Português para a vida em Mo&ccedil;ambique</p><p class="version">v6.6 · 2026-10-04</p></div></header>
 <main>
 <section class="controls-panel" aria-label="章节和语音设置">
 <div class="quick"><button id="goPlaces" type="button">查看地名章节</button><button id="goNumbers" type="button">学习数字</button></div>
@@ -394,7 +356,7 @@ a{color:var(--green)}
 <details class="help"><summary>注音说明／iPhone 打开与语音说明</summary>
 <p>【】标重读部分；~ 提示鼻化；短横只为帮助分节，不能按汉字一字一顿。r、l、v、sh、zh、z 是发音提示，不是英文字母名。中文注音不是国际音标，也未按莫桑当地录音逐条校准。</p>
 <p>两套内置语音都是机器合成音，不是莫桑比克当地人的真人录音。声音一为欧洲葡语口音，拼写与读音与莫桑比克官方用法一致；声音二 Valentino 为 Fish Audio 平台合成（家人试听后选定）。仍可切换其他系统声音；选择会被记住。</p>
-<p>本页已发布为网站并支持离线使用：首次在有网络时用 Safari 完整打开一次，文字与内置语音即存入手机；之后即使无网络，也能从主屏幕图标打开点读。添加到主屏幕：Safari 底部“分享”→“添加到主屏幕”。若图标被误删，重新打开链接再添加一次即可。<a href="#sources">资料见页末</a>。</p>
+<p>本页已发布为网站并支持离线使用：首次在有网络时用 Safari 完整打开一次，文字与内置语音即存入手机；之后即使无网络，也能从主屏幕图标打开点读。添加到主屏幕：Safari 底部“分享”→“添加到主屏幕”。若图标被误删，重新打开链接再添加一次即可。</p>
 <p>内置语音不联网、不需要系统下载任何语音包。切换声音会停止当前朗读并清空队列；点击另一条卡片则加入队列，不主动截断前一句。</p>
 </details>
 </section>
@@ -1470,8 +1432,7 @@ a{color:var(--green)}
 <div class="notes"><p>puez 先连滑练习，重音在末部；词尾 z 和当地连读仍须跟读核对。</p></div><div class="actions"><button class="play-btn" data-play="203" data-rate="1" type="button" aria-label="听读 Montepuez">▶ 听读</button><button class="slow-btn" data-play="203" data-rate="0.78" type="button" aria-label="慢读 Montepuez">▷ 慢读</button></div></article>
 </div></section>
 </section>
-</div><section class="sources" id="sources"><h2>资料与版本说明</h2><p>地名范围来自你提供的手写照片；数字和常用语沿用上一版。省名及部分疑难拼写参照以下资料。中文注音为编写的练习近音，不代表任何来源已认证本册发音。</p><p class="source-item"><b>[1] <a href="https://portaldogoverno.gov.mz/informacao-geral/" target="_blank" rel="noopener">莫桑比克政府：国家概况与省名</a></b><br>用于核对省名及行政分组。</p><p class="source-item"><b>[2] <a href="https://portaldogoverno.gov.mz/governos-provinciais/" target="_blank" rel="noopener">莫桑比克政府：省级政府名录</a></b><br>用于核对10个省的名称。</p><p class="source-item"><b>[3] <a href="https://ine.gov.mz/en/d/mecanhelas" target="_blank" rel="noopener">莫桑比克国家统计局：Mecanhelas</a></b><br>用于核对地名拼写；照片中的城镇并非全是大城市。</p><p class="source-item"><b>[4] <a href="https://research-repository.uwa.edu.au/en/publications/map-explanation-of-sheets-alto-mol%C3%B3cu%C3%A8-1537-murrupula-1538-nampul/" target="_blank" rel="noopener">莫桑比克地质局：Alto Molócuè 图幅说明</a></b><br>用于核对 Alto Molócuè 拼写；无法单凭手写 Molocue 唯一确认地点。</p><p class="source-item"><b>[5] <a href="https://catedraportugues.uem.mz/storage/app/media/2024/09/Varia%C3%A7%C3%A3o%20dialectal.pdf" target="_blank" rel="noopener">UEM：莫桑比克葡语发音地域差异材料</a></b><br>用于理解地域差异；本册中文注音不是该资料的逐音转写。</p><p class="source-item"><b>[6] <a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/getVoices" target="_blank" rel="noopener">MDN：获取设备语音与语言标签</a></b><br>语音列表由当前设备与浏览器提供。</p><p class="source-item"><b>[7] <a href="https://support.apple.com/zh-cn/guide/iphone/iphea86e5236/ios" target="_blank" rel="noopener">Apple：在 Safari 中将网站变为 App</a></b><br>适用于已通过网站访问的网页，不代表本地 HTML 附件已经发布。</p><p>2026-10-04 · v6.5 离线语音版。内置两套合成语音（声音一 · 欧洲葡语口音女声，在线翻译引擎合成；声音二 · Valentino，Fish Audio S2.1 合成，家人试听选定；均为机器合成音，非莫桑比克真人录音）；仍可切换设备系统声音。PDF 为无音频文字版。</p></section>
-<footer class="footer"><div><p id="statusText" role="status">点“听读”或“慢读”即可播放；连点多条会依次排队。</p><p id="queueText"></p></div><button id="stop" type="button">停止</button></footer>
+</div><footer class="footer" id="playbar" hidden><p id="statusText" role="status" class="sr-only"></p><span id="queueText" class="sr-only"></span><button id="stop" type="button">■ 停止</button></footer>
 </main><script>'use strict';
 (() => {
   const $ = id => document.getElementById(id);
